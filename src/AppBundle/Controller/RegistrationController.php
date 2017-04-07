@@ -1,0 +1,185 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: deividas
+ * Date: 17.2.4
+ * Time: 16.01
+ */
+
+namespace AppBundle\Controller;
+
+
+use AppBundle\Entity\User;
+use DateTime;
+use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use FOS\UserBundle\Controller\RegistrationController as BaseController;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
+use FOS\UserBundle\Event\FilterUserResponseEvent;
+use FOS\UserBundle\Event\FormEvent;
+use FOS\UserBundle\Event\GetResponseUserEvent;
+use FOS\UserBundle\Form\Factory\FactoryInterface;
+use FOS\UserBundle\FOSUserEvents;
+use FOS\UserBundle\Model\UserInterface;
+use FOS\UserBundle\Model\UserManagerInterface;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+
+/**
+ * Class RegistrationController
+ * @package AppBundle\Controller
+ */
+class RegistrationController extends BaseController
+{
+
+    /**
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function registerAction(Request $request)
+    {
+        /** @var $formFactory FactoryInterface */
+        $formFactory = $this->get('fos_user.registration.form.factory');
+        /** @var $userManager UserManagerInterface */
+        $userManager = $this->get('fos_user.user_manager');
+        /** @var $dispatcher EventDispatcherInterface */
+        $dispatcher = $this->get('event_dispatcher');
+
+        $user = $userManager->createUser();
+        $user->setEnabled(true);
+
+        $event = new GetResponseUserEvent($user, $request);
+        $dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, $event);
+
+        if (null !== $event->getResponse()) {
+            return $event->getResponse();
+        }
+
+        $form = $formFactory->createForm();
+        $form->setData($user);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            if ($form->isValid()) {
+                $event = new FormEvent($form, $request);
+                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
+
+                $userManager->updateUser($user);
+
+                if (null === $response = $event->getResponse()) {
+                    $url = $this->generateUrl('homepage');
+                    $response = new RedirectResponse($url);
+                }
+
+                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+
+                return $response;
+            }
+
+            $event = new FormEvent($form, $request);
+            $dispatcher->dispatch(FOSUserEvents::REGISTRATION_FAILURE, $event);
+
+            if (null !== $response = $event->getResponse()) {
+                return $response;
+            }
+        }
+
+        return $this->render('@FOSUser/Registration/register.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
+
+    /**
+     * @Route("/type", name="regular_user_registration_type")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function registrationTypeAction(Request $request)
+    {
+        $session = $request->getSession();
+        if (!$session->isStarted()) {
+            $session->start();
+        }
+        $fb = $this->get('app.fb');
+
+        $helper = $fb->getFb()->getRedirectLoginHelper();
+        $permissions = ['public_profile', 'email'];
+
+        $fbLoginUrl = $helper->getLoginUrl(
+            $this->generateUrl('regular_user_registration_type_fb', [], UrlGeneratorInterface::ABSOLUTE_URL),
+            $permissions
+        );
+
+
+        /**
+         * TODO this renders fb register button.
+         */
+        return $this->render('@FOSUser/Registration/register.html.twig', [
+            'fbLoginUrl' => $fbLoginUrl,
+        ]);
+    }
+
+    /**
+     * @Route("/type-fb", name="regular_user_registration_type_fb")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function registrationTypeFbAction(Request $request)
+    {
+        $fb = $this->get('app.fb');
+
+        $helper = $fb->getFb()->getRedirectLoginHelper();
+
+        try {
+            $accessToken = $helper->getAccessToken();
+        } catch (\Exception $e) {
+            return $this->redirectToRoute('regular_user_registration_type');
+        }
+
+        $response = $fb->getFb()->get('/me?fields=email,name', $accessToken);
+        $graphUser = $response->getGraphUser();
+
+        $userManager = $this->get('fos_user.user_manager');
+        $em = $this->getDoctrine()->getManager();
+
+
+        $email = $this->getDoctrine()->getRepository(User::class)
+            ->findOneBy(['email' => $graphUser->getEmail()]);
+
+        if (is_null($email)) {
+            $user = $userManager->createUser();
+            $user->setRoles([User::ROLE_DEFAULT]);
+            $user->setEmail($graphUser->getEmail());
+            $user->setName($graphUser->getFirstName());
+            $user->setFacebookId($graphUser->getId());
+            $user->setPlainPassword(md5((new DateTime())->format('Y-m-d H:i:s')));
+            $user->setEnabled(true);
+
+            $userManager->updateUser($user, false);
+            $em->persist($user);
+            $em->flush();
+        }
+        else {
+            return $this->redirectToRoute('fos_user_security_login');
+        }
+
+        $token = new UsernamePasswordToken($user, $user->getPassword(), 'main', $user->getRoles());
+        $this->get('security.token_storage')->setToken($token);
+        $event = new InteractiveLoginEvent($request, $token);
+        $this->get('event_dispatcher')->dispatch('security.interactive_login', $event);
+
+
+        /**
+         * TODO redirect somewhere after successfull registration
+         */
+        return $this->redirectToRoute('homepage');
+    }
+}

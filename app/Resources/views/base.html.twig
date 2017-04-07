@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Trainers Hub{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<header>
+    {{ include('header.html.twig') }}
+</header>
+<body>
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            {% for flash_message in app.session.flashBag.get('error') %}
+                <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error</span>
+                    {{ flash_message | raw }}
+                </div>
+            {% endfor %}
+            {% for flash_message in app.session.flashBag.get('success') %}
+                <div class="alert alert-success alert-dismissible fade in" role="alert">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                    <span class="sr-only">Success</span>
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+            {% block body %}{% endblock %}
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+</body>
+<footer>
+    {{ include('footer.html.twig') }}
+</footer>
+</html>
+{% block javascripts %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{{ asset('js/scripts.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<div>
+    <nav class="navbar navbar-default navigation-clean-button">
+        <div class="container">
+            <div class="navbar-header"><a class="navbar-brand" href="{{ path('homepage') }}">Trainers Hub</a>
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1">
+                    <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav" style="float:right;">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li role="presentation"><a href="#">Mano profilis</a></li>
+                        <li role="presentation"><a href="#">Nauja Treniruotė</a></li>
+                        <li role="presentation"><a href="{{ path('fos_user_security_logout') }}">Atsijungti</a></li>
+                    {% endif %}
+                        <ul class="dropdown-menu" role="menu">
+                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                                <li role="presentation"><a href="#">Mano profilis</a></li>
+                                <li role="presentation"><a href="#">Mano profilis</a></li>
+                                <li role="presentation"><a href="#">Mano profilis</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                </ul>
+                {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+                <p class="navbar-text navbar-right actions"><a class="navbar-link login" href="{{ path('fos_user_security_login') }}">Prisijungti</a>
+                    <a class="btn btn-default action-button" role="button" href="{{ path('fos_user_registration_register') }}">Regisruotis</a></p>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+</div>
+
+
+</body>
+
+</html>
