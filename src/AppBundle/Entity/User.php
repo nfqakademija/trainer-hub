@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
@@ -61,10 +62,20 @@ class User extends BaseUser
      * @ORM\Column(name="birthday", type="datetime", nullable=true)
      */
     private $birthday;
+    /**
+     * @ORM\OneToMany(targetEntity="Training", mappedBy="fos_user", cascade={"persist"})
+     */
+    private $training;
+    /**
+     * @ORM\OneToMany(targetEntity="Reservations", mappedBy="fos_user", cascade={"persist"})
+     */
+    private $reservations;
 
     public function __construct()
     {
         parent::__construct();
+        $this->training = new ArrayCollection();
+        $this->reservations = new ArrayCollection();
     }
 
     /**
@@ -209,5 +220,73 @@ class User extends BaseUser
     public function getBirthday()
     {
         return $this->birthday;
+    }
+
+    /**
+     * Add training
+     *
+     * @param \AppBundle\Entity\Training $training
+     *
+     * @return User
+     */
+    public function addTraining(\AppBundle\Entity\Training $training)
+    {
+        $this->training[] = $training;
+
+        return $this;
+    }
+
+    /**
+     * Remove training
+     *
+     * @param \AppBundle\Entity\Training $training
+     */
+    public function removeTraining(\AppBundle\Entity\Training $training)
+    {
+        $this->training->removeElement($training);
+    }
+
+    /**
+     * Get training
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTraining()
+    {
+        return $this->training;
+    }
+
+    /**
+     * Add reservation
+     *
+     * @param \AppBundle\Entity\Reservations $reservation
+     *
+     * @return User
+     */
+    public function addReservation(\AppBundle\Entity\Reservations $reservation)
+    {
+        $this->reservations[] = $reservation;
+
+        return $this;
+    }
+
+    /**
+     * Remove reservation
+     *
+     * @param \AppBundle\Entity\Reservations $reservation
+     */
+    public function removeReservation(\AppBundle\Entity\Reservations $reservation)
+    {
+        $this->reservations->removeElement($reservation);
+    }
+
+    /**
+     * Get reservations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReservations()
+    {
+        return $this->reservations;
     }
 }

@@ -342,3 +342,11 @@ footer {
 }
 
 .checkbox { margin: 0; }
+
+#fos_user_profile_form_birthday {
+    margin-bottom: 15px;
+}
+#fos_user_registration_form_birthday select{
+    display: inline-block;
+    width: 32.8%;
+}

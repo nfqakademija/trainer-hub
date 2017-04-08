@@ -12,8 +12,8 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav" style="float:right;">
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <li role="presentation"><a href="#">Mano profilis</a></li>
-                        <li role="presentation"><a href="#">Nauja Treniruotė</a></li>
+                        <li role="presentation"><a href="{{ path('fos_user_profile_edit') }}">Mano profilis</a></li>
+                        <li role="presentation"><a href="{{ path('new_training') }}">Nauja Treniruotė</a></li>
                         <li role="presentation"><a href="{{ path('fos_user_security_logout') }}">Atsijungti</a></li>
                     {% endif %}
                         <ul class="dropdown-menu" role="menu">
