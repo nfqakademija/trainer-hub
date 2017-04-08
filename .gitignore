@@ -22,4 +22,5 @@
 /bin/*
 .env
 /bower_components/
+*.php~
 phpunit.xml.dist

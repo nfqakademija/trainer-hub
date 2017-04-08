@@ -13,8 +13,9 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-
+        $trainings = $this->get('doctrine.orm.entity_manager')->getRepository('AppBundle:Training');
+        $trainings = $trainings->findAll();
         // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', compact($trainings));
+        return $this->render('default/index.html.twig', array('trainings' => $trainings));
     }
 }
