@@ -5,8 +5,8 @@ namespace AppBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Validator\Constraints\DateTime;
 
 class ProfileType extends AbstractType
 {
@@ -14,12 +14,39 @@ class ProfileType extends AbstractType
     {
         parent::buildForm($builder, $options);
         $builder->remove('current_password');
-        $builder->add('name');
-        $builder->add('surname');
-        $builder->add('city');
-        $builder->add('phone');
-        $builder->add('description');
-        $builder->add('birthday', BirthdayType::class);
+        $builder->add('name', null, [
+            'label' => 'Vardas',
+            'attr' => [
+                'class' => 'form-control'
+            ]
+        ]);
+        $builder->add('surname', null, [
+            'label' => 'Pavardė',
+            'attr' => [
+                'class' => 'form-control'
+            ]
+        ]);
+        $builder->add('city', null, [
+            'label' => 'Miestas',
+            'attr' => [
+                'class' => 'form-control'
+            ]
+        ]);
+        $builder->add('phone', null, [
+            'label' => 'Telefonas',
+            'attr' => [
+                'class' => 'form-control'
+            ]
+        ]);
+        $builder->add('description', TextareaType::class, [
+            'label' => 'Aprašymas',
+            'attr' => [
+                'class' => 'form-control'
+            ]
+        ]);
+        $builder->add('birthday', BirthdayType::class, [
+            'label' => 'Gimimo data'
+        ]);
 
     }
 

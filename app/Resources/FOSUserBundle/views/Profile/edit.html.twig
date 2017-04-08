@@ -1,3 +1,5 @@
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
 {% extends 'base.html.twig' %}
 
 {% block body %}
@@ -30,32 +32,9 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group" id="fos_user_registration_form">
-                                    {{ form_widget(form.username, { 'attr': {'class': 'form-control', 'placeholder': 'Slapyvardis' } }) }}
+                                    {{ form_rest(form) }}
                                 </div>
-                                <div class="form-group" id="fos_user_registration_form">
-                                    {{ form_widget(form.email, { 'attr': {'class': 'form-control', 'placeholder': 'El. paštas' } }) }}
-                                </div>
-                                <div class="form-group" id="fos_user_registration_form">
-                                    {{ form_widget(form.name, { 'attr': {'class': 'form-control', 'placeholder': 'Vardas' } }) }}
-                                </div>
-                                <div class="form-group" id="fos_user_registration_form">
-                                    {{ form_widget(form.surname, { 'attr': {'class': 'form-control', 'placeholder': 'Pavarde' } }) }}
-                                </div>
-                                <div class="form-group" id="fos_user_registration_form">
-                                    {{ form_widget(form.city, { 'attr': {'class': 'form-control', 'placeholder': 'Miestas' } }) }}
-                                </div>
-                                <div class="form-group" id="fos_user_registration_form">
-                                    {{ form_widget(form.phone, { 'attr': {'class': 'form-control', 'placeholder': 'Telefonas' } }) }}
-                                </div>
-                                <div class="form-group" id="fos_user_registration_form">
-                                    {{ form_widget(form.description, { 'attr': {'class': 'form-control', 'placeholder': 'Aprasymas' } }) }}
-                                </div>
-                                <div class="form-group" id="fos_user_registration_form_birthday">
-                                    <label>Gimimo metai</label><br>
-                                    {{ form_widget(form.birthday.year, { 'attr': {'class': 'form-control'}}) }}
-                                    {{ form_widget(form.birthday.month, { 'attr': {'class': 'form-control'}}) }}
-                                    {{ form_widget(form.birthday.day, { 'attr': {'class': 'form-control'}}) }}
-                                </div>
+
                             </div>
                             <div class="form-group">
                                 <div class="row">

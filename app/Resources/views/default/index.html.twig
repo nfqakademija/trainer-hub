@@ -1,16 +1,17 @@
+
 {% extends 'base.html.twig' %}
 
 {% block body %}
-        {% for training in trainings %}
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3"><img src="https://s-media-cache-ak0.pinimg.com/236x/1d/e0/97/1de0970e3cc457fb029e9ecd2b8a1054.jpg" /></div>
-                    <div class="col-md-9">
-                        <h1>{{ training.title }}</h1>
-                        <strong>Kaina:</strong>{{ training.price }}
-                        <p>{{ training.description }}</p>
-                    </div>
+    {% for training in trainings %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3"><img src="https://s-media-cache-ak0.pinimg.com/236x/1d/e0/97/1de0970e3cc457fb029e9ecd2b8a1054.jpg" /></div>
+                <div class="col-md-9">
+                    <h1>{{ training.title }}</h1>
+                    <strong>Kaina:</strong>{{ training.price }}
+                    <p>{{ training.description }}</p>
                 </div>
             </div>
-         {% endfor %}
+        </div>
+    {% endfor %}
 {% endblock %}

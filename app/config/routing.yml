@@ -4,4 +4,6 @@ app:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
-
+new_training:
+    path:      /new-training
+    defaults:  { _controller: AppBundle:Training:new }

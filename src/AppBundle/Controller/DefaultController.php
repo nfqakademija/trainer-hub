@@ -1,11 +1,8 @@
 <?php
-
 namespace AppBundle\Controller;
-
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
 class DefaultController extends Controller
 {
     /**
@@ -13,9 +10,8 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $trainings = $this->get('doctrine.orm.entity_manager')->getRepository('AppBundle:Training');
-        $trainings = $trainings->findAll();
-        // replace this example code with whatever you need
+        $trainings = $this->get('doctrine.orm.entity_manager');
+        $trainings->getRepository('AppBundle:Training')->findAll();
         return $this->render('default/index.html.twig', array('trainings' => $trainings));
     }
 }
