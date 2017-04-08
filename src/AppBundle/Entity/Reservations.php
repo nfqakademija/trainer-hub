@@ -20,8 +20,22 @@ class Reservations
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
-
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="reservations")
+     * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
+     */
+    private $fos_user;
+    /**
+     * @ORM\ManyToOne(targetEntity="Training", inversedBy="reservations")
+     * @ORM\JoinColumn(name="training_id", referencedColumnName="id")
+     */
+    private $training;
     /**
      * Get id
      *
@@ -31,5 +45,76 @@ class Reservations
     {
         return $this->id;
     }
-}
 
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return Reservations
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set fosUser
+     *
+     * @param \AppBundle\Entity\User $fosUser
+     *
+     * @return Reservations
+     */
+    public function setFosUser(\AppBundle\Entity\User $fosUser = null)
+    {
+        $this->fos_user = $fosUser;
+
+        return $this;
+    }
+
+    /**
+     * Get fosUser
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getFosUser()
+    {
+        return $this->fos_user;
+    }
+
+    /**
+     * Set training
+     *
+     * @param \AppBundle\Entity\Training $training
+     *
+     * @return Reservations
+     */
+    public function setTraining(\AppBundle\Entity\Training $training = null)
+    {
+        $this->training = $training;
+
+        return $this;
+    }
+
+    /**
+     * Get training
+     *
+     * @return \AppBundle\Entity\Training
+     */
+    public function getTraining()
+    {
+        return $this->training;
+    }
+}
