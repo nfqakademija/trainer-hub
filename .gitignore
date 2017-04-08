@@ -16,9 +16,11 @@
 /web/bundles/
 /web/css
 /web/js
+/bin/*
 /web/fonts
 /node_modules
-/bin/*
 .env
 /bower_components/
 phpunit.xml.dist
+.idea
+*.php~
