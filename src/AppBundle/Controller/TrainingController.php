@@ -40,7 +40,12 @@ class TrainingController extends Controller
     public function editAction(Training $training, Request $request)
     {
         $form = $this->createForm(TrainingType::class, $training);
+
         $form->handleRequest($request);
+
+
+        $form->handleRequest($training);
+
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->get('doctrine.orm.entity_manager');
