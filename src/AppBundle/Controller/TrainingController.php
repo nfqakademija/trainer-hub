@@ -59,4 +59,16 @@ class TrainingController extends Controller
         }
         return $this->render('new-training.html.twig', array('trainingForm' => $form->createView()));
     }
+    /**
+     * @Route("/my-trainings", name="my_trainings")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function displayAction(Request $request)
+    {
+        $em = $this->get('doctrine.orm.default_entity_manager')->getRepository('AppBundle:Training');
+        $current_user = $this->getUser();
+        $trainings = $em->findByUser($current_user);
+        return $this->render('profile-trainings.html.twig', array('trainings' => $trainings));
+    }
 }

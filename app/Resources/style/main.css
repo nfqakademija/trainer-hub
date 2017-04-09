@@ -350,3 +350,7 @@ footer {
     display: inline-block;
     width: 32.8%;
 }
+
+.dropdown:hover > .dropdown-menu {
+    display: block;
+}

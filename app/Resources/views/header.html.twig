@@ -12,18 +12,16 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav" style="float:right;">
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <li role="presentation"><a href="{{ path('fos_user_profile_edit') }}">Mano profilis</a></li>
+                        <li class="dropdown" role="presentation"><a href="#">Mano profilis</a>
+                            <ul class="dropdown-menu" role="menu">
+                                    <li role="presentation"><a href="{{ path('fos_user_profile_edit') }}">Redaguoti profilį</a></li>
+                                    <li role="presentation"><a href="{{ path('my_trainings') }}">Mano treniruotės</a></li>
+                                    <li role="presentation"><a href="#">Mano įvertinimai</a></li>
+                            </ul>
+                        </li>
                         <li role="presentation"><a href="{{ path('new_training') }}">Nauja Treniruotė</a></li>
                         <li role="presentation"><a href="{{ path('fos_user_security_logout') }}">Atsijungti</a></li>
                     {% endif %}
-                        <ul class="dropdown-menu" role="menu">
-                            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                                <li role="presentation"><a href="#">Mano profilis</a></li>
-                                <li role="presentation"><a href="#">Mano profilis</a></li>
-                                <li role="presentation"><a href="#">Mano profilis</a></li>
-                            {% endif %}
-                        </ul>
-                    </li>
                 </ul>
                 {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
                 <p class="navbar-text navbar-right actions"><a class="navbar-link login" href="{{ path('fos_user_security_login') }}">Prisijungti</a>
