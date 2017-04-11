@@ -1,11 +1,11 @@
 <?php
-
 namespace AppBundle\Controller;
 
+
+use AppBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
 class DefaultController extends Controller
 {
     /**
@@ -13,9 +13,14 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
-        ]);
+
+        $em = $this->getDoctrine()->getManager();
+
+        $trainers = $em->getRepository(User::class);
+
+        $trainers = $trainers->findByRoles('ROLE_TRAINER');
+
+        return $this->render('default/index.html.twig', array('trainers' => $trainers));
+
     }
 }

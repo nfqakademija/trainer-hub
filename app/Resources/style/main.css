@@ -1,12 +1,12 @@
+body {
+    width: 100%;
+}
+
 header {
     padding: 20px;
 }
 
 footer {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
     padding: 40px;
     background-color: #ffffff;
     text-align: center;
@@ -342,3 +342,15 @@ footer {
 }
 
 .checkbox { margin: 0; }
+
+#fos_user_profile_form_birthday {
+    margin-bottom: 15px;
+}
+#fos_user_registration_form_birthday select{
+    display: inline-block;
+    width: 32.8%;
+}
+
+.dropdown:hover > .dropdown-menu {
+    display: block;
+}
