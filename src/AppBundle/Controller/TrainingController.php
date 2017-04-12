@@ -67,7 +67,7 @@ class TrainingController extends Controller
      */
     public function displayAction(Request $request)
     {
-        $em = $this->get('doctrine.orm.default_entity_manager')->getRepository('AppBundle:Training');
+        $em = $this->getDoctrine()->getManager()->getRepository('AppBundle:Training');
         $current_user = $this->getUser();
         $trainings = $em->findByUser($current_user);
         return $this->render('profile-trainings.html.twig', array('trainings' => $trainings));
