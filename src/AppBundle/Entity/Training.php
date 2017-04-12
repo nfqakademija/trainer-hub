@@ -49,15 +49,30 @@ class Training
      * @ORM\Column(name="date", type="datetime", nullable=true)
      */
     private $date;
+
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="training")
      * @ORM\JoinColumn(name="trainer_id", referencedColumnName="id")
      */
     private $fos_user;
+
     /**
      * @ORM\OneToMany(targetEntity="Reservations", mappedBy="training", cascade={"persist"})
      */
     private $reservations;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Category", inversedBy="training")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    private $category;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\City", inversedBy="training")
+     * @ORM\JoinColumn(name="city_id", referencedColumnName="id")
+     */
+    private $city;
+
     /**
      * Get id
      *
@@ -68,6 +83,7 @@ class Training
         return $this->id;
 
     }
+
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
@@ -225,5 +241,53 @@ class Training
     public function getReservations()
     {
         return $this->reservations;
+    }
+
+    /**
+     * Set category
+     *
+     * @param \AppBundle\Entity\Category $category
+     *
+     * @return Training
+     */
+    public function setCategory(\AppBundle\Entity\Category $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \AppBundle\Entity\Category
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * Set city
+     *
+     * @param \AppBundle\Entity\City $city
+     *
+     * @return Training
+     */
+    public function setCity(\AppBundle\Entity\City $city = null)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return \AppBundle\Entity\City
+     */
+    public function getCity()
+    {
+        return $this->city;
     }
 }

@@ -59,6 +59,7 @@ class TrainingController extends Controller
         }
         return $this->render('new-training.html.twig', array('trainingForm' => $form->createView()));
     }
+
     /**
      * @Route("/my-trainings", name="my_trainings")
      * @param Request $request
