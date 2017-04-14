@@ -1,0 +1,7 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for tr in trainings %}
+        {{ tr.title }}
+    {% endfor %}
+{% endblock %}

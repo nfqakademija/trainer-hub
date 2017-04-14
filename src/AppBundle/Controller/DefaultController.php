@@ -14,7 +14,10 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
 
-        $trainers = $this->get('doctrine.orm.default_entity_manager')->getRepository('AppBundle:User');
+        $em = $this->getDoctrine()->getManager();
+
+        $trainers = $em->getRepository(User::class);
+
         $trainers = $trainers->findByRoles('ROLE_TRAINER');
 
         return $this->render('default/index.html.twig', array('trainers' => $trainers));
