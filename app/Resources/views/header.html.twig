@@ -15,11 +15,13 @@
                         <li class="dropdown" role="presentation"><a href="#">Mano profilis</a>
                             <ul class="dropdown-menu" role="menu">
                                     <li role="presentation"><a href="{{ path('fos_user_profile_edit') }}">Redaguoti profilį</a></li>
-                                    <li role="presentation"><a href="{{ path('my_trainings') }}">Mano treniruotės</a></li>
+                                    {#<li role="presentation"><a href="{{ path('my_trainings') }}">Mano treniruotės</a></li>#}
                                     <li role="presentation"><a href="#">Mano įvertinimai</a></li>
                             </ul>
                         </li>
+                    {% if is_granted('ROLE_TRAINER') %}
                         <li role="presentation"><a href="{{ path('new_training') }}">Nauja Treniruotė</a></li>
+                    {% endif %}
                         <li role="presentation"><a href="{{ path('fos_user_security_logout') }}">Atsijungti</a></li>
                     {% endif %}
                 </ul>

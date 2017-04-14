@@ -20,7 +20,9 @@ class DefaultController extends Controller
 
         $trainers = $trainers->findByRoles('ROLE_TRAINER');
 
-        return $this->render('default/index.html.twig', array('trainers' => $trainers));
+        return $this->render('@App/public/index.html.twig', [
+            'trainers' => $trainers
+        ]);
 
     }
 }
