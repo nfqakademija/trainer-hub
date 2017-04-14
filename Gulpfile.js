@@ -6,8 +6,8 @@ var uglify = require('gulp-uglify');
 var uglifyjs = require('gulp-uglifyjs');
 
 var dir = {
-    assets: './app/Resources/',
-    jsScripts: './app/Resources/scripts/',
+    assets: './src/AppBundle/Resources/',
+    jsScripts: './src/AppBundle/Resources/scripts/',
     dist: './web/',
     bower: './bower_components/'
 };

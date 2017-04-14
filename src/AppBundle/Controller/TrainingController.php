@@ -3,6 +3,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Training;
 use AppBundle\Form\Type\TrainingType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 class TrainingController extends Controller
@@ -10,6 +11,7 @@ class TrainingController extends Controller
     /**
      * @Route("/new-training", name="new_training")
      * @param Request $request
+     * @Security("has_role('ROLE_TRAINER')")
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function newAction(Request $request)
@@ -28,8 +30,12 @@ class TrainingController extends Controller
 
             return $this->redirectToRoute('homepage');
         }
-        return $this->render('new-training.html.twig', array('trainingForm' => $form->createView()));
+        return $this->render('@App/trainer/newTraining.html.twig', [
+            'trainingForm' => $form->createView()
+        ]);
     }
+
+
 
     /**
      * @Route("/training/edit", name="edit_training")
@@ -57,8 +63,9 @@ class TrainingController extends Controller
 
             return $this->redirectToRoute('homepage');
         }
-        return $this->render('new-training.html.twig', array('trainingForm' => $form->createView()));
+        return $this->render('@App/trainer/newTraining.html.twig', array('trainingForm' => $form->createView()));
     }
+
     /**
      * @Route("/my-trainings", name="my_trainings")
      * @param Request $request
@@ -69,6 +76,6 @@ class TrainingController extends Controller
         $em = $this->getDoctrine()->getManager()->getRepository('AppBundle:Training');
         $current_user = $this->getUser();
         $trainings = $em->findByUser($current_user);
-        return $this->render('profile-trainings.html.twig', array('trainings' => $trainings));
+        return $this->render('@App/trainer/profileTrainings.html.twig', array('trainings' => $trainings));
     }
 }

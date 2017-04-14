@@ -2,8 +2,13 @@
 
 namespace AppBundle\Form\Type;
 
+use AppBundle\Entity\Category;
+use AppBundle\Entity\City;
 use AppBundle\Entity\Training;
+use Doctrine\ORM\Mapping\Entity;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -25,6 +30,14 @@ class TrainingType extends AbstractType
             ])
             ->add('price', MoneyType::class, [
                 'label' => 'Kaina'
+            ])
+            ->add('category', EntityType::class, [
+                'class' => Category::class,
+                'label' => 'Kategorija'
+            ])
+            ->add('city', EntityType::class, [
+                'class' => City::class,
+                'label' => 'Miestas'
             ])
             ->add('description', TextareaType::class, [
                 'constraints' => [

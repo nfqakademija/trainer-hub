@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+
+
+    <ul class="image-list-basic">
+        {% for trainer in trainers %}
+        <li>
+            <a href="trainer/{{ trainer.id }}"><img src="https://s-media-cache-ak0.pinimg.com/236x/1d/e0/97/1de0970e3cc457fb029e9ecd2b8a1054.jpg" style="height: 100%;width:100%;"/></a>
+            <div class="image-details">
+                <h3>{{ trainer.name }}</h3>
+                <p>Klaipeda</p>
+            </div>
+
+        </li>
+        {% endfor %}
+    </ul>
+
+
+
+        {#{% for trainer in trainers %}#}
+            {#<div class="container">#}
+                {#<div class="row">#}
+                    {#<div class="col-md-3"><img src="https://s-media-cache-ak0.pinimg.com/236x/1d/e0/97/1de0970e3cc457fb029e9ecd2b8a1054.jpg" /></div>#}
+                    {#<div class="col-md-9">#}
+                        {#<h1>{{ trainer.name }} {{ trainer.surname }}</h1>#}
+                        {#<strong>Miestas: </strong>{{ trainer.city }}<br>#}
+                        {#<strong>Telefonas: </strong>{{ trainer.phone }}#}
+                        {#<p>{{ trainer.description }}</p>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
+    {#{% endfor %}#}
+{% endblock %}
