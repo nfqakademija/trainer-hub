@@ -8,7 +8,7 @@
     <ul class="image-list-basic">
         {% for trainer in trainers %}
         <li>
-            <a href="trainer/{{ trainer.id }}"><img src="https://s-media-cache-ak0.pinimg.com/236x/1d/e0/97/1de0970e3cc457fb029e9ecd2b8a1054.jpg" style="height: 100%;width:100%;"/></a>
+            <a href="trainer/{{ trainer.id }}"><img src="{{ asset('uploads/avatars/' ~ trainer.avatar ) }}" style="height: 100%;width:100%;"/></a>
             <div class="image-details">
                 <h3>{{ trainer.name }}</h3>
                 <p>Klaipeda</p>

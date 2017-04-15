@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use DateTime;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -70,6 +71,13 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="Reservations", mappedBy="fos_user", cascade={"persist"})
      */
     private $reservations;
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\File(mimeTypes={ "image/png", "image/jpg" })
+     */
+    private $avatar;
 
     public function __construct()
     {
@@ -288,5 +296,29 @@ class User extends BaseUser
     public function getReservations()
     {
         return $this->reservations;
+    }
+
+    /**
+     * Set avatar
+     *
+     * @param string $avatar
+     *
+     * @return User
+     */
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    /**
+     * Get avatar
+     *
+     * @return string
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
     }
 }

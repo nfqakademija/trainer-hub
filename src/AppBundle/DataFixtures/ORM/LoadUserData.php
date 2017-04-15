@@ -41,5 +41,15 @@ class LoadUserData implements FixtureInterface
 
         $manager->persist($userTrainer);
         $manager->flush();
+
+        $userTrainer = new User();
+        $userTrainer->setUsername('Kažkoks Treneris');
+        $userTrainer->setPlainPassword('test');
+        $userTrainer->setEmail('treneris2@treneris1.lt');
+        $userTrainer->setEnabled(true);
+        $userTrainer->setRoles(array('ROLE_TRAINER'));
+
+        $manager->persist($userTrainer);
+        $manager->flush();
     }
 }
