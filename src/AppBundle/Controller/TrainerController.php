@@ -2,6 +2,7 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\Entity\Training;
 use AppBundle\Entity\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -14,11 +15,9 @@ class TrainerController extends Controller
     public function trainerAction(Request $request, $id)
     {
         $trainers = $this->getDoctrine()
-            ->getRepository(User::class)->find($id);
-
-        //$trainings = $trainer->getTraining();
+            ->getRepository(User::class)->findWithTrainings($id);
         return $this->render('@App/trainer/trainerPage.html.twig', [
-            'trainers' => $trainers
+            'trainers' => $trainers[0]
         ]);
     }
 }

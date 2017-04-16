@@ -12,6 +12,25 @@
                 <strong>Miestas: </strong>{{ trainers.city }} <br>
                 <strong>Telefonas: </strong>{{ trainers.phone }} <br>
                 <strong>Aprašymas: </strong><br>{{ trainers.description }} <br>
+                <h3>Mano treniruotės</h3>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <th>Pavadinimas</th>
+                        <th>Kaina (€)</th>
+                        <th>Kategorija</th>
+                        <th>Miestas</th>
+                    </thead>
+                    <tbody>
+                        {% for training in trainers.training %}
+                            <tr>
+                                <td>{{ training.title }}</td>
+                                <td>{{ training.price }}</td>
+                                <td>{{ training.category.title }}</td>
+                                <td>{{ training.city.title }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
