@@ -323,15 +323,12 @@ footer {
 }
 
 .btn-register {
-    background-color: #1CB94E;
     outline: none;
-    color: #fff;
     font-size: 14px;
     height: auto;
     font-weight: normal;
     padding: 14px 0;
     text-transform: uppercase;
-    border-color: #1CB94A;
 }
 
 .btn-register:hover,
@@ -413,4 +410,95 @@ footer {
     font-weight: normal;
     padding: 0;
     margin: 6px 0 0 0;
+}
+.homepage {
+    background-color: #eee;
+    height: 100%;
+    padding-bottom: 25px
+}
+.btn-register {
+    color: #fff;
+    background-color: #66d7d7;
+}
+body * {
+    font-family: 'Open Sans', sans-serif;
+}
+.trainers {
+    position: relative;
+}
+div.headline-wrapper {
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    position: relative;
+}
+div.headline-wrapper span {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #eee;
+    position: relative;
+    z-index: 999999;
+    font-size: 36px;
+}
+div.headline-wrapper div.line{
+    content: "";
+    width: 50%;
+    height: 1px;
+    display: block;
+    background: #000;
+    opacity: 0.4;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.presentation {
+    background-image: url(../images/black-and-white-sport-fight-boxer.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+.presentation-button {
+    background: transparent;
+    border-radius: 20px;
+    color: #fff;
+    box-shadow: none;
+    border: 2px solid #fff;
+    text-shadow: none;
+    padding: 10px 22px;
+    transition: background-color 0.25s;
+    font-weight: bold;
+}
+.button-wrapper {
+    width: 100%;
+    text-align: center;
+    margin-top: 70px;
+}
+form, .homepage .spacer {
+    padding-top: 25px;
+}
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding: 0;
+    margin-right: 5%;
+    background-color: #fff;
+}
+.trainers a:last-child > .card {
+    margin-right: 0;
+}
+.trainers a {
+    color: inherit;
+}
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+    padding: 2px 16px;
 }

@@ -3,21 +3,27 @@
 {% block body %}
 
 
-
-
-    <ul class="image-list-basic">
-        {% for trainer in trainers %}
-        <li>
-            <a href="trainer/{{ trainer.id }}"><img src="{{ asset('uploads/avatars/' ~ trainer.avatar ) }}" style="height: 100%;width:100%;"/></a>
-            <div class="image-details">
-                <h3>{{ trainer.name }}</h3>
-                <p>Klaipeda</p>
-            </div>
-
-        </li>
-        {% endfor %}
-    </ul>
-
+    <div class="container" style="width: 100%">
+        <div class="row presentation">
+            <h1 id="sb-big" style="text-align: center; font-size:115px;line-height:115px;color:#fff; font-weight:600;margin-bottom:50px;">TrainersHUB</h1>
+            <h1 id="sb-small" style="text-align: center; font-size:50px;line-height:54px;color:#fff; font-weight:600;">Trenerių paieškos platforma</h1>
+            <div class="button-wrapper"><a class="presentation-button" role="button" href="{{ path('fos_user_registration_register') }}">Regisruotis</a></div>
+        </div>
+    </div>
+    <div class="row trainers">
+        <div class="headline-wrapper"><span>Treneriai</span><div class="line"></div></div>
+        <div class="container">
+            {% for trainer in trainers %}
+                <a href="/app_dev.php/trainer/{{ trainer.id }}"><div class="card col-md-3">
+                    <img src="{{ asset('uploads/avatars/' ~ trainer.avatar ) }}" style="width:100%;"/>
+                    <div class="container">
+                        <h4><b>{{ trainer.name }}</b></h4>
+                        <p>{{ trainer.city }}</p>
+                    </div>
+                </div></a>
+            {% endfor %}
+        </div>
+    </div>
 
 
         {#{% for trainer in trainers %}#}

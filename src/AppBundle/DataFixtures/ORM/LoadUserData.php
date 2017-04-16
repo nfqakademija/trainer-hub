@@ -33,7 +33,7 @@ class LoadUserData implements FixtureInterface
         $userTrainer->setSurname('Vanagas');
         $userTrainer->setPhone('869999999');
         $userTrainer->setDescription('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages/');
-
+        $userTrainer->setAvatar('658b645d80c5789389a771cd340ee798.png');
         $manager->persist($userTrainer);
         $manager->flush();
 
@@ -43,7 +43,12 @@ class LoadUserData implements FixtureInterface
         $userTrainer->setEmail('treneris1@treneris1.lt');
         $userTrainer->setEnabled(true);
         $userTrainer->setRoles(array('ROLE_TRAINER'));
-
+        $userTrainer->setCity('Vilnius');
+        $userTrainer->setName('Marek');
+        $userTrainer->setSurname('Zavoronok');
+        $userTrainer->setPhone('869999999');
+        $userTrainer->setDescription('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages/');
+        $userTrainer->setAvatar('63e3264cd41e7e79e5e86dab50ac22d5.png');
         $manager->persist($userTrainer);
         $manager->flush();
 

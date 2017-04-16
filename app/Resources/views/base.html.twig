@@ -7,13 +7,14 @@
         <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <header>
     {{ include('header.html.twig') }}
 </header>
 <body>
-<div class="row">
-    <div class="col-md-12">
+<div class="row homepage">
+    <!--<div class="col-md-12">
         <div class="col-md-2"></div>
         <div class="col-md-8">
             {% for flash_message in app.session.flashBag.get('error') %}
@@ -32,9 +33,10 @@
                     {{ flash_message }}
                 </div>
             {% endfor %}
-            {% block body %}{% endblock %}
+
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-2"></div>-->
+    {% block body %}{% endblock %}
     </div>
 </div>
 </body>
