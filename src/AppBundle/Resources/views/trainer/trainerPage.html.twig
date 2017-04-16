@@ -1,7 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% for tr in trainings %}
-        {{ tr.title }}
-    {% endfor %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="{{ asset('uploads/avatars/' ~ trainers.avatar ) }}" class="img-responsive"/>
+            </div>
+            <div class="col-md-8">
+                <strong>Vardas: </strong>{{ trainers.name }} <br>
+                <strong>Pavardė: </strong>{{ trainers.surname }} <br>
+                <strong>Miestas: </strong>{{ trainers.city }} <br>
+                <strong>Telefonas: </strong>{{ trainers.phone }} <br>
+                <strong>Aprašymas: </strong><br>{{ trainers.description }} <br>
+            </div>
+        </div>
+    </div>
 {% endblock %}

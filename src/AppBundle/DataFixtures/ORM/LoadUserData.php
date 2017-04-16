@@ -28,6 +28,11 @@ class LoadUserData implements FixtureInterface
         $userTrainer->setEmail('treneris@treneris.lt');
         $userTrainer->setEnabled(true);
         $userTrainer->setRoles(array('ROLE_TRAINER'));
+        $userTrainer->setCity('Vilnius');
+        $userTrainer->setName('Aurimas');
+        $userTrainer->setSurname('Vanagas');
+        $userTrainer->setPhone('869999999');
+        $userTrainer->setDescription('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages/');
 
         $manager->persist($userTrainer);
         $manager->flush();

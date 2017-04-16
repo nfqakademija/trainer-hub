@@ -13,13 +13,12 @@ class TrainerController extends Controller
      */
     public function trainerAction(Request $request, $id)
     {
-        $trainer = $this->getDoctrine()
+        $trainers = $this->getDoctrine()
             ->getRepository(User::class)->find($id);
 
-        $trainings = $trainer->getTraining();
-
+        //$trainings = $trainer->getTraining();
         return $this->render('@App/trainer/trainerPage.html.twig', [
-            'trainings' => $trainings
+            'trainers' => $trainers
         ]);
     }
 }

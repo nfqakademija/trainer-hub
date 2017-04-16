@@ -55,7 +55,7 @@ class ProfileController extends Controller
         /** @var $formFactory FactoryInterface */
         //$formFactory = $this->get('fos_user.profile.form.factory');
 
-        $form = $this->createForm(ProfileType::class,  $user, ['role' => $this->getUser()->getRoles()]);
+        $form = $this->createForm(ProfileType::class,  $user, ['role' => $user->getRoles()]);
         $form->setData($user);
 
         $form->handleRequest($request);
