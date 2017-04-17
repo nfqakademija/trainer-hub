@@ -27,6 +27,6 @@ class UserRepository extends EntityRepository
             ->leftJoin('t.city', 'ci')
             ->addSelect('ci')
             ->where('u.id = :id')
-            ->setParameter(':id', $id)->getQuery()->getResult();
+            ->setParameter(':id', $id)->getQuery()->getArrayResult();
     }
 }
