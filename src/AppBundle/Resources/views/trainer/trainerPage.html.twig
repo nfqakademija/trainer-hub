@@ -19,6 +19,7 @@
                         <th>Kaina (€)</th>
                         <th>Kategorija</th>
                         <th>Miestas</th>
+                        <th>Veiksmas</th>
                     </thead>
                     <tbody>
                         {% for training in trainers.training %}
@@ -27,6 +28,11 @@
                                 <td>{{ training.price }}</td>
                                 <td>{{ training.category.title }}</td>
                                 <td>{{ training.city.title }}</td>
+                                <td>
+                                    <a href="reservate/{{ training.id }}">
+                                        <button class="btn btn-primary">Rezervuoti</button>
+                                    </a>
+                                </td>
                             </tr>
                         {% endfor %}
                     </tbody>
@@ -34,4 +40,5 @@
             </div>
         </div>
     </div>
+
 {% endblock %}
