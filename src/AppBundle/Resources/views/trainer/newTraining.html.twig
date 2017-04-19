@@ -4,7 +4,7 @@
 
 {% block body %}
 
-    {{ form_start(trainingForm, {'attr' : {'novalidate' : 'novalidate'}})}}
+    {{ form_start(trainingForm, {'attr' : {'novalidate' : 'novalidate'}}) }}
 
     <div class="container">
         <div class="row">
@@ -23,15 +23,16 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                   {{ form_rest(trainingForm) }}
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-sm-6 col-sm-offset-3">
-                                        <input type="submit" value="Įkelti" class="form-control btn action-button"/>
+                                {{ form_rest(trainingForm) }}
+                                <div class="form-group">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-sm-offset-3">
+                                            <input type="submit" value="Įkelti" class="form-control btn btn-login"/>
+                                        </div>
                                     </div>
                                 </div>
+                                {{ form_end(trainingForm) }}
                             </div>
-                            {{ form_end(trainingForm) }}
                         </div>
                     </div>
                 </div>
