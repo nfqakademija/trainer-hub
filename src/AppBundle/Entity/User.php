@@ -73,7 +73,7 @@ class User extends BaseUser
     private $reservations;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      *
      * @Assert\File(mimeTypes={ "image/png", "image/jpg", "image/jpeg" })
      */
