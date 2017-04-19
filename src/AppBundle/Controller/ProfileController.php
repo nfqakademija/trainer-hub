@@ -72,7 +72,7 @@ class ProfileController extends Controller
                 );
 
                 $user->setAvatar($fileName);
-            }
+            } // VichUploaderBundle
             $event = new FormEvent($form, $request);
             $dispatcher->dispatch(FOSUserEvents::PROFILE_EDIT_SUCCESS, $event);
 
