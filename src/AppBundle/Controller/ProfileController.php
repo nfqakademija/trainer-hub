@@ -63,16 +63,7 @@ class ProfileController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             /** @var $userManager UserManagerInterface */
             $userManager = $this->get('fos_user.user_manager');
-            $file = $user->getAvatar();
-            if (isset($file) || !empty($file)) {
-                $fileName = md5(uniqid()) . '.' . $file->guessExtension();
-                $file->move(
-                    $this->getParameter('avatar_directory'),
-                    $fileName
-                );
 
-                $user->setAvatar($fileName);
-            }
             $event = new FormEvent($form, $request);
             $dispatcher->dispatch(FOSUserEvents::PROFILE_EDIT_SUCCESS, $event);
 

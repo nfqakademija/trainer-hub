@@ -15,7 +15,7 @@
         <div class="container">
             {% for trainer in trainers %}
                 <a href="/app_dev.php/trainer/{{ trainer.id }}"><div class="card col-md-3">
-                    <img src="{{ asset('uploads/avatars/' ~ trainer.avatar ) }}" style="width:100%;"/>
+                    <img src="{{ asset('uploads/avatars/' ~ trainer.avatarName ) }}" style="width:100%;"/>
                         <h4><b>{{ trainer.name }}</b></h4>
                         <p>{{ trainer.city }}</p>
 

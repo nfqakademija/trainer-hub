@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ProfileType extends AbstractType
 {
@@ -43,7 +44,13 @@ class ProfileType extends AbstractType
             ]
         ]);
         if (in_array('ROLE_TRAINER', $options['role'])) {
-            $builder->add('avatar', FileType::class, array('label' => 'Nuotrauka', 'data_class' => null));
+            $builder->add('avatarFile', VichImageType::class,
+                array(
+                    'label' => 'Nuotrauka',
+                    'data_class' => null,
+                    'allow_delete' => false,
+                    'download_link' => false
+                ));
             $builder->add('description', TextareaType::class, [
                 'label' => 'Aprašymas',
                 'attr' => [

@@ -502,3 +502,9 @@ form, .homepage .spacer {
 .container {
     padding: 2px 16px;
 }
+.vich-image {
+    max-width: 20%;
+}
+.vich-image img {
+    max-width: 100%;
+}
