@@ -28,12 +28,12 @@ class Feedback
      */
     private $feedback;
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="feedback")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="feedback_author")
      * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
      */
     private $fos_user_author;
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="feedback")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="feedback_to")
      * @ORM\JoinColumn(name="object_id", referencedColumnName="id")
      */
     private $fos_user_object;

@@ -103,12 +103,12 @@ class User extends BaseUser
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="Feedback", mappedBy="fos_user", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Feedback", mappedBy="fos_user_author", cascade={"persist"})
      */
     private $feedback_author;
 
     /**
-     * @ORM\OneToMany(targetEntity="Feedback", mappedBy="fos_user", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Feedback", mappedBy="fos_user_object", cascade={"persist"})
      */
     private $feedback_to;
 
