@@ -7,3 +7,5 @@ fos_user:
 new_training:
     path:      /new-training
     defaults:  { _controller: AppBundle:Training:new }
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"

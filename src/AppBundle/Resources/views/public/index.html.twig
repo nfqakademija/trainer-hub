@@ -15,7 +15,7 @@
         <div class="container">
             {% for trainer in trainers %}
                 <a href="trainer/{{ trainer.usernameCanonical }}"><div class="card col-md-3">
-                    <img src="{{ asset('uploads/avatars/' ~ trainer.avatarName ) }}" style="width:100%;"/>
+                    <img src="{{ asset('media/cache/my_heighten_filter/uploads/avatars/' ~ trainer.avatarName ) }}" style="width:100%;"/>
                         <h4><b>{{ trainer.name }}</b></h4>
                         <p>{{ trainer.city }}</p>
 

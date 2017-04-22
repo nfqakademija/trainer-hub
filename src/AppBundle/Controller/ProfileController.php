@@ -69,6 +69,20 @@ class ProfileController extends Controller
 
             $userManager->updateUser($user);
 
+            $imagine = $this->get('liip_imagine.controller');
+            $imagemanagerResponse = $imagine->filterAction(
+                $request,         // http request
+                'uploads/avatars/'.$user->getAvatarName(),      // original image you want to apply a filter to
+                'my_heighten_filter'              // filter defined in config.yml
+            );
+
+            $cacheManager = $this->get('liip_imagine.cache.manager');
+
+            /** @var string */
+            $sourcePath = $cacheManager->getBrowserPath(
+                'uploads/avatars/'.$user->getAvatarName(),
+                'my_heighten_filter'
+            );
             if (null === $response = $event->getResponse()) {
                 $url = $this->generateUrl('fos_user_profile_show');
                 $response = new RedirectResponse($url);
@@ -82,5 +96,23 @@ class ProfileController extends Controller
         return $this->render('@FOSUser/Profile/edit.html.twig', array(
             'form' => $form->createView(),
         ));
+    }
+    public function filterAction($path, $filter)
+    {
+        if (!$this->cacheManager->isStored($path, $filter)) {
+            $binary = $this->dataManager->find($filter, $path);
+
+            $filteredBinary = $this->filterManager->applyFilter($binary, $filter, array(
+                'filters' => array(
+                    'thumbnail' => array(
+                        'size' => array(300, 100)
+                    )
+                )
+            ));
+
+            $this->cacheManager->store($filteredBinary, $path, $filter);
+        }
+
+        return new RedirectResponse($this->cacheManager->resolve($path, $filter), Response::HTTP_MOVED_PERMANENTLY);
     }
 }

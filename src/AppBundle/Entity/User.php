@@ -77,7 +77,7 @@ class User extends BaseUser
     * @Vich\UploadableField(mapping="user_avatar", fileNameProperty="avatarName", size="avatarSize")
     *
     * @var File
-    * @Assert\File(maxSize = "1024k", mimeTypes={ "image/png", "image/jpg", "image/jpeg" })
+    * @Assert\File(maxSize = "4024k", mimeTypes={ "image/png", "image/jpg", "image/jpeg" })
     */
     private $avatarFile;
 
