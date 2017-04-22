@@ -89,7 +89,7 @@ class User extends BaseUser
     private $avatarName;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", length=255)
      *
      * @var integer
      */
@@ -102,11 +102,24 @@ class User extends BaseUser
      */
     private $updatedAt;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Feedback", mappedBy="fos_user", cascade={"persist"})
+     */
+    private $feedback_author;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Feedback", mappedBy="fos_user", cascade={"persist"})
+     */
+    private $feedback_to;
+
+
     public function __construct()
     {
         parent::__construct();
         $this->training = new ArrayCollection();
         $this->reservations = new ArrayCollection();
+        $this->feedback_author = new ArrayCollection();
+        $this->feedback_to = new ArrayCollection();
     }
 
     /**
@@ -336,11 +349,11 @@ class User extends BaseUser
      *
      * @return User
      */
-    public function setAvatarFile(File $avatarFile = null)
+    public function setAvatarFile(File $avatar = null)
     {
-        $this->avatarFile = $avatarFile;
+        $this->avatarFile = $avatar;
 
-        if ($avatarFile) {
+        if ($avatar) {
             // It is required that at least one field changes if you are using doctrine
             // otherwise the event listeners won't be called and the file is lost
             $this->updatedAt = new \DateTimeImmutable();
@@ -358,7 +371,7 @@ class User extends BaseUser
     }
 
     /**
-     * @param string $imageName
+     * @param string $avatarName
      *
      * @return User
      */
@@ -378,7 +391,7 @@ class User extends BaseUser
     }
 
     /**
-     * @param integer $imageSize
+     * @param integer $avatarSize
      *
      * @return User
      */
@@ -397,4 +410,96 @@ class User extends BaseUser
         return $this->avatarSize;
     }
 
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return User
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updatedAt;
+    }
+
+    /**
+     * Add feedbackAuthor
+     *
+     * @param \AppBundle\Entity\Feedback $feedbackAuthor
+     *
+     * @return User
+     */
+    public function addFeedbackAuthor(\AppBundle\Entity\Feedback $feedbackAuthor)
+    {
+        $this->feedback_author[] = $feedbackAuthor;
+
+        return $this;
+    }
+
+    /**
+     * Remove feedbackAuthor
+     *
+     * @param \AppBundle\Entity\Feedback $feedbackAuthor
+     */
+    public function removeFeedbackAuthor(\AppBundle\Entity\Feedback $feedbackAuthor)
+    {
+        $this->feedback_author->removeElement($feedbackAuthor);
+    }
+
+    /**
+     * Get feedbackAuthor
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFeedbackAuthor()
+    {
+        return $this->feedback_author;
+    }
+
+    /**
+     * Add feedbackTo
+     *
+     * @param \AppBundle\Entity\Feedback $feedbackTo
+     *
+     * @return User
+     */
+    public function addFeedbackTo(\AppBundle\Entity\Feedback $feedbackTo)
+    {
+        $this->feedback_to[] = $feedbackTo;
+
+        return $this;
+    }
+
+    /**
+     * Remove feedbackTo
+     *
+     * @param \AppBundle\Entity\Feedback $feedbackTo
+     */
+    public function removeFeedbackTo(\AppBundle\Entity\Feedback $feedbackTo)
+    {
+        $this->feedback_to->removeElement($feedbackTo);
+    }
+
+    /**
+     * Get feedbackTo
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getFeedbackTo()
+    {
+        return $this->feedback_to;
+    }
 }

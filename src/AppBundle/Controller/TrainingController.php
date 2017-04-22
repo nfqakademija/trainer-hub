@@ -38,7 +38,7 @@ class TrainingController extends Controller
 
 
     /**
-     * @Route("/training/edit", name="edit_training")
+     * @Route("/training/edit/{id}", name="edit_training")
      * @param Training $training
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
@@ -50,9 +50,6 @@ class TrainingController extends Controller
         $form->handleRequest($request);
 
 
-        $form->handleRequest($training);
-
-
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->get('doctrine.orm.entity_manager');
             $user = $this->getUser();
@@ -61,17 +58,15 @@ class TrainingController extends Controller
             $em->persist($training);
             $em->flush();
 
-            return $this->redirectToRoute('homepage');
+            return $this->redirectToRoute('my_trainings');
         }
         return $this->render('@App/trainer/newTraining.html.twig', array('trainingForm' => $form->createView()));
     }
 
     /**
      * @Route("/my-trainings", name="my_trainings")
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     */
-    public function displayAction(Request $request)
+     **/
+    public function displayAction()
     {
         $em = $this->getDoctrine()->getManager()->getRepository('AppBundle:Training');
         $current_user = $this->getUser();

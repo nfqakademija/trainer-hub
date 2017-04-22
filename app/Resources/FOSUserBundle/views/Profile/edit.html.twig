@@ -5,6 +5,7 @@
 {% block body %}
     {% trans_default_domain 'FOSUserBundle' %}
 
+
     {{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit', 'novalidate' : 'novalidate' } }) }}
     {% if form_errors(form.username) or form_errors(form.email) %}
         <div class="alert alert-danger alert-dismissable">
@@ -15,6 +16,10 @@
         </div>
     {% endif %}
     <div class="container">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="{{ path('fos_user_profile_edit') }}">Redaguoti profilį</a></li>
+            <li><a href="{{ path('my_trainings') }}">Mano treniruotės</a></li>
+        </ul>
         <div class="row">
             <div class="col-md-6 col-md-offset-3">
                 <div class="panel panel-login">
