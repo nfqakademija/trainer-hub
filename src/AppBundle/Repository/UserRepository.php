@@ -18,7 +18,8 @@ class UserRepository extends EntityRepository
             ->setParameter(':role', '%"'.$role.'"%')->getQuery()->getArrayResult();
 
     }
-    public function findWithTrainings($id) {
+    public function findWithTrainings($user) {
+        $username = $user['username'];
         return $this->createQueryBuilder('u')
             ->leftJoin('u.training', 't')
             ->addSelect('t')
@@ -26,7 +27,7 @@ class UserRepository extends EntityRepository
             ->addSelect('ca')
             ->leftJoin('t.city', 'ci')
             ->addSelect('ci')
-            ->where('u.id = :id')
-            ->setParameter(':id', $id)->getQuery()->getArrayResult();
+            ->where('u.usernameCanonical = :username')
+            ->setParameter(':username', $username)->getQuery()->getSingleResult();
     }
 }

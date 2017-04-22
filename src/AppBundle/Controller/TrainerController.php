@@ -9,18 +9,18 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints\DateTime;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class TrainerController extends Controller
 {
     /**
-     * @Route("/trainer/{id}", name="trainer_page")
+     * @Route("/trainer/{username}", name="trainer_page")
+     * @ParamConverter("user", class="AppBundle:User",  options={"repository_method" = "findWithTrainings"})
      */
-    public function trainerAction(Request $request, $id)
+    public function trainerAction(User $user)
     {
-        $trainers = $this->getDoctrine()
-            ->getRepository(User::class)->findWithTrainings($id);
         return $this->render('@App/trainer/trainerPage.html.twig', [
-            'trainers' => $trainers[0]
+            'trainers' => $user
         ]);
     }
 
