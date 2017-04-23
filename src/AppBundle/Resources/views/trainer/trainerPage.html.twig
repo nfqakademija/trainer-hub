@@ -1,3 +1,4 @@
+{% form_theme feedback 'bootstrap_3_layout.html.twig' %}
 {% extends 'base.html.twig' %}
 
 {% block body %}
@@ -28,15 +29,46 @@
                                 <td>{{ training.price }}</td>
                                 <td>{{ training.category.title }}</td>
                                 <td>{{ training.city.title }}</td>
-                                <td>
+                                <td style="text-align: center;">
                                     <a href="reservate/{{ training.id }}">
-                                        <button class="btn btn-primary">Rezervuoti</button>
+                                        <button class="btn btn-reservation">Rezervuoti</button>
                                     </a>
                                 </td>
                             </tr>
                         {% endfor %}
                     </tbody>
                 </table>
+                <h3>Atsiliepimai</h3>
+                {% if feedbacks is defined and feedbacks is not empty %}
+                    {% for feedback in feedbacks %}
+                    <div class="testimonials">
+                        <div class="active item">
+                            <blockquote><p>{{ feedback.feedback }}</p></blockquote>
+                            <div class="carousel-info">
+
+                                <div class="pull-right">
+                                    <span class="testimonials-name">{{ feedback.fos_user_author.username }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p>Atsiliepimų nėra. </p>
+                {% endif %}
+                {% if is_granted('ROLE_CLIENT') %}
+                    {{ form_start(feedback, {'attr' : {'novalidate' : 'novalidate', 'class' : 'feedback'}}) }}
+                    
+                    {{ form_rest(feedback) }}
+  
+                     <input type="submit" value="Palikti atsiliepimą" class="form-control btn btn-feedback"/>
+        
+                    {{ form_end(feedback) }}
+                {% elseif is_granted('ROLE_TRAINER') %}
+
+                {% else %}
+                    <p>Norėdami parašyti atsiliepimą privalote <a href="{{ path('fos_user_security_login') }}">prisijungti</a></p>
+                {% endif %}
             </div>
         </div>
     </div>

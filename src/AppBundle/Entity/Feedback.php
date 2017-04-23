@@ -75,11 +75,11 @@ class Feedback
     /**
      * Set fosUserAuthor
      *
-     * @param \AppBundle\Entity\fos_user $fosUserAuthor
+     * @param \AppBundle\Entity\User $fosUserAuthor
      *
      * @return Feedback
      */
-    public function setFosUserAuthor(\AppBundle\Entity\fos_user $fosUserAuthor = null)
+    public function setFosUserAuthor(\AppBundle\Entity\User $fosUserAuthor = null)
     {
         $this->fos_user_author = $fosUserAuthor;
 
@@ -89,7 +89,7 @@ class Feedback
     /**
      * Get fosUserAuthor
      *
-     * @return \AppBundle\Entity\fos_user
+     * @return \AppBundle\Entity\User
      */
     public function getFosUserAuthor()
     {
@@ -99,11 +99,11 @@ class Feedback
     /**
      * Set fosUserObject
      *
-     * @param \AppBundle\Entity\fos_user $fosUserObject
+     * @param \AppBundle\Entity\User $fosUserObject
      *
      * @return Feedback
      */
-    public function setFosUserObject(\AppBundle\Entity\fos_user $fosUserObject = null)
+    public function setFosUserObject(\AppBundle\Entity\User $fosUserObject = null)
     {
         $this->fos_user_object = $fosUserObject;
 
@@ -113,7 +113,7 @@ class Feedback
     /**
      * Get fosUserObject
      *
-     * @return \AppBundle\Entity\fos_user
+     * @return \AppBundle\Entity\User
      */
     public function getFosUserObject()
     {

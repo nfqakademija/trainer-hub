@@ -5,6 +5,8 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Reservations;
 use AppBundle\Entity\Training;
 use AppBundle\Entity\User;
+use AppBundle\Entity\Feedback;
+use AppBundle\Form\Type\FeedbackType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,10 +19,29 @@ class TrainerController extends Controller
      * @Route("/trainer/{username}", name="trainer_page")
      * @ParamConverter("user", class="AppBundle:User",  options={"repository_method" = "findWithTrainings"})
      */
-    public function trainerAction(User $user)
+    public function trainerAction(Request $request, User $user)
     {
+        $em = $this->getDoctrine()->getManager();
+        $feedbacks = $em->getRepository(Feedback::class);
+        $feedbacks = $feedbacks->findFeedbackByUser($user);
+        $feedback = new Feedback();
+        $form = $this->createForm(FeedbackType::class, $feedback);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->get('doctrine.orm.entity_manager');
+            $current_user = $this->getUser();
+            $feedback->setFosUserAuthor($current_user);
+            $feedback->setFosUserObject($user);
+            $em->persist($feedback);
+            $em->flush();
+
+            return $this->redirectToRoute('trainer_page', array('username' => $user->getUsernameCanonical()));
+        }
+
         return $this->render('@App/trainer/trainerPage.html.twig', [
-            'trainers' => $user
+            'trainers' => $user, 'feedback' => $form->createView(),
+            'feedbacks' => $feedbacks
         ]);
     }
 
