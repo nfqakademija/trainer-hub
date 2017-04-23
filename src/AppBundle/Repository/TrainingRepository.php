@@ -13,7 +13,13 @@ class TrainingRepository extends EntityRepository
 {
     public function findByUser($user)
     {
-        return $this->createQueryBuilder('t')->where('t.fos_user = :trainer')
-                ->setParameter(':trainer', $user)->getQuery()->getArrayResult();
+        return $this->createQueryBuilder('t')
+            ->leftJoin('t.category', 'ca')
+            ->addSelect('ca')
+            ->leftJoin('t.city', 'ci')
+            ->addSelect('ci')
+            ->where('t.fos_user = :user')
+            ->setParameter(':user', $user)->getQuery()->getArrayResult();
     }
+
 }

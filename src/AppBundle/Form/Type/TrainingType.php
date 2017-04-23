@@ -29,6 +29,9 @@ class TrainingType extends AbstractType
                 'label' => 'Pavadinimas'
             ])
             ->add('price', MoneyType::class, [
+                'constraints' => [
+                    new NotBlank()
+                ],
                 'label' => 'Kaina'
             ])
             ->add('category', EntityType::class, [

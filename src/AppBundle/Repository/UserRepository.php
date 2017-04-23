@@ -3,6 +3,7 @@
 namespace AppBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use AppBundle\Entity\Training;
 /**
  * UserRepository
  *
@@ -16,5 +17,17 @@ class UserRepository extends EntityRepository
         return $this->createQueryBuilder('u')->where('u.roles LIKE :role')
             ->setParameter(':role', '%"'.$role.'"%')->getQuery()->getArrayResult();
 
+    }
+    public function findWithTrainings($user) {
+        $username = $user['username'];
+        return $this->createQueryBuilder('u')
+            ->leftJoin('u.training', 't')
+            ->addSelect('t')
+            ->leftJoin('t.category', 'ca')
+            ->addSelect('ca')
+            ->leftJoin('t.city', 'ci')
+            ->addSelect('ci')
+            ->where('u.usernameCanonical = :username')
+            ->setParameter(':username', $username)->getQuery()->getSingleResult();
     }
 }

@@ -7,6 +7,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: lt
+    avatar_directory: '%kernel.root_dir%/../web/uploads/avatars'
 
 framework:
     #esi:             ~
@@ -38,7 +39,11 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-
+    globals:
+        kernelRootDir: '%kernel.root_dir%/../web/uploads/avatars/'
+    form_themes:
+            # other form themes
+        - 'VichUploaderBundle:Form:fields.html.twig'
 # Doctrine Configuration
 doctrine:
     dbal:
@@ -88,3 +93,16 @@ doctrine_migrations:
     namespace: Application\Migrations
     table_name: migration_versions
     name: Application Migrations
+vich_uploader:
+    db_driver: orm
+    mappings:
+            user_avatar:
+                uri_prefix:         /uploads/avatars
+                namer:              vich_uploader.namer_uniqid
+                upload_destination: '%kernel.root_dir%/../web/uploads/avatars'
+liip_imagine:
+    filter_sets:
+          my_heighten_filter:
+                filters:
+                    relative_resize:
+                        heighten: 200

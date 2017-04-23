@@ -11,6 +11,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Form\Type\ProfileType;
 use FOS\UserBundle\Event\FilterUserResponseEvent;
 use FOS\UserBundle\Event\FormEvent;
 use FOS\UserBundle\Event\GetResponseUserEvent;
@@ -24,6 +25,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Controller managing the user profile.
@@ -51,9 +53,9 @@ class ProfileController extends Controller
         }
 
         /** @var $formFactory FactoryInterface */
-        $formFactory = $this->get('fos_user.profile.form.factory');
+        //$formFactory = $this->get('fos_user.profile.form.factory');
 
-        $form = $formFactory->createForm();
+        $form = $this->createForm(ProfileType::class,  $user, ['role' => $user->getRoles()]);
         $form->setData($user);
 
         $form->handleRequest($request);
@@ -67,6 +69,20 @@ class ProfileController extends Controller
 
             $userManager->updateUser($user);
 
+            $imagine = $this->get('liip_imagine.controller');
+            $imagemanagerResponse = $imagine->filterAction(
+                $request,         // http request
+                'uploads/avatars/'.$user->getAvatarName(),      // original image you want to apply a filter to
+                'my_heighten_filter'              // filter defined in config.yml
+            );
+
+            $cacheManager = $this->get('liip_imagine.cache.manager');
+
+            /** @var string */
+            $sourcePath = $cacheManager->getBrowserPath(
+                'uploads/avatars/'.$user->getAvatarName(),
+                'my_heighten_filter'
+            );
             if (null === $response = $event->getResponse()) {
                 $url = $this->generateUrl('fos_user_profile_show');
                 $response = new RedirectResponse($url);
@@ -80,5 +96,23 @@ class ProfileController extends Controller
         return $this->render('@FOSUser/Profile/edit.html.twig', array(
             'form' => $form->createView(),
         ));
+    }
+    public function filterAction($path, $filter)
+    {
+        if (!$this->cacheManager->isStored($path, $filter)) {
+            $binary = $this->dataManager->find($filter, $path);
+
+            $filteredBinary = $this->filterManager->applyFilter($binary, $filter, array(
+                'filters' => array(
+                    'thumbnail' => array(
+                        'size' => array(300, 100)
+                    )
+                )
+            ));
+
+            $this->cacheManager->store($filteredBinary, $path, $filter);
+        }
+
+        return new RedirectResponse($this->cacheManager->resolve($path, $filter), Response::HTTP_MOVED_PERMANENTLY);
     }
 }

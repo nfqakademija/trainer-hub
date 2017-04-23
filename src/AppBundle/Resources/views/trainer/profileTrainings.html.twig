@@ -3,11 +3,49 @@
 {% block body %}
 
 <div class="container">
+    <ul class="nav nav-tabs">
+        <li ><a href="{{ path('fos_user_profile_edit') }}">Redaguoti profilį</a></li>
+        <li class="active"><a href="{{ path('my_trainings') }}">Mano treniruotės</a></li>
+        <li><a href="{{ path('my_feedbacks') }}">Mano įvertinimai</a></li>
+    </ul>
     <div class="row">
         <div class="col-md-12">
-            {% for training in trainings %}
-                <h1>{{ training.title }}</h1>
-            {% endfor %}
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-xs-3"></div>
+                        <div class="col-xs-6">
+                            Mano treniruotės
+                        </div>
+                        <div class="col-xs-3"></div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <th>Pavadinimas</th>
+                <th>Kaina (€)</th>
+                <th>Kategorija</th>
+                <th>Miestas</th>
+                <th>Veiksmas</th>
+                </thead>
+                <tbody>
+                {% for training in trainings %}
+                    <tr>
+                        <td>{{ training.title }}</td>
+                        <td>{{ training.price }}</td>
+                        <td>{{ training.category.title }}</td>
+                        <td>{{ training.city.title }}</td>
+                        <td>
+                            <a href="training/edit/{{ training.id }}">
+                                <button class="btn btn-primary">Redaguoti</button>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
