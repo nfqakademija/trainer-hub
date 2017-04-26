@@ -1,7 +1,6 @@
 <?php
 namespace AppBundle\Controller;
 
-
 use AppBundle\Entity\Reservations;
 use AppBundle\Entity\Training;
 use AppBundle\Entity\User;
@@ -64,7 +63,5 @@ class TrainerController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('homepage');
-
     }
-
 }

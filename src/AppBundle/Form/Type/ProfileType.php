@@ -2,7 +2,6 @@
 
 namespace AppBundle\Form\Type;
 
-
 use AppBundle\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
@@ -44,13 +43,16 @@ class ProfileType extends AbstractType
             ]
         ]);
         if (in_array('ROLE_TRAINER', $options['role'])) {
-            $builder->add('avatarFile', VichImageType::class,
+            $builder->add(
+                'avatarFile',
+                VichImageType::class,
                 array(
                     'label' => 'Nuotrauka',
                     'data_class' => null,
                     'allow_delete' => false,
                     'download_link' => false
-                ));
+                )
+            );
             $builder->add('description', TextareaType::class, [
                 'label' => 'Aprašymas',
                 'attr' => [
@@ -61,7 +63,6 @@ class ProfileType extends AbstractType
                 'label' => 'Gimimo data'
             ]);
         }
-
     }
     public function configureOptions(OptionsResolver $resolver)
     {

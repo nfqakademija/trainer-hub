@@ -13,13 +13,25 @@
     <div class="row trainers">
         <div class="headline-wrapper"><span>Treneriai</span></div>
         <div class="container">
+            {% set counter = 0 %}
             {% for trainer in trainers %}
-                <a href="trainer/{{ trainer.usernameCanonical }}"><div class="card col-md-3">
+                {% if counter is divisible by(3) %}
+                    <div class="row trainers-inner">
+                {% endif %}
+                {% set counter = counter + 1 %}
+                <div class="card col-md-3"><a href="trainer/{{ trainer.usernameCanonical }}">
+
                     <img src="{{ asset('media/cache/my_heighten_filter/uploads/avatars/' ~ trainer.avatarName ) }}" style="width:100%;"/>
                         <h4><b>{{ trainer.name }}</b></h4>
                         <p>{{ trainer.city }}</p>
 
-                </div></a>
+                </a></div>
+                {% if counter is divisible by(3) %}
+
+                   {% set counter = 0 %}
+                    </div>
+                    
+                {% endif %}
             {% endfor %}
         </div>
     </div>

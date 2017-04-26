@@ -111,6 +111,6 @@ class Category
 
     public function __toString()
     {
-        return (string)$this->title;
+        return (string) $this->title;
     }
 }

@@ -81,7 +81,6 @@ class Training
     public function getId()
     {
         return $this->id;
-
     }
 
     public function __construct()

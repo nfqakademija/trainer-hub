@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 
-
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  * @ORM\Table(name="fos_user")
@@ -82,21 +81,21 @@ class User extends BaseUser
     private $avatarFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @var string
      */
-    private $avatarName;
+    private $avatarName = '5900d0379c62b.png';
 
     /**
-     * @ORM\Column(type="integer", length=255)
+     * @ORM\Column(type="integer", length=255, nullable=true)
      *
      * @var integer
      */
     private $avatarSize;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      *
      * @var \DateTime
      */

@@ -3,6 +3,7 @@
 namespace AppBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+
 /**
  * TrainingRepository
  *
@@ -21,5 +22,4 @@ class TrainingRepository extends EntityRepository
             ->where('t.fos_user = :user')
             ->setParameter(':user', $user)->getQuery()->getArrayResult();
     }
-
 }
