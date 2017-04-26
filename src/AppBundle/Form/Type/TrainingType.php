@@ -52,7 +52,6 @@ class TrainingType extends AbstractType
                 ],
                 'label' => 'Aprašymas'
             ]);
-
     }
 
     /**

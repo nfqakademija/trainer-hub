@@ -58,11 +58,11 @@
                 {% endif %}
                 {% if is_granted('ROLE_CLIENT') %}
                     {{ form_start(feedback, {'attr' : {'novalidate' : 'novalidate', 'class' : 'feedback'}}) }}
-                    
+
                     {{ form_rest(feedback) }}
-  
+
                      <input type="submit" value="Palikti atsiliepimą" class="form-control btn btn-feedback"/>
-        
+
                     {{ form_end(feedback) }}
                 {% elseif is_granted('ROLE_TRAINER') %}
 

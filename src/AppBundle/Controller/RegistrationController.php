@@ -8,7 +8,6 @@
 
 namespace AppBundle\Controller;
 
-
 use AppBundle\Entity\User;
 use DateTime;
 use Symfony\Component\HttpFoundation\Request;
@@ -96,5 +95,4 @@ class RegistrationController extends BaseController
             'form' => $form->createView(),
         ));
     }
-
 }

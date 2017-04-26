@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+    <div class="container">
+        <ul class="nav nav-tabs">
+            <li ><a href="{{ path('fos_user_profile_edit') }}">Redaguoti profilį</a></li>
+            <li><a href="{{ path('my_trainings') }}">Mano treniruotės</a></li>
+            <li class="active"><a href="{{ path('my_feedbacks') }}">Mano įvertinimai</a></li>
+        </ul>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-login">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3"></div>
+                            <div class="col-xs-6">
+                                Mano įvertinimai
+                            </div>
+                            <div class="col-xs-3"></div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                               {% if feedbacks is defined and feedbacks is not empty %}
+                                    {% for feedback in feedbacks %}
+                                    <div class="testimonials">
+                                        <div class="active item">
+                                            <blockquote><p>{{ feedback.feedback }}</p></blockquote>
+                                            <div class="carousel-info">
+
+                                                <div class="pull-right">
+                                                    <span class="testimonials-name">{{ feedback.fos_user_author.username }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                {% else %}
+                                    <p>Atsiliepimų nėra. </p>
+                                {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

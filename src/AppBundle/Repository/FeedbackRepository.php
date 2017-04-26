@@ -10,7 +10,8 @@ namespace AppBundle\Repository;
  */
 class FeedbackRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findFeedbackByUser($user) {
+    public function findFeedbackByUser($user)
+    {
         return $this->createQueryBuilder('f')
             ->leftJoin('f.fos_user_author', 'u')
             ->addSelect('u')

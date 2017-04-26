@@ -1,11 +1,13 @@
 <?php
 namespace AppBundle\Controller;
+
 use AppBundle\Entity\Training;
 use AppBundle\Form\Type\TrainingType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+
 class TrainingController extends Controller
 {
     /**
@@ -40,7 +42,7 @@ class TrainingController extends Controller
     /**
      * @Route("/training/edit/{id}", name="edit_training")
      * @param Training $training
-     * @param Request $request
+     * @param Request  $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Training $training, Request $request)

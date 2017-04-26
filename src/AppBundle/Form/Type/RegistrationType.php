@@ -2,7 +2,6 @@
 
 namespace AppBundle\Form\Type;
 
-
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -24,8 +23,7 @@ class RegistrationType extends AbstractType
                         'attr' => ['class' => 'form-control'],
                         'label' => false,
                     ),
-                )
-            );
+            ));
     }
 
     public function getParent()
