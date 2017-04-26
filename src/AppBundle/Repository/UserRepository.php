@@ -30,6 +30,6 @@ class UserRepository extends EntityRepository
             ->leftJoin('t.city', 'ci')
             ->addSelect('ci')
             ->where('u.usernameCanonical = :username')
-            ->setParameter(':username', $username)->getQuery()->getSingleResult();
+            ->setParameter(':username', $username)->getQuery();
     }
 }

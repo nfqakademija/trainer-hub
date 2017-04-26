@@ -20,6 +20,13 @@ class DefaultController extends Controller
 
         $trainers = $trainers->findByRoles('ROLE_TRAINER');
 
+        $paginator  = $this->get('knp_paginator');
+        $trainers = $paginator->paginate(
+            $trainers, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            12/*limit per page*/
+        );
+
         return $this->render('@App/public/index.html.twig', [
             'trainers' => $trainers
         ]);
