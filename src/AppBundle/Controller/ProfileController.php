@@ -97,6 +97,7 @@ class ProfileController extends Controller
             'form' => $form->createView(),
         ));
     }
+
     public function filterAction($path, $filter)
     {
         if (!$this->cacheManager->isStored($path, $filter)) {

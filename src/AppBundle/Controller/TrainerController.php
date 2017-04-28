@@ -17,6 +17,8 @@ class TrainerController extends Controller
     /**
      * @Route("/trainer/{username}", name="trainer_page")
      * @ParamConverter("user", class="AppBundle:User",  options={"repository_method" = "findWithTrainings"})
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function trainerAction(Request $request, User $user)
     {
@@ -29,23 +31,27 @@ class TrainerController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->get('doctrine.orm.entity_manager');
-            $current_user = $this->getUser();
-            $feedback->setFosUserAuthor($current_user);
+            $currentUser = $this->getUser();
+            $feedback->setFosUserAuthor($currentUser);
             $feedback->setFosUserObject($user);
             $em->persist($feedback);
             $em->flush();
 
-            return $this->redirectToRoute('trainer_page', array('username' => $user->getUsernameCanonical()));
+            return $this->redirectToRoute('trainer_page', [
+                'username' => $user->getUsernameCanonical(),
+            ]);
         }
 
         return $this->render('@App/trainer/trainerPage.html.twig', [
             'trainers' => $user, 'feedback' => $form->createView(),
-            'feedbacks' => $feedbacks
+            'feedbacks' => $feedbacks,
         ]);
     }
 
     /**
      * @Route("/trainer/reservate/{id}", name="reservation")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function reservationAction(Request $request, $id)
     {

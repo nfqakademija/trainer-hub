@@ -10,6 +10,8 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction(Request $request)
     {
@@ -28,7 +30,7 @@ class DefaultController extends Controller
         );
 
         return $this->render('@App/public/index.html.twig', [
-            'trainers' => $trainers
+            'trainers' => $trainers,
         ]);
     }
 }

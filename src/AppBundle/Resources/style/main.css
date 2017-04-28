@@ -334,8 +334,8 @@ footer {
 .btn-register:hover,
 .btn-register:focus {
     color: #fff;
-    background-color: #1CA347;
-    border-color: #1CA347;
+    background-color: #66d7d7;
+    border-color: #66d7d7;
 }
 
 .checkbox { margin: 0; }

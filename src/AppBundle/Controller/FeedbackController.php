@@ -15,7 +15,10 @@ class FeedbackController extends Controller
     public function displayAction()
     {
         $repo = $this->getDoctrine()->getManager()->getRepository(Feedback::class);
-        $feedbacks = $repo->findFeedbackByUser($this->getUser());
-        return $this->render('@App/trainer/profileFeedbacks.html.twig', array('feedbacks' => $feedbacks));
+        $feedback = $repo->findFeedbackByUser($this->getUser());
+
+        return $this->render('@App/trainer/profileFeedbacks.html.twig', [
+            'feedbacks' => $feedback,
+        ]);
     }
 }
