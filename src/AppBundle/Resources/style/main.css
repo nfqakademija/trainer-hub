@@ -1,15 +1,16 @@
 body {
     width: 100%;
-    margin-bottom: 158px;
-}
+    background-color: #f0f0f0;
 
+}
 header {
-    padding: 20px;
+    padding-bottom: 45px;
 }
 
 footer {
-    background-color: #ffffff;
+    background-color: #cfcfcf;
     height: 158px;
+    margin-top: 45px;
 
 }
 
@@ -301,7 +302,6 @@ footer {
     height: auto;
     font-weight: normal;
     padding: 14px 0;
-    text-transform: uppercase;
     border-color: #56c6c6;
 }
 
@@ -329,7 +329,6 @@ footer {
     height: auto;
     font-weight: normal;
     padding: 14px 0;
-    text-transform: uppercase;
 }
 
 .btn-register:hover,
@@ -531,7 +530,6 @@ form.feedback textarea{
     height: auto;
     font-weight: normal;
     padding: 14px 0;
-    text-transform: uppercase;
     border-color: #56c6c6;
     width: 100%;
     margin-top: 15px;
@@ -644,6 +642,112 @@ div.card:last-child {
     margin-bottom: 5px;
 }
 
-main .wrapper {
-    margin-top: 20px;
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.user-area {
+    position: relative;
+    float: left;
+}
+
+.user-menu {
+    width: 220px;
+}
+
+.user-area .user-menu {
+    width: 220px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.user-area .user-menu .head-title {
+    font-weight: 600;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15px;
+    border-bottom: 1px solid #f0f0f0;
+    display: block;
+    position: relative;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.user-area .user-menu ul li {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.user-area .user-menu ul li a {
+    padding-left: 50px;
+    padding-right: 10px;
+    font-size: 14px;
+    color: #3c3c3c;
+    line-height: 40px;
+    height: 40px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+.user-area .user-menu ul li a:hover, .user-area .user-menu ul li a.active {
+    color: #66d7d7;
+}
+
+.user-block {
+    width: 760px;
+    float: right;
+    background: #fff;
+    border-radius: 5px;
+    min-height: 430px;
+    padding-bottom: 80px;
+    position: relative;
+}
+
+.container {
+    width: 1030px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.user-block .page-header {
+    border-bottom: 1px solid #E7E7E7;
+    line-height: 35px;
+}
+
+.page-header.no-margin {
+    margin: 0;
+}
+
+.page-header.padding {
+    padding: 12px 30px;
+}
+
+.page-header {
+    font-weight: 700;
+    font-size: 20px;
+    color: #272727;
+    line-height: 30px;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin: 30px 0 20px;
+    display: block;
+    text-align: center;
+}
+
+.page-block {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
 }

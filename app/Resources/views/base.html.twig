@@ -13,12 +13,9 @@
     {{ include('header.html.twig') }}
 </header>
 <body>
-<div class="container">
-
     {% block body %}
         {{ include('notifications.html.twig') }}
     {% endblock %}
-</div>
 </body>
 <footer>
     {{ include('footer.html.twig') }}
