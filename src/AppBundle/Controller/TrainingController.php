@@ -32,8 +32,9 @@ class TrainingController extends Controller
 
             return $this->redirectToRoute('homepage');
         }
+
         return $this->render('@App/trainer/newTraining.html.twig', [
-            'trainingForm' => $form->createView()
+            'trainingForm' => $form->createView(),
         ]);
     }
 
@@ -62,7 +63,10 @@ class TrainingController extends Controller
 
             return $this->redirectToRoute('my_trainings');
         }
-        return $this->render('@App/trainer/newTraining.html.twig', array('trainingForm' => $form->createView()));
+
+        return $this->render('@App/trainer/newTraining.html.twig', [
+            'trainingForm' => $form->createView(),
+        ]);
     }
 
     /**
@@ -71,8 +75,11 @@ class TrainingController extends Controller
     public function displayAction()
     {
         $em = $this->getDoctrine()->getManager()->getRepository('AppBundle:Training');
-        $current_user = $this->getUser();
-        $trainings = $em->findByUser($current_user);
-        return $this->render('@App/trainer/profileTrainings.html.twig', array('trainings' => $trainings));
+        $currentUser = $this->getUser();
+        $trainings = $em->findByUser($currentUser);
+
+        return $this->render('@App/trainer/profileTrainings.html.twig', [
+            'trainings' => $trainings,
+        ]);
     }
 }

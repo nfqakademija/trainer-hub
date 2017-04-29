@@ -32,4 +32,14 @@ class UserRepository extends EntityRepository
             ->where('u.usernameCanonical = :username')
             ->setParameter(':username', $username)->getQuery()->getSingleResult();
     }
+    public function findCities()
+    {
+        return $this->createQueryBuilder('u')->select('u.city')->getQuery()->getArrayResult();
+
+    }
+    public function filterByCity($city) {
+        return $this->createQueryBuilder('u')
+            ->where('u.city = :city AND u.roles LIKE :role')
+            ->setParameters(array('city' => $city, 'role' => '%ROLE_TRAINER%'))->getQuery()->getArrayResult();
+    }
 }
