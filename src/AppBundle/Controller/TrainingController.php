@@ -38,8 +38,6 @@ class TrainingController extends Controller
         ]);
     }
 
-
-
     /**
      * @Route("/training/edit/{id}", name="edit_training")
      * @param Training $training
@@ -50,7 +48,7 @@ class TrainingController extends Controller
     {
         $form = $this->createForm(TrainingType::class, $training);
 
-        $form->handleRequest($training);
+        $form->handleRequest($request);
 
 
         if ($form->isSubmitted() && $form->isValid()) {

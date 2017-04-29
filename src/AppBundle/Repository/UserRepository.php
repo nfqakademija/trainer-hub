@@ -19,9 +19,11 @@ class UserRepository extends EntityRepository
         return $this->createQueryBuilder('u')->where('u.roles LIKE :role')
             ->setParameter(':role', '%"'.$role.'"%')->getQuery();
     }
+
     public function findWithTrainings($user)
     {
         $username = $user['username'];
+
         return $this->createQueryBuilder('u')
             ->leftJoin('u.training', 't')
             ->addSelect('t')
@@ -32,11 +34,13 @@ class UserRepository extends EntityRepository
             ->where('u.usernameCanonical = :username')
             ->setParameter(':username', $username)->getQuery()->getSingleResult();
     }
+
     public function findCities()
     {
         return $this->createQueryBuilder('u')->select('u.city')->getQuery()->getArrayResult();
 
     }
+
     public function filterByCity($city) {
         return $this->createQueryBuilder('u')
             ->where('u.city = :city AND u.roles LIKE :role')

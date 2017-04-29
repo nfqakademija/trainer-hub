@@ -1,5 +1,6 @@
 body {
     width: 100%;
+    margin-bottom: 158px;
 }
 
 header {
@@ -7,9 +8,9 @@ header {
 }
 
 footer {
-    padding: 40px;
     background-color: #ffffff;
-    text-align: center;
+    height: 158px;
+
 }
 
 .navigation-clean-button{
@@ -641,4 +642,8 @@ div.card:last-child {
 }
 .filter {
     margin-bottom: 5px;
+}
+
+main .wrapper {
+    margin-top: 20px;
 }
