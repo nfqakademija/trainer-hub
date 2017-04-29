@@ -17,6 +17,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+
         $em = $this->getDoctrine()->getManager();
         $trainersRepo = $em->getRepository(User::class);
         if ($request->get('city') != null && $request->get('city') != 'all') {

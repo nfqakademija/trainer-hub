@@ -50,7 +50,7 @@ class TrainingController extends Controller
     {
         $form = $this->createForm(TrainingType::class, $training);
 
-        $form->handleRequest($request);
+        $form->handleRequest($training);
 
 
         if ($form->isSubmitted() && $form->isValid()) {
