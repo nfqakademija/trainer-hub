@@ -639,3 +639,6 @@ div.card {
 div.card:last-child {
     margin-right: 0;
 }
+.filter {
+    margin-bottom: 5px;
+}

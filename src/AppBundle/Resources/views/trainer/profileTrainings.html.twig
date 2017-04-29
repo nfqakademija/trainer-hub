@@ -5,7 +5,9 @@
 <div class="container">
     <ul class="nav nav-tabs">
         <li ><a href="{{ path('fos_user_profile_edit') }}">Redaguoti profilį</a></li>
-        <li class="active"><a href="{{ path('my_trainings') }}">Mano treniruotės</a></li>
+        {% if is_granted("ROLE_TRAINER") %}
+            <li class="active"><a href="{{ path('my_trainings') }}">Mano treniruotės</a></li>
+        {% endif %}
         <li><a href="{{ path('my_feedbacks') }}">Mano įvertinimai</a></li>
     </ul>
     <div class="row">
