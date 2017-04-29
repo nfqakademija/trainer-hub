@@ -17,7 +17,6 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-
         $em = $this->getDoctrine()->getManager();
         $trainersRepo = $em->getRepository(User::class);
         if ($request->get('city') != null && $request->get('city') != 'all') {
@@ -48,7 +47,6 @@ class DefaultController extends Controller
                 'trainers' => $trainers, 
                 'cities' => array_unique($citiesNew), 
                 'currentCity' => $request->get('city')))->getContent();
-
                 return new JsonResponse($content);
             } else {
                 return $this->render('@App/public/index.html.twig', [
