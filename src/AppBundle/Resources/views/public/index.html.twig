@@ -1,3 +1,4 @@
+
 {% extends 'base.html.twig' %}
 
 {% block body %}
@@ -6,12 +7,29 @@
         <div class="headline-wrapper"><h1>Treneriai</h1></div>
         <div class="container">
             <div class="row filter">
-                <select class="cities" data-path="{{ path("homepage") }}">
-                    <option value="all">Visi</option>
-                    {% for city in cities %}
-                        <option value="{{ city }}">{{ city }}</option>
-                    {% endfor %}
-                </select>
+                <form method="GET" action="">
+                    <select class="categories" name="categories">
+                        <option value="" name="city">Visi</option>
+                        {% for category in categories %}
+                            {% if currentCategory == category %}
+                                <option selected="selected" value="{{ category }}">{{ category }}</option>
+                            {% else %}
+                                <option value="{{ category }}">{{ category }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <select class="cities" name="cities">
+                        <option value="">Visi</option>
+                        {% for city in cities %}
+                            {% if currentCity == city %}
+                                <option selected="selected" value="{{ city }}">{{ city }}</option>
+                            {% else %}
+                                <option value="{{ city }}">{{ city }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <input value="Filtruoti" class="form-control btn btn-filter" type="submit">
+                </form>
             </div>
             {% set counter = 0 %}
             {% for trainer in trainers %}

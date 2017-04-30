@@ -289,4 +289,7 @@ class Training
     {
         return $this->city;
     }
+    public function __toString() {
+        return $this->title;
+    }
 }

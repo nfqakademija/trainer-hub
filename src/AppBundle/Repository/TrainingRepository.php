@@ -22,4 +22,19 @@ class TrainingRepository extends EntityRepository
             ->where('t.fos_user = :user')
             ->setParameter(':user', $user)->getQuery()->getArrayResult();
     }
+    public function findCategories()
+    {
+        return $this->createQueryBuilder('t')
+            ->leftJoin('t.category', 'ca')
+            ->addSelect('ca')
+            ->select('ca.title')
+            ->getQuery()->getArrayResult();
+    }
+    public function findCities() {
+        return $this->createQueryBuilder('t')
+            ->leftJoin('t.city', 'ci')
+            ->addSelect('ci')
+            ->select('ci.title')
+            ->getQuery()->getArrayResult();
+    }
 }
