@@ -1,53 +1,54 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
-
     <div class="container">
-        <ul class="nav nav-tabs">
-            <li ><a href="{{ path('fos_user_profile_edit') }}">Redaguoti profilį</a></li>
-            {% if is_granted("ROLE_TRAINER") %}
-                <li><a href="{{ path('my_trainings') }}">Mano treniruotės</a></li>
-            {% endif %}
-            <li class="active"><a href="{{ path('my_feedbacks') }}">Mano įvertinimai</a></li>
-        </ul>
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="panel panel-login">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3"></div>
-                            <div class="col-xs-6">
-                                Mano įvertinimai
-                            </div>
-                            <div class="col-xs-3"></div>
-                        </div>
-                        <hr>
-                    </div>
-                    <div class="panel-body">
-                        <div class="row">
-                               {% if feedbacks is defined and feedbacks is not empty %}
-                                    {% for feedback in feedbacks %}
-                                    <div class="testimonials">
-                                        <div class="active item">
-                                            <blockquote><p>{{ feedback.feedback }}</p></blockquote>
-                                            <div class="carousel-info">
+        <div class="user-area">
+            <nav class="user-menu">
+                <div>
+                    <span class="head-title">
+                        Mano profilis
+                    </span>
+                    <ul>
+                        <li>
+                            <a href="{{ path('fos_user_profile_edit') }}">Redaguoti profilį </a>
 
-                                                <div class="pull-right">
-                                                    <span class="testimonials-name">{{ feedback.fos_user_author.username }}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {% endfor %}
-                                {% else %}
-                                    <p>Atsiliepimų nėra. </p>
-                                {% endif %}
-                        </div>
-                    </div>
+                        </li>
+                        {% if is_granted("ROLE_TRAINER") %}
+                        <li>
+                            <a href="{{ path('my_trainings') }}">Mano treniruotės</a>
+                        </li>
+                        {% endif %}
+                        <li >
+                            <a href="{{ path('my_feedbacks') }}" class="active" >Mano įvertinimai</a>
+                        </li>
+                    </ul>
+
                 </div>
+            </nav>
+
+        </div>
+        <div class="user-block">
+            <div class="page-header no-margin padding">Mano Įvertinimai</div>
+            <div class="page-block">
+                {% if feedbacks is defined and feedbacks is not empty %}
+                    {% for feedback in feedbacks %}
+                        <div class="testimonials">
+                            <div class="active item">
+                                <blockquote><p>{{ feedback.feedback }}</p></blockquote>
+                                <div class="carousel-info">
+
+                                    <div class="pull-right">
+                                        <span class="testimonials-name">{{ feedback.fos_user_author.username }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>Atsiliepimų nėra. </p>
+                {% endif %}
             </div>
+
         </div>
     </div>
-
 {% endblock %}

@@ -1,16 +1,27 @@
 body {
-    width: 100%;
+    background-color: #f0f0f0;
 }
 
 header {
-    padding: 20px;
+    padding-bottom: 45px;
+}
+
+html {
+    position:relative;
+    min-height: 100%;
+}
+/*Normalize html and body elements,this style is just good to have*/
+html, body {
+    margin:0;
+    padding:0;
 }
 
 footer {
-    padding: 40px;
-    background-color: #ffffff;
-    text-align: center;
+    margin-top: 50px;
+    height:158px;
+    background-color: #cfcfcf;
 }
+
 
 .navigation-clean-button{
     background:#fff;
@@ -233,7 +244,18 @@ footer {
     }
 }
 
-
+.panel-login {
+    width: 820px;
+    margin: auto;
+    padding-top: 50px;
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 50px;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
 .panel-login > .panel-heading {
     color: #00415d;
@@ -300,7 +322,6 @@ footer {
     height: auto;
     font-weight: normal;
     padding: 14px 0;
-    text-transform: uppercase;
     border-color: #56c6c6;
 }
 
@@ -328,7 +349,6 @@ footer {
     height: auto;
     font-weight: normal;
     padding: 14px 0;
-    text-transform: uppercase;
 }
 
 .btn-register:hover,
@@ -424,7 +444,7 @@ body * {
     font-family: 'Open Sans', sans-serif;
 }
 .trainers {
-    position: relative;
+    position: inherit;
 }
 div.headline-wrapper {
     text-align: center;
@@ -530,7 +550,6 @@ form.feedback textarea{
     height: auto;
     font-weight: normal;
     padding: 14px 0;
-    text-transform: uppercase;
     border-color: #56c6c6;
     width: 100%;
     margin-top: 15px;
@@ -641,4 +660,142 @@ div.card:last-child {
 }
 .filter {
     margin-bottom: 5px;
+}
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.user-area {
+    position: relative;
+    float: left;
+}
+
+.user-menu {
+    width: 220px;
+}
+
+.user-area .user-menu {
+    width: 220px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.user-area .user-menu .head-title {
+    font-weight: 600;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15px;
+    border-bottom: 1px solid #f0f0f0;
+    display: block;
+    position: relative;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.user-area .user-menu ul li {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.user-area .user-menu ul li a {
+    padding-left: 50px;
+    padding-right: 10px;
+    font-size: 14px;
+    color: #3c3c3c;
+    line-height: 40px;
+    height: 40px;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+}
+
+.user-area .user-menu ul li a:hover, .user-area .user-menu ul li a.active {
+    color: #66d7d7;
+}
+
+.user-block {
+    width: 760px;
+    float: right;
+    background: #fff;
+    border-radius: 5px;
+    min-height: 430px;
+    padding-bottom: 80px;
+    position: relative;
+}
+
+.container {
+    width: 1030px;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom:0px;
+}
+
+.user-block .page-header {
+    border-bottom: 1px solid #E7E7E7;
+    line-height: 35px;
+}
+
+.page-header.no-margin {
+    margin: 0;
+}
+
+.page-header.padding {
+    padding: 12px 30px;
+}
+
+.page-header {
+    font-weight: 700;
+    font-size: 20px;
+    color: #272727;
+    line-height: 30px;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin: 30px 0 20px;
+    display: block;
+    text-align: center;
+}
+
+.page-block {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+
+.error-404 {
+    margin-top: 200px;
+    text-align: center;
+}
+
+.error-404 .title {
+    color: rgba(164,164,164,0.7);
+    font-size: 120px;
+    line-height: 146px;
+}
+
+.error-404 .text {
+    font-size: 20px;
+    line-height: 27px;
+    color: rgba(164,164,164,0.7);
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.error-404 .text-back-to-page {
+    font-size: 15px;
+    line-height: 27px;
+    color: #00A5E3;
+    font-weight: 700;
+    margin-top: 20px;
 }

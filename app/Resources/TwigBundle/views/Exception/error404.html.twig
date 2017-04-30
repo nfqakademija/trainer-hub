@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="error-404">
+    <div class="title">
+        404
+    </div>
+    <div class="text">
+        O ne! Šis puslapis neegzistuoja!
+    </div>
+    <div class="text-back-to-page">
+        <a href="{{ path('homepage') }}">Pabandykite grįžti į pradžią!</a>
+    </div>
+</div>
+{% endblock %}
