@@ -1,18 +1,27 @@
 body {
-    width: 100%;
     background-color: #f0f0f0;
-
 }
+
 header {
     padding-bottom: 45px;
 }
 
-footer {
-    background-color: #cfcfcf;
-    height: 158px;
-    margin-top: 45px;
-
+html {
+    position:relative;
+    min-height: 100%;
 }
+/*Normalize html and body elements,this style is just good to have*/
+html, body {
+    margin:0;
+    padding:0;
+}
+
+footer {
+    margin-top: 50px;
+    height:158px;
+    background-color: #cfcfcf;
+}
+
 
 .navigation-clean-button{
     background:#fff;
@@ -235,7 +244,18 @@ footer {
     }
 }
 
-
+.panel-login {
+    width: 820px;
+    margin: auto;
+    padding-top: 50px;
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 50px;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
 .panel-login > .panel-heading {
     color: #00415d;
@@ -424,7 +444,7 @@ body * {
     font-family: 'Open Sans', sans-serif;
 }
 .trainers {
-    position: relative;
+    position: inherit;
 }
 div.headline-wrapper {
     text-align: center;
@@ -719,6 +739,7 @@ ul {
     width: 1030px;
     margin: 0 auto;
     position: relative;
+    margin-bottom:0px;
 }
 
 .user-block .page-header {
@@ -750,4 +771,31 @@ ul {
     padding-left: 20px;
     padding-right: 20px;
     padding-top: 10px;
+}
+
+.error-404 {
+    margin-top: 200px;
+    text-align: center;
+}
+
+.error-404 .title {
+    color: rgba(164,164,164,0.7);
+    font-size: 120px;
+    line-height: 146px;
+}
+
+.error-404 .text {
+    font-size: 20px;
+    line-height: 27px;
+    color: rgba(164,164,164,0.7);
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.error-404 .text-back-to-page {
+    font-size: 15px;
+    line-height: 27px;
+    color: #00A5E3;
+    font-weight: 700;
+    margin-top: 20px;
 }

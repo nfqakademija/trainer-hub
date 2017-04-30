@@ -68,6 +68,7 @@ class TrainingController extends Controller
     }
 
     /**
+     * @Security("has_role('ROLE_TRAINER')")
      * @Route("/my-trainings", name="my_trainings")
      **/
     public function displayAction()
