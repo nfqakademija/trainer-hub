@@ -24,7 +24,7 @@ class TrainerController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $feedbacks = $em->getRepository(Feedback::class);
-        $feedbacks = $feedbacks->findFeedbackByUser($user);
+        $feedbacks = $feedbacks->findFeedbackByTrainer($user);
         $feedback = new Feedback();
         $form = $this->createForm(FeedbackType::class, $feedback);
         $form->handleRequest($request);

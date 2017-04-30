@@ -34,3 +34,5 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/my-feedbacks, role: [ROLE_TRAINER, ROLE_CLIENT] }
+        - { path: ^/my-trainings, role: [ROLE_TRAINER, ROLE_CLIENT] }

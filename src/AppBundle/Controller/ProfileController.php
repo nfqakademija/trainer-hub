@@ -98,22 +98,4 @@ class ProfileController extends Controller
         ));
     }
 
-    public function filterAction($path, $filter)
-    {
-        if (!$this->cacheManager->isStored($path, $filter)) {
-            $binary = $this->dataManager->find($filter, $path);
-
-            $filteredBinary = $this->filterManager->applyFilter($binary, $filter, array(
-                'filters' => array(
-                    'thumbnail' => array(
-                        'size' => array(300, 100)
-                    )
-                )
-            ));
-
-            $this->cacheManager->store($filteredBinary, $path, $filter);
-        }
-
-        return new RedirectResponse($this->cacheManager->resolve($path, $filter), Response::HTTP_MOVED_PERMANENTLY);
-    }
 }

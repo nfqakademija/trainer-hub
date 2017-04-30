@@ -19,9 +19,11 @@ class UserRepository extends EntityRepository
         return $this->createQueryBuilder('u')->where('u.roles LIKE :role')
             ->setParameter(':role', '%"'.$role.'"%')->getQuery();
     }
+
     public function findWithTrainings($user)
     {
         $username = $user['username'];
+
         return $this->createQueryBuilder('u')
             ->leftJoin('u.training', 't')
             ->addSelect('t')
@@ -31,5 +33,41 @@ class UserRepository extends EntityRepository
             ->addSelect('ci')
             ->where('u.usernameCanonical = :username')
             ->setParameter(':username', $username)->getQuery()->getSingleResult();
+    }
+    public function filterBoth($category, $city) {
+        return $this->createQueryBuilder('u')
+            ->leftJoin('u.training', 't')
+            ->addSelect('t')
+            ->leftJoin('t.category', 'ca')
+            ->addSelect('ca')
+            ->leftJoin('t.city', 'ci')
+            ->addSelect('ci')
+            ->where('ca.title = :category AND ci.title = :city')
+            ->setParameters(['category' => $category, 'city' => $city])
+            ->getQuery()->getArrayResult();
+    }
+    public function filterByCity($city) {
+        return $this->createQueryBuilder('u')
+            ->leftJoin('u.training', 't')
+            ->addSelect('t')
+            ->leftJoin('t.category', 'ca')
+            ->addSelect('ca')
+            ->leftJoin('t.city', 'ci')
+            ->addSelect('ci')
+            ->where('ci.title = :city')
+            ->setParameter(':city', $city)
+            ->getQuery()->getArrayResult();
+    }
+    public function filterByCategory($category) {
+        return $this->createQueryBuilder('u')
+            ->leftJoin('u.training', 't')
+            ->addSelect('t')
+            ->leftJoin('t.category', 'ca')
+            ->addSelect('ca')
+            ->leftJoin('t.city', 'ci')
+            ->addSelect('ci')
+            ->where('ca.title = :category')
+            ->setParameter(':category', $category)
+            ->getQuery()->getArrayResult();
     }
 }

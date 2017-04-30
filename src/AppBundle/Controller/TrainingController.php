@@ -38,8 +38,6 @@ class TrainingController extends Controller
         ]);
     }
 
-
-
     /**
      * @Route("/training/edit/{id}", name="edit_training")
      * @param Training $training
@@ -70,6 +68,7 @@ class TrainingController extends Controller
     }
 
     /**
+     * @Security("has_role('ROLE_TRAINER')")
      * @Route("/my-trainings", name="my_trainings")
      **/
     public function displayAction()

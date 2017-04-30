@@ -1,18 +1,36 @@
+
 {% extends 'base.html.twig' %}
 
 {% block body %}
 
-
-    {#<div class="container" style="width: 100%">#}
-        {#<div class="row presentation">#}
-            {#<h1 id="sb-big" style="text-align: center; font-size:115px;line-height:115px;color:#fff; font-weight:600;margin-bottom:50px;">TrainerHUB</h1>#}
-            {#<h1 id="sb-small" style="text-align: center; font-size:50px;line-height:54px;color:#fff; font-weight:600;">Trenerių paieškos platforma</h1>#}
-            {#<div class="button-wrapper"><a class="presentation-button" role="button" href="{{ path('fos_user_registration_register') }}">Regisruotis</a></div>#}
-        {#</div>#}
-    {#</div>#}
-    <div class="row trainers">
-        <div class="headline-wrapper"><span>Treneriai</span></div>
+    <div class="trainers">
+        <div class="headline-wrapper"><h1>Treneriai</h1></div>
         <div class="container">
+            <div class="row filter">
+                <form method="GET" action="">
+                    <select class="categories" name="categories">
+                        <option value="" name="city">Visi</option>
+                        {% for category in categories %}
+                            {% if currentCategory == category %}
+                                <option selected="selected" value="{{ category }}">{{ category }}</option>
+                            {% else %}
+                                <option value="{{ category }}">{{ category }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <select class="cities" name="cities">
+                        <option value="">Visi</option>
+                        {% for city in cities %}
+                            {% if currentCity == city %}
+                                <option selected="selected" value="{{ city }}">{{ city }}</option>
+                            {% else %}
+                                <option value="{{ city }}">{{ city }}</option>
+                            {% endif %}
+                        {% endfor %}
+                    </select>
+                    <input value="Filtruoti" class="form-control btn btn-filter" type="submit">
+                </form>
+            </div>
             {% set counter = 0 %}
             {% for trainer in trainers %}
                 {% if counter is divisible by(4) %}
@@ -30,26 +48,13 @@
 
                    {% set counter = 0 %}
                     </div>
-                    
+
                 {% endif %}
             {% endfor %}
         </div>
-    </div>
-    <div class="navigation">
-        {{ knp_pagination_render(trainers) }}
-    </div>
 
-        {#{% for trainer in trainers %}#}
-            {#<div class="container">#}
-                {#<div class="row">#}
-                    {#<div class="col-md-3"><img src="https://s-media-cache-ak0.pinimg.com/236x/1d/e0/97/1de0970e3cc457fb029e9ecd2b8a1054.jpg" /></div>#}
-                    {#<div class="col-md-9">#}
-                        {#<h1>{{ trainer.name }} {{ trainer.surname }}</h1>#}
-                        {#<strong>Miestas: </strong>{{ trainer.city }}<br>#}
-                        {#<strong>Telefonas: </strong>{{ trainer.phone }}#}
-                        {#<p>{{ trainer.description }}</p>#}
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
-    {#{% endfor %}#}
+        <div class="navigation">
+            {{ knp_pagination_render(trainers) }}
+        </div>
+    </div>
 {% endblock %}

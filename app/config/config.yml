@@ -88,6 +88,7 @@ fos_user:
         address: test@test.test
         sender_name: test
 
+
 doctrine_migrations:
     dir_name: "%kernel.root_dir%/DoctrineMigrations"
     namespace: Application\Migrations

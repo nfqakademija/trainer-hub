@@ -2,51 +2,61 @@
 
 {% block body %}
 
-<div class="container">
-    <ul class="nav nav-tabs">
-        <li ><a href="{{ path('fos_user_profile_edit') }}">Redaguoti profilį</a></li>
-        <li class="active"><a href="{{ path('my_trainings') }}">Mano treniruotės</a></li>
-        <li><a href="{{ path('my_feedbacks') }}">Mano įvertinimai</a></li>
-    </ul>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="col-md-6 col-md-offset-3">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3"></div>
-                        <div class="col-xs-6">
-                            Mano treniruotės
-                        </div>
-                        <div class="col-xs-3"></div>
-                    </div>
-                    <hr>
+    <div class="container">
+        <div class="user-area">
+            <nav class="user-menu">
+                <div>
+                    <span class="head-title">
+                        Mano profilis
+                    </span>
+                    <ul>
+                        <li>
+                            <a href="{{ path('fos_user_profile_edit') }}">Redaguoti profilį </a>
+
+                        </li>
+                        {% if is_granted("ROLE_TRAINER") %}
+                            <li>
+                                <a href="{{ path('my_trainings') }}" class="active">Mano treniruotės</a>
+                            </li>
+                        {% endif %}
+                        <li>
+                            <a href="{{ path('my_feedbacks') }}">Mano įvertinimai</a>
+                        </li>
+                    </ul>
+
                 </div>
-            </div>
-            <table class="table table-bordered table-striped">
-                <thead>
-                <th>Pavadinimas</th>
-                <th>Kaina (€)</th>
-                <th>Kategorija</th>
-                <th>Miestas</th>
-                <th>Veiksmas</th>
-                </thead>
-                <tbody>
-                {% for training in trainings %}
-                    <tr>
-                        <td>{{ training.title }}</td>
-                        <td>{{ training.price }}</td>
-                        <td>{{ training.category.title }}</td>
-                        <td>{{ training.city.title }}</td>
-                        <td>
-                            <a href="training/edit/{{ training.id }}">
-                                <button class="form-control btn btn-login">Redaguoti</button>
-                            </a>
-                        </td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+            </nav>
+
+        </div>
+        <div class="user-block">
+            <div class="page-header no-margin padding">Mano Treniruotės</div>
+
+                <table class="table">
+                    <thead style="color: #868686; background-color: #f0f0f0; text-transform: uppercase;">
+                    <th>Pavadinimas</th>
+                    <th>Kaina (€)</th>
+                    <th>Kategorija</th>
+                    <th>Miestas</th>
+                    <th>Veiksmas</th>
+                    </thead>
+                    <tbody>
+                    {% for training in trainings %}
+                        <tr>
+                            <td>{{ training.title }}</td>
+                            <td>{{ training.price }}</td>
+                            <td>{{ training.category.title }}</td>
+                            <td>{{ training.city.title }}</td>
+                            <td>
+                                <a href="training/edit/{{ training.id }}">
+                                    <button class="form-control btn btn-login">Redaguoti</button>
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+
         </div>
     </div>
-</div>
 {% endblock %}

@@ -5,11 +5,14 @@ namespace AppBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\User;
 use AppBundle\Entity\City;
+use AppBundle\Entity\Category;
+use AppBundle\Entity\Training;
 use Faker\Factory;
 
-class LoadUserData implements FixtureInterface
+class LoadUserData extends Controller implements FixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -101,6 +104,47 @@ class LoadUserData implements FixtureInterface
                 $userTrainer->setDescription('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages/');
                 $manager->persist($userTrainer);
                 $manager->flush();
+            } 
+            $em = $this->getDoctrine()->getManager();
+            $users = $em->getRepository(User::class);
+            $cities = $em->getRepository(City::class);
+            $categories = $em->getRepository(Category::class);
+            if (($handle = fopen(__DIR__."/cities.csv", "r")) !== false) {
+                while (($data = fgetcsv($handle, null, ",")) !== false) {
+                    $cities_array[] = $data[1];
+                   // $manager->persist($city);
+                    //$manager->flush();
+                }
+                fclose($handle);
             }
+            $cities1 = $cities->findAll();
+            $users1 = $users->findAll();
+            $categories1 = $categories->findAll();
+            foreach ($cities1 as $city) {
+                $cities_ids[] = $city->getId();
+            }
+            foreach ($users1 as $user) {
+                $users_ids[] = $user->getId();
+            }
+            foreach ($categories1 as $category) {
+                $categories_ids[] = $category->getId();
+            }
+
+
+            $faker = Factory::create();
+            for ($i = 0; $i < 200; $i++) {
+
+                $training = new Training();
+                $training->setTitle($faker->word);
+                $training->setPrice($faker->biasedNumberBetween($min = 10, $max = 100, $function = 'sqrt'));
+                $training->setDescription($faker->text);
+                $training->setDate($faker->dateTime());
+                $training->setFosUser($users->find(rand(min($users_ids), max($users_ids))));
+                $training->setCategory($categories->find(rand(min($categories_ids), max($categories_ids))));
+                $training->setCity($cities->find(rand(min($cities_ids), max($cities_ids))));
+                $manager->persist($training);
+                $manager->flush();
+            }
+
     }
 }
