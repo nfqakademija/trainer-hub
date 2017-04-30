@@ -9,20 +9,22 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
-<header>
-    {{ include('header.html.twig') }}
-</header>
 <body>
-    {% block body %}
-        {{ include('notifications.html.twig') }}
+    <div class="wrapper">
+        <header>
+        {{ include('header.html.twig') }}
+        </header>
+        {% block body %}
+            {{ include('notifications.html.twig') }}
+        {% endblock %}
+        <footer>
+        {{ include('footer.html.twig') }}
+        </footer>
+    </div>
+    {% block javascripts %}
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="{{ asset('js/scripts.js') }}"></script>
     {% endblock %}
 </body>
-<footer>
-    {{ include('footer.html.twig') }}
-</footer>
 </html>
-{% block javascripts %}
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="{{ asset('js/scripts.js') }}"></script>
-{% endblock %}

@@ -2,10 +2,12 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
+use AppBundle\Entity\Training;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use AppBundle\Form\Type\FilterType;
 
 class DefaultController extends Controller
 {
@@ -18,14 +20,30 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $trainersRepo = $em->getRepository(User::class);
-        if ($request->get('city') != null && $request->get('city') != 'all') {
-            $trainers = $trainersRepo->filterByCity($request->get('city'));
-        } else {
-            $trainers = $trainersRepo->findByRoles('ROLE_TRAINER');
+        $trainingsRepo = $em->getRepository(Training::class);     
+        $cities = $trainingsRepo->findCities();
+        $categories = $trainingsRepo->findCategories();
+        foreach ($categories as $category) {
+            $categoriesNew[] = $category['title'];
         }
-        $cities = $trainersRepo->findCities();
         foreach ($cities as $city) {
-            $citiesNew[] = $city['city'];
+            $citiesNew[] = $city['title'];
+        }
+
+        if (!empty($_GET['categories']) && !empty($_GET['cities'])) {
+            $trainers = $trainersRepo->filterBoth(
+                $_GET['categories'], $_GET['cities']);
+        }
+        else if (empty($_GET['categories']) && !empty($_GET['cities'])) {
+            $trainers = $trainersRepo->filterByCity(
+                $_GET['cities']);
+        }
+        else if (!empty($_GET['categories']) && empty($_GET['cities'])) {
+            $trainers = $trainersRepo->filterByCategory(
+                $_GET['categories']);
+        }
+        else {
+            $trainers = $trainersRepo->findByRoles('ROLE_TRAINER');   
         }
         $paginator = $this->get('knp_paginator');
         $trainers = $paginator->paginate(
@@ -33,28 +51,13 @@ class DefaultController extends Controller
             $request->query->getInt('page', 1)/*page number*/,
             12/*limit per page*/
         );
-
-        if ($request->get('city') != null && $request->get('city') != 'all') {
-            $content = $this->render('@App/public/filterAction.html.twig', array(
-                'trainers' => $trainers,
-                'cities' => array_unique($citiesNew),
-                'currentCity' => $request->get('city')))->getContent();
-
-            return new JsonResponse($content);
-        } else {
-            if ($request->get('city') == 'all') {
-                $content = $this->render('@App/public/filterAction.html.twig', array(
-                    'trainers' => $trainers,
-                    'cities' => array_unique($citiesNew),
-                    'currentCity' => $request->get('city')))->getContent();
-
-                return new JsonResponse($content);
-            } else {
-                return $this->render('@App/public/index.html.twig', [
-                    'trainers' => $trainers,
-                    'cities' => array_unique($citiesNew),
-                ]);
-            }
-        }
+        return $this->render('@App/public/index.html.twig', [
+            'trainers' => $trainers,
+            'cities' => array_unique($citiesNew),
+            'categories' => array_unique($categoriesNew),
+            'currentCity' => isset($_GET['cities'])?$_GET['cities']:'all',
+            'currentCategory' => isset($_GET['categories'])?$_GET['categories']:'all',
+        ]);
+            
     }
 }
