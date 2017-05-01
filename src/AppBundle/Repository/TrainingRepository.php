@@ -12,6 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class TrainingRepository extends EntityRepository
 {
+    /**
+    * Find trainings by user in trainer page
+    * @param User $user
+    * @return array
+    */
     public function findByUser($user)
     {
         return $this->createQueryBuilder('t')
@@ -22,6 +27,10 @@ class TrainingRepository extends EntityRepository
             ->where('t.fos_user = :user')
             ->setParameter(':user', $user)->getQuery()->getArrayResult();
     }
+    /**
+    * Find all categories that exist in trainings
+    * @return array
+    */
     public function findCategories()
     {
         return $this->createQueryBuilder('t')
@@ -30,7 +39,12 @@ class TrainingRepository extends EntityRepository
             ->select('ca.title')
             ->getQuery()->getArrayResult();
     }
-    public function findCities() {
+    /**
+    * Find all cities that exist in trainings
+    * @return array
+    */
+    public function findCities()
+    {
         return $this->createQueryBuilder('t')
             ->leftJoin('t.city', 'ci')
             ->addSelect('ci')

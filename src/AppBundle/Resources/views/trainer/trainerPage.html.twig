@@ -43,11 +43,26 @@
                     {% for feedback in feedbacks %}
                     <div class="testimonials">
                         <div class="active item">
+                            Įvertinimas: 
+                            <div class="acidjs-rating-stars">
+                                {% set counter = 0 %}
+                                {% for i in 0..feedback.rating-1 %}
+                                    <span class="checked"></span>
+                                    {% set counter = counter + 1 %}
+                                {% endfor %}
+                                {% if feedback.rating < 5 %}
+                                    {% for j in 0..5-feedback.rating-1 %}
+                                        <span class="no-checked"></span>
+                                    {% endfor %}    
+                                {% endif %}
+                            </div>
                             <blockquote><p>{{ feedback.feedback }}</p></blockquote>
                             <div class="carousel-info">
-
+                                <div class="pull-left">
+                                    <span class="testimonials-date"><i>{{ feedback.createdAt|date('Y-m-d H:i:s')  }}</i></span>
+                                </div>
                                 <div class="pull-right">
-                                    <span class="testimonials-name">{{ feedback.fos_user_author.username }}</span>
+                                    <span class="testimonials-name">{{ feedback.fosUserAuthor.username }}</span>
                                 </div>
                             </div>
                         </div>

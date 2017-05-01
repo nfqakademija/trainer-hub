@@ -8,6 +8,10 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class TrainingController
+ * @package AppBundle\Controller;
+ */
 class TrainingController extends Controller
 {
     /**
@@ -70,6 +74,7 @@ class TrainingController extends Controller
     /**
      * @Security("has_role('ROLE_TRAINER')")
      * @Route("/my-trainings", name="my_trainings")
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      **/
     public function displayAction()
     {

@@ -12,12 +12,17 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Validator\Constraints\DateTime;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
+/**
+ * Class TrainerController
+ * @package AppBundle\Controller
+ */
 class TrainerController extends Controller
 {
     /**
      * @Route("/trainer/{username}", name="trainer_page")
      * @ParamConverter("user", class="AppBundle:User",  options={"repository_method" = "findWithTrainings"})
      * @param Request $request
+     * @param User    $user
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
     public function trainerAction(Request $request, User $user)
@@ -51,6 +56,7 @@ class TrainerController extends Controller
     /**
      * @Route("/trainer/reservate/{id}", name="reservation")
      * @param Request $request
+     * @param Id      $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function reservationAction(Request $request, $id)

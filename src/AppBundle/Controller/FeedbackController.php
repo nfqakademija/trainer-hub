@@ -6,6 +6,10 @@ use AppBundle\Entity\Feedback;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+/**
+ * Class FeedbackController
+ * @package AppBundle\Controller;
+ */
 class FeedbackController extends Controller
 {
     /**
@@ -19,7 +23,7 @@ class FeedbackController extends Controller
             $feedback = $repo->findFeedbackByTrainer($this->getUser());
         }
         if (false === $this->get('security.authorization_checker')->isGranted('ROLE_TRAINER')) {
-            $feedback = $repo->findFeedbackByClient($this->getUser());
+            $feedback = $repo->findFeedbackByClientAndTrainer($this->getUser());
         }
 
         return $this->render('@App/trainer/profileFeedbacks.html.twig', [

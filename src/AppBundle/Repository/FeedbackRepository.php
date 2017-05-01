@@ -10,20 +10,30 @@ namespace AppBundle\Repository;
  */
 class FeedbackRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+    * Find feedbacks in trainer profile page
+    * @param User $user
+    * @return array
+    */
     public function findFeedbackByTrainer($user)
     {
         return $this->createQueryBuilder('f')
-            ->leftJoin('f.fos_user_author', 'u')
+            ->leftJoin('f.fosUserAuthor', 'u')
             ->addSelect('u')
-            ->where('f.fos_user_object = :object_id')
+            ->where('f.fosUserObject = :object_id')
             ->setParameter(':object_id', $user)->getQuery()->getArrayResult();
     }
-    public function findFeedbackByClient($user)
+    /**
+    * Find feedbacks in client profile page
+    * @param User $user
+    * @return array
+    */
+    public function findFeedbackByClientAndTrainer($user)
     {
         return $this->createQueryBuilder('f')
-            ->leftJoin('f.fos_user_author', 'u')
+            ->leftJoin('f.fosUserObject', 'u')
             ->addSelect('u')
-            ->where('f.fos_user_author = :object_id')
-            ->setParameter(':object_id', $user)->getQuery()->getArrayResult();
+            ->where('f.fosUserAuthor = :author')
+            ->setParameter(':author', $user)->getQuery()->getArrayResult();
     }
 }

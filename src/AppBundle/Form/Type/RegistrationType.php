@@ -7,8 +7,16 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 
+/**
+* Generate Registration form
+*/
 class RegistrationType extends AbstractType
 {
+    /**
+    * @param FormBuilderInterface $builder
+    * @param array                $options
+    * Build the form
+    */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         parent::buildForm($builder, $options);
@@ -25,12 +33,19 @@ class RegistrationType extends AbstractType
                     ),
             ));
     }
-
+    /**
+    * Get parent form
+    * @return string
+    */
     public function getParent()
     {
         return 'FOS\UserBundle\Form\Type\RegistrationFormType';
     }
 
+    /**
+    * Get block prefix
+    * @return string
+    */
     public function getBlockPrefix()
     {
         return 'app_user_registration';

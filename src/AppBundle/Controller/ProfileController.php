@@ -34,7 +34,10 @@ use Symfony\Component\HttpFoundation\File\File;
  */
 class ProfileController extends Controller
 {
-
+    /**
+    * @param Request $request
+    * @return \Symfony\Component\HttpFoundation\Response
+    */
     public function editAction(Request $request)
     {
         $user = $this->getUser();
@@ -88,7 +91,10 @@ class ProfileController extends Controller
                 $response = new RedirectResponse($url);
             }
 
-            $dispatcher->dispatch(FOSUserEvents::PROFILE_EDIT_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+            $dispatcher->dispatch(
+                FOSUserEvents::PROFILE_EDIT_COMPLETED,
+                new FilterUserResponseEvent($user, $request, $response)
+            );
 
             return $this->redirectToRoute('homepage');
         }
@@ -97,5 +103,4 @@ class ProfileController extends Controller
             'form' => $form->createView(),
         ));
     }
-
 }

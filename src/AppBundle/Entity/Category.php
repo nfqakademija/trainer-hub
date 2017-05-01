@@ -109,6 +109,9 @@ class Category
         return $this->training;
     }
 
+    /**
+     * @return string
+    */
     public function __toString()
     {
         return (string) $this->title;

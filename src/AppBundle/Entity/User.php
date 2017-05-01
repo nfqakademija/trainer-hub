@@ -65,11 +65,11 @@ class User extends BaseUser
      */
     private $birthday;
     /**
-     * @ORM\OneToMany(targetEntity="Training", mappedBy="fos_user", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Training", mappedBy="fosUser", cascade={"persist"})
      */
     private $training;
     /**
-     * @ORM\OneToMany(targetEntity="Reservations", mappedBy="fos_user", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Reservations", mappedBy="fosUser", cascade={"persist"})
      */
     private $reservations;
     /**
@@ -102,23 +102,26 @@ class User extends BaseUser
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="Feedback", mappedBy="fos_user_author", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Feedback", mappedBy="fosUserAuthor", cascade={"persist"})
      */
-    private $feedback_author;
+    private $feedbackAuthor;
 
     /**
-     * @ORM\OneToMany(targetEntity="Feedback", mappedBy="fos_user_object", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="Feedback", mappedBy="fosUserObject", cascade={"persist"})
      */
-    private $feedback_to;
+    private $feedbackTo;
 
-
+    /**
+     * Set relations arrays
+     *
+     */
     public function __construct()
     {
         parent::__construct();
         $this->training = new ArrayCollection();
         $this->reservations = new ArrayCollection();
-        $this->feedback_author = new ArrayCollection();
-        $this->feedback_to = new ArrayCollection();
+        $this->feedbackAuthor = new ArrayCollection();
+        $this->feedbackTo = new ArrayCollection();
     }
 
     /**
@@ -443,7 +446,7 @@ class User extends BaseUser
      */
     public function addFeedbackAuthor(\AppBundle\Entity\Feedback $feedbackAuthor)
     {
-        $this->feedback_author[] = $feedbackAuthor;
+        $this->feedbackAuthor[] = $feedbackAuthor;
 
         return $this;
     }
@@ -455,7 +458,7 @@ class User extends BaseUser
      */
     public function removeFeedbackAuthor(\AppBundle\Entity\Feedback $feedbackAuthor)
     {
-        $this->feedback_author->removeElement($feedbackAuthor);
+        $this->feedbackAuthor->removeElement($feedbackAuthor);
     }
 
     /**
@@ -465,7 +468,7 @@ class User extends BaseUser
      */
     public function getFeedbackAuthor()
     {
-        return $this->feedback_author;
+        return $this->feedbackAuthor;
     }
 
     /**
@@ -477,7 +480,7 @@ class User extends BaseUser
      */
     public function addFeedbackTo(\AppBundle\Entity\Feedback $feedbackTo)
     {
-        $this->feedback_to[] = $feedbackTo;
+        $this->feedbackTo[] = $feedbackTo;
 
         return $this;
     }
@@ -489,7 +492,7 @@ class User extends BaseUser
      */
     public function removeFeedbackTo(\AppBundle\Entity\Feedback $feedbackTo)
     {
-        $this->feedback_to->removeElement($feedbackTo);
+        $this->feedbackTo->removeElement($feedbackTo);
     }
 
     /**
@@ -499,6 +502,6 @@ class User extends BaseUser
      */
     public function getFeedbackTo()
     {
-        return $this->feedback_to;
+        return $this->feedbackTo;
     }
 }

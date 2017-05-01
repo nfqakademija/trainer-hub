@@ -12,8 +12,15 @@ use AppBundle\Entity\Category;
 use AppBundle\Entity\Training;
 use Faker\Factory;
 
+/**
+ * Class LoadCities
+ * @package AppBundle\DataFixtures\ORM
+ */
 class LoadUserData extends Controller implements FixtureInterface
 {
+    /**
+     * @param ObjectManager $manager
+     */
     public function load(ObjectManager $manager)
     {
         $userClient = new User();
@@ -26,7 +33,17 @@ class LoadUserData extends Controller implements FixtureInterface
         $userClient->setName('Aurimas');
         $userClient->setSurname('Vanagas');
         $userClient->setPhone('869999999');
-        $userClient->setDescription('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages/');
+        $userTrainer->setDescription('Lorem Ipsum is simply dummy 
+            text of the printing and typesetting industry. 
+            Lorem Ipsum has been the industry\'s standard dummy 
+            text ever since the 1500s, when an unknown printer 
+            took a galley of type and scrambled it to make a 
+            type specimen book. It has survived not only 
+            five centuries, but also the leap into 
+            electronic typesetting, remaining 
+            essentially unchanged. It was popularised 
+            in the 1960s with the release of Letraset 
+            sheets containing Lorem Ipsum passages/');
        // $userClient->setAvatar('658b645d80c5789389a771cd340ee798.png');
 
         $manager->persist($userClient);
@@ -43,7 +60,17 @@ class LoadUserData extends Controller implements FixtureInterface
         $userTrainer->setName('Aurimas');
         $userTrainer->setSurname('Vanagas');
         $userTrainer->setPhone('869999999');
-        $userTrainer->setDescription('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages/');
+        $userTrainer->setDescription('Lorem Ipsum is simply dummy 
+            text of the printing and typesetting industry. 
+            Lorem Ipsum has been the industry\'s standard dummy 
+            text ever since the 1500s, when an unknown printer 
+            took a galley of type and scrambled it to make a 
+            type specimen book. It has survived not only 
+            five centuries, but also the leap into 
+            electronic typesetting, remaining 
+            essentially unchanged. It was popularised 
+            in the 1960s with the release of Letraset 
+            sheets containing Lorem Ipsum passages/');
        // $userTrainer->setAvatar('658b645d80c5789389a771cd340ee798.png');
         $manager->persist($userTrainer);
         $manager->flush();
@@ -58,7 +85,17 @@ class LoadUserData extends Controller implements FixtureInterface
         $userTrainer->setName('Marek');
         $userTrainer->setSurname('Zavoronok');
         $userTrainer->setPhone('869999999');
-        $userTrainer->setDescription('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages/');
+        $userTrainer->setDescription('Lorem Ipsum is simply dummy 
+            text of the printing and typesetting industry. 
+            Lorem Ipsum has been the industry\'s standard dummy 
+            text ever since the 1500s, when an unknown printer 
+            took a galley of type and scrambled it to make a 
+            type specimen book. It has survived not only 
+            five centuries, but also the leap into 
+            electronic typesetting, remaining 
+            essentially unchanged. It was popularised 
+            in the 1960s with the release of Letraset 
+            sheets containing Lorem Ipsum passages/');
        // $userTrainer->setAvatar('63e3264cd41e7e79e5e86dab50ac22d5.png');
         $manager->persist($userTrainer);
         $manager->flush();
@@ -73,78 +110,96 @@ class LoadUserData extends Controller implements FixtureInterface
         $userTrainer->setName('Marek');
         $userTrainer->setSurname('Zavoronok');
         $userTrainer->setPhone('869999999');
-        $userTrainer->setDescription('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages/');
+        $userTrainer->setDescription('Lorem Ipsum is simply dummy 
+            text of the printing and typesetting industry. 
+            Lorem Ipsum has been the industry\'s standard dummy 
+            text ever since the 1500s, when an unknown printer 
+            took a galley of type and scrambled it to make a 
+            type specimen book. It has survived not only 
+            five centuries, but also the leap into 
+            electronic typesetting, remaining 
+            essentially unchanged. It was popularised 
+            in the 1960s with the release of Letraset 
+            sheets containing Lorem Ipsum passages/');
        // $userTrainer->setAvatar('63e3264cd41e7e79e5e86dab50ac22d5.png');
 
         $manager->persist($userTrainer);
         $manager->flush();
-            $cities_array = array();
-                if (($handle = fopen(__DIR__."/cities.csv", "r")) !== false) {
-                while (($data = fgetcsv($handle, null, ",")) !== false) {
-                    $cities_array[] = $data[1];
+            $citiesArray = array();
+        if (($handle = fopen(__DIR__."/cities.csv", "r")) !== false) {
+            while (($data = fgetcsv($handle, null, ",")) !== false) {
+                $citiesArray[] = $data[1];
                    // $manager->persist($city);
-                    //$manager->flush();
-                }
-                fclose($handle);
+                //$manager->flush();
             }
+            fclose($handle);
+        }
            $faker = Factory::create();
-            for ($i=0; $i < 100; $i++) {
-                $userTrainer = new User();
-                $userTrainer->setUsername($faker->userName);
-                $userTrainer->setPlainPassword($faker->password);
-                $userTrainer->setEmail($faker->email);
-                $userTrainer->setEnabled(true);
-                $randomKey = array_rand($cities_array);
-                $randomCity = $cities_array[$randomKey];
-                $userTrainer->setRoles(array('ROLE_TRAINER'));
-                $userTrainer->setCity($randomCity);
-                $userTrainer->setName($faker->name);
-                $userTrainer->setSurname('Zavoronok');
-                $userTrainer->setPhone('869999999');
-                $userTrainer->setDescription('Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages/');
-                $manager->persist($userTrainer);
-                $manager->flush();
-            } 
+        for ($i = 0; $i < 100; $i++) {
+            $userTrainer = new User();
+            $userTrainer->setUsername($faker->userName);
+            $userTrainer->setPlainPassword($faker->password);
+            $userTrainer->setEmail($faker->email);
+            $userTrainer->setEnabled(true);
+            $randomKey = array_rand($citiesArray);
+            $randomCity = $citiesArray[$randomKey];
+            $userTrainer->setRoles(array('ROLE_TRAINER'));
+            $userTrainer->setCity($randomCity);
+            $userTrainer->setName($faker->name);
+            $userTrainer->setSurname('Zavoronok');
+            $userTrainer->setPhone('869999999');
+            $userTrainer->setDescription('Lorem Ipsum is simply dummy 
+            text of the printing and typesetting industry. 
+            Lorem Ipsum has been the industry\'s standard dummy 
+            text ever since the 1500s, when an unknown printer 
+            took a galley of type and scrambled it to make a 
+            type specimen book. It has survived not only 
+            five centuries, but also the leap into 
+            electronic typesetting, remaining 
+            essentially unchanged. It was popularised 
+            in the 1960s with the release of Letraset 
+            sheets containing Lorem Ipsum passages/');
+            $manager->persist($userTrainer);
+            $manager->flush();
+        }
             $em = $this->getDoctrine()->getManager();
             $users = $em->getRepository(User::class);
             $cities = $em->getRepository(City::class);
             $categories = $em->getRepository(Category::class);
-            if (($handle = fopen(__DIR__."/cities.csv", "r")) !== false) {
-                while (($data = fgetcsv($handle, null, ",")) !== false) {
-                    $cities_array[] = $data[1];
-                   // $manager->persist($city);
-                    //$manager->flush();
-                }
-                fclose($handle);
+        if (($handle = fopen(__DIR__."/cities.csv", "r")) !== false) {
+            while (($data = fgetcsv($handle, null, ",")) !== false) {
+                $citiesArray[] = $data[1];
+               // $manager->persist($city);
+                //$manager->flush();
             }
+            fclose($handle);
+        }
             $cities1 = $cities->findAll();
             $users1 = $users->findAll();
             $categories1 = $categories->findAll();
-            foreach ($cities1 as $city) {
-                $cities_ids[] = $city->getId();
-            }
-            foreach ($users1 as $user) {
-                $users_ids[] = $user->getId();
-            }
-            foreach ($categories1 as $category) {
-                $categories_ids[] = $category->getId();
-            }
+        foreach ($cities1 as $city) {
+            $citiesIds[] = $city->getId();
+        }
+        foreach ($users1 as $user) {
+            $usersIds[] = $user->getId();
+        }
+        foreach ($categories1 as $category) {
+            $categoriesIds[] = $category->getId();
+        }
 
 
             $faker = Factory::create();
-            for ($i = 0; $i < 200; $i++) {
-
-                $training = new Training();
-                $training->setTitle($faker->word);
-                $training->setPrice($faker->biasedNumberBetween($min = 10, $max = 100, $function = 'sqrt'));
-                $training->setDescription($faker->text);
-                $training->setDate($faker->dateTime());
-                $training->setFosUser($users->find(rand(min($users_ids), max($users_ids))));
-                $training->setCategory($categories->find(rand(min($categories_ids), max($categories_ids))));
-                $training->setCity($cities->find(rand(min($cities_ids), max($cities_ids))));
-                $manager->persist($training);
-                $manager->flush();
-            }
-
+        for ($i = 0; $i < 200; $i++) {
+            $training = new Training();
+            $training->setTitle($faker->word);
+            $training->setPrice($faker->biasedNumberBetween($min = 10, $max = 100, $function = 'sqrt'));
+            $training->setDescription($faker->text);
+            $training->setDate($faker->dateTime());
+            $training->setFosUser($users->find(rand(min($usersIds), max($usersIds))));
+            $training->setCategory($categories->find(rand(min($categoriesIds), max($categoriesIds))));
+            $training->setCity($cities->find(rand(min($citiesIds), max($citiesIds))));
+            $manager->persist($training);
+            $manager->flush();
+        }
     }
 }

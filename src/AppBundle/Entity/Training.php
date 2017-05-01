@@ -54,7 +54,7 @@ class Training
      * @ORM\ManyToOne(targetEntity="User", inversedBy="training")
      * @ORM\JoinColumn(name="trainer_id", referencedColumnName="id")
      */
-    private $fos_user;
+    private $fosUser;
 
     /**
      * @ORM\OneToMany(targetEntity="Reservations", mappedBy="training", cascade={"persist"})
@@ -82,7 +82,9 @@ class Training
     {
         return $this->id;
     }
-
+    /**
+    *  One to many relation array
+    */
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
@@ -193,7 +195,7 @@ class Training
      */
     public function setFosUser(\AppBundle\Entity\User $fosUser = null)
     {
-        $this->fos_user = $fosUser;
+        $this->fosUser = $fosUser;
 
         return $this;
     }
@@ -205,7 +207,7 @@ class Training
      */
     public function getFosUser()
     {
-        return $this->fos_user;
+        return $this->fosUser;
     }
 
     /**
@@ -289,7 +291,12 @@ class Training
     {
         return $this->city;
     }
-    public function __toString() {
+    /**
+    *  Convert title to string
+    *  @return string
+    */
+    public function __toString()
+    {
         return $this->title;
     }
 }

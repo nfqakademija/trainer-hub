@@ -11,8 +11,16 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
+/**
+* Generate Profile edit form
+*/
 class ProfileType extends AbstractType
 {
+    /**
+    * @param FormBuilderInterface $builder
+    * @param array                $options
+    * Build the form
+    */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
 
@@ -21,26 +29,26 @@ class ProfileType extends AbstractType
         $builder->add('name', null, [
             'label' => 'Vardas',
             'attr' => [
-                'class' => 'form-control'
-            ]
+                'class' => 'form-control',
+            ],
         ]);
         $builder->add('surname', null, [
             'label' => 'Pavardė',
             'attr' => [
-                'class' => 'form-control'
-            ]
+                'class' => 'form-control',
+            ],
         ]);
         $builder->add('city', null, [
             'label' => 'Miestas',
             'attr' => [
-                'class' => 'form-control'
-            ]
+                'class' => 'form-control',
+            ],
         ]);
         $builder->add('phone', null, [
             'label' => 'Telefonas',
             'attr' => [
-                'class' => 'form-control'
-            ]
+                'class' => 'form-control',
+            ],
         ]);
         if (in_array('ROLE_TRAINER', $options['role'])) {
             $builder->add(
@@ -50,33 +58,45 @@ class ProfileType extends AbstractType
                     'label' => 'Nuotrauka',
                     'data_class' => null,
                     'allow_delete' => false,
-                    'download_link' => false
+                    'download_link' => false,
                 )
             );
             $builder->add('description', TextareaType::class, [
                 'label' => 'Aprašymas',
                 'attr' => [
-                    'class' => 'form-control'
-                ]
+                    'class' => 'form-control',
+                ],
             ]);
             $builder->add('birthday', BirthdayType::class, [
-                'label' => 'Gimimo data'
+                'label' => 'Gimimo data',
             ]);
         }
     }
+    /**
+    * @param OptionsResolver $resolver
+    * Form options
+    */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => User::class,
-            'role' => 'ROLE_USER'
+            'role' => 'ROLE_USER',
         ));
     }
 
+    /**
+    * Get parent form
+    * @return string
+    */
     public function getParent()
     {
         return 'FOS\UserBundle\Form\Type\ProfileFormType';
     }
 
+    /**
+    * Get block prefix
+    * @return string
+    */
     public function getBlockPrefix()
     {
         return 'app_user_profile';

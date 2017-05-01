@@ -107,10 +107,12 @@ class City
     {
         return $this->training;
     }
-
+    /**
+    * Convert to string
+    * @return string
+    */
     public function __toString()
     {
         return (string) $this->title;
     }
-    
 }

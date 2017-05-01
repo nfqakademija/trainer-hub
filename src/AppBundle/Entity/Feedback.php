@@ -28,15 +28,33 @@ class Feedback
      */
     private $feedback;
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="feedback_author")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="feedbackAuthor")
      * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
      */
-    private $fos_user_author;
+    private $fosUserAuthor;
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="feedback_to")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="feedbackTo")
      * @ORM\JoinColumn(name="object_id", referencedColumnName="id")
      */
-    private $fos_user_object;
+    private $fosUserObject;
+
+    /**
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+    */
+    private $createdAt;
+    /**
+     * @ORM\Column(name="rating", type="integer", nullable=false)
+    */
+    private $rating;
+
+    /**
+    *  Create created variable
+    */
+    public function __construct()
+    {
+
+        $this->createdAt = new \DateTime("now");
+    }
 
     /**
      * Get id
@@ -81,7 +99,7 @@ class Feedback
      */
     public function setFosUserAuthor(\AppBundle\Entity\User $fosUserAuthor = null)
     {
-        $this->fos_user_author = $fosUserAuthor;
+        $this->fosUserAuthor = $fosUserAuthor;
 
         return $this;
     }
@@ -93,7 +111,7 @@ class Feedback
      */
     public function getFosUserAuthor()
     {
-        return $this->fos_user_author;
+        return $this->fosUserAuthor;
     }
 
     /**
@@ -105,7 +123,7 @@ class Feedback
      */
     public function setFosUserObject(\AppBundle\Entity\User $fosUserObject = null)
     {
-        $this->fos_user_object = $fosUserObject;
+        $this->fosUserObject = $fosUserObject;
 
         return $this;
     }
@@ -117,6 +135,55 @@ class Feedback
      */
     public function getFosUserObject()
     {
-        return $this->fos_user_object;
+        return $this->fosUserObject;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return datetime
+     */
+    public function getCreatedAt()
+    {
+
+        return $this->createdAt;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return Feedback
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Set rating
+     *
+     * @param integer $rating
+     *
+     * @return Feedback
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+
+        return $this;
+    }
+
+    /**
+     * Get rating
+     *
+     * @return integer
+     */
+    public function getRating()
+    {
+        return $this->rating;
     }
 }

@@ -1,0 +1,10 @@
+language: php
+php:
+    - '7.1'
+before_script: 
+    - cp app/config/parameters.yml.dist app/config/parameters.yml
+    - composer install
+services:
+    - mysql
+script:
+    - vendor/bin/phpcs -p --standard=PSR2 --extensions=php ./src

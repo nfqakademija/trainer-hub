@@ -8,22 +8,37 @@ use AppBundle\Entity\Feedback;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
+/**
+* Generate Feedback form on trainer page
+*/
 class FeedbackType extends AbstractType
 {
+    /**
+    * @param FormBuilderInterface $builder
+    * @param array                $options
+    * Build the form
+    */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('rating', RatingType::class, [
+                'constraints' => [
+                    new NotBlank(),
+                ],
+                'label' => 'Įvertinimas',
+            ])
             ->add('feedback', TextareaType::class, [
                 'constraints' => [
                     new NotBlank(),
                     new Length(array(
-                        'max' => 255
+                        'max' => 255,
                     )),
                 ],
-                'label' => 'Palikite atsiliepimą'
+                'label' => 'Atsiliepimas',
             ]);
     }
     /**
@@ -32,7 +47,7 @@ class FeedbackType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Feedback::class
+            'data_class' => Feedback::class,
         ]);
     }
 }
