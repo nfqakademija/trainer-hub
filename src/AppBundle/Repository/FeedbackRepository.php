@@ -18,7 +18,8 @@ class FeedbackRepository extends \Doctrine\ORM\EntityRepository
             ->where('f.fos_user_object = :object_id')
             ->setParameter(':object_id', $user)->getQuery()->getArrayResult();
     }
-    public function findFeedbackByClientAndTrainer($user) {
+    public function findFeedbackByClientAndTrainer($user)
+    {
         return $this->createQueryBuilder('f')
             ->leftJoin('f.fos_user_object', 'u')
             ->addSelect('u')

@@ -112,5 +112,4 @@ class City
     {
         return (string) $this->title;
     }
-    
 }

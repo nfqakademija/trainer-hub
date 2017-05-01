@@ -2,26 +2,29 @@
 
 namespace AppBundle\Services;
 
-class RatingAverager {
+class RatingAverager
+{
 
-	private $trainersRepo;
+    private $trainersRepo;
 
-    public function __construct(\AppBundle\Repository\UserRepository $repo) {
+    public function __construct(\AppBundle\Repository\UserRepository $repo)
+    {
         $this->trainersRepo = $repo;
     }
 
-    public function average($trainers) {
-    	foreach ($trainers as $trainer) {
-    		$feedbacks = $trainer['feedback_to'];
-    		if (isset($feedbacks) && !empty($feedbacks)) {
-	    		foreach ($feedbacks as $feedback) {
-	    			$ratingsArray[] = $feedback['rating'];
-	    		}
-	    		$trainer['rating'] = round((array_sum($ratingsArray) / count($ratingsArray)), 2);
-	    		$ratingsArray = [];
-    		}
-    		$trainersNew[] = $trainer;
-    	}
-    	return $trainersNew;
+    public function average($trainers)
+    {
+        foreach ($trainers as $trainer) {
+            $feedbacks = isset($trainer['feedback_to'])?$trainer['feedback_to']:'';
+            if (isset($feedbacks) && !empty($feedbacks)) {
+                foreach ($feedbacks as $feedback) {
+                    $ratingsArray[] = $feedback['rating'];
+                }
+                $trainer['rating'] = round((array_sum($ratingsArray) / count($ratingsArray)), 2);
+                $ratingsArray = [];
+            }
+            $trainersNew[] = $trainer;
+        }
+        return $trainersNew;
     }
 }

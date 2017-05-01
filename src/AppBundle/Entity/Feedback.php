@@ -52,10 +52,10 @@ class Feedback
      * @return int
      */
 
-    public function __construct() {
+    public function __construct()
+    {
 
         $this->createdAt = new \DateTime("now");
-
     }
 
     public function getId()
@@ -140,10 +140,10 @@ class Feedback
      *
      * @return datetime
      */
-    public function getCreatedAt() {
+    public function getCreatedAt()
+    {
 
         return $this->createdAt;
-
     }
 
     /**

@@ -30,7 +30,8 @@ class TrainingRepository extends EntityRepository
             ->select('ca.title')
             ->getQuery()->getArrayResult();
     }
-    public function findCities() {
+    public function findCities()
+    {
         return $this->createQueryBuilder('t')
             ->leftJoin('t.city', 'ci')
             ->addSelect('ci')

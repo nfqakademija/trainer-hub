@@ -37,7 +37,8 @@ class UserRepository extends EntityRepository
             ->where('u.usernameCanonical = :username')
             ->setParameter(':username', $username)->getQuery()->getSingleResult();
     }
-    public function filterBoth($category, $city) {
+    public function filterBoth($category, $city)
+    {
         return $this->createQueryBuilder('u')
             ->leftJoin('u.training', 't')
             ->addSelect('t')
@@ -49,7 +50,8 @@ class UserRepository extends EntityRepository
             ->setParameters(['category' => $category, 'city' => $city])
             ->getQuery()->getArrayResult();
     }
-    public function filterByCity($city) {
+    public function filterByCity($city)
+    {
         return $this->createQueryBuilder('u')
             ->leftJoin('u.training', 't')
             ->addSelect('t')
@@ -61,7 +63,8 @@ class UserRepository extends EntityRepository
             ->setParameter(':city', $city)
             ->getQuery()->getArrayResult();
     }
-    public function filterByCategory($category) {
+    public function filterByCategory($category)
+    {
         return $this->createQueryBuilder('u')
             ->leftJoin('u.training', 't')
             ->addSelect('t')

@@ -19,7 +19,7 @@ class DefaultController extends Controller
     public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
-        $trainingsRepo = $em->getRepository(Training::class);     
+        $trainingsRepo = $em->getRepository(Training::class);
         $trainersRepo = $em->getRepository(User::class);
         $trainingsRepo = $em->getRepository(Training::class);
 
