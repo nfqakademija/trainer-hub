@@ -13,11 +13,14 @@ use AppBundle\Entity\Training;
  */
 class UserRepository extends EntityRepository
 {
-    public function findByRoles($role)
+    public function findByRolesWithFeedbacks($role)
     {
 
-        return $this->createQueryBuilder('u')->where('u.roles LIKE :role')
-            ->setParameter(':role', '%"'.$role.'"%')->getQuery();
+        return $this->createQueryBuilder('u')
+            ->leftJoin('u.feedback_to', 'f')
+            ->addSelect('f')
+            ->where('u.roles LIKE :role')
+            ->setParameter(':role', '%"'.$role.'"%')->getQuery()->getArrayResult();
     }
 
     public function findWithTrainings($user)

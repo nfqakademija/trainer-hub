@@ -39,10 +39,25 @@ class Feedback
     private $fos_user_object;
 
     /**
+     * @ORM\Column(name="created_at", type="datetime", nullable=true)
+    */
+    private $createdAt;
+    /**
+     * @ORM\Column(name="rating", type="integer", nullable=false)
+    */
+    private $rating;
+    /**
      * Get id
      *
      * @return int
      */
+
+    public function __construct() {
+
+        $this->createdAt = new \DateTime("now");
+
+    }
+
     public function getId()
     {
         return $this->id;
@@ -118,5 +133,54 @@ class Feedback
     public function getFosUserObject()
     {
         return $this->fos_user_object;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return datetime
+     */
+    public function getCreatedAt() {
+
+        return $this->createdAt;
+
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return Feedback
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Set rating
+     *
+     * @param integer $rating
+     *
+     * @return Feedback
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+
+        return $this;
+    }
+
+    /**
+     * Get rating
+     *
+     * @return integer
+     */
+    public function getRating()
+    {
+        return $this->rating;
     }
 }

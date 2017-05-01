@@ -15,7 +15,7 @@ html, body {
     margin:0;
     padding:0;
 }
-.trainers {
+.trainers, .wrapper > .container:nth-child(2), .wrapper > form:nth-child(2) {
     position: relative;
     padding-bottom: 188px;
 }
@@ -28,9 +28,10 @@ footer {
     height:158px;
     background-color: #cfcfcf;
     position:absolute;
-   bottom:0;
-   width:100%;
+    bottom:0;
+    width:100%;
 }
+
 body {
     height: 100%;
     min-height: 100%;
@@ -590,6 +591,7 @@ form.feedback textarea{
     line-height: 20px;
     padding: 15px;
     position: relative;
+    margin: 0 0 15px;
 }
 .testimonials blockquote::before {
     width: 0;
@@ -617,6 +619,9 @@ form.feedback textarea{
     border-width: 20px 20px 0 0;
     border-color: #56c6c6 transparent transparent transparent;
 }
+.testimonials .carousel-info {
+    margin-bottom: 50px;
+}
 .testimonials .carousel-info img {
     border: 1px solid #f5f5f5;
     border-radius: 150px !important;
@@ -633,11 +638,10 @@ form.feedback textarea{
 .testimonials .carousel-info span {
     display: block;
 }
-.testimonials span.testimonials-name {
+.testimonials span.testimonials-name, span.testimonials-date {
     color: #000;
     font-size: 16px;
     font-weight: 300;
-    margin: 23px 0 7px;
 }
 .testimonials span.testimonials-post {
     color: #656565;
@@ -822,4 +826,91 @@ ul {
     padding: 6px 14px;
     border-color: #56c6c6;
     width: auto;
+}
+/* Stars */
+.acidjs-rating-stars,
+.acidjs-rating-stars label::before
+{
+    display: inline-block;
+}
+
+.acidjs-rating-stars label:hover,
+.acidjs-rating-stars label:hover ~ label
+{
+    color: #189800;
+}
+ 
+.acidjs-rating-stars *
+{
+    margin: 0;
+    padding: 0;
+}
+ 
+.acidjs-rating-stars input
+{
+    display: none;
+}
+ 
+.acidjs-rating-stars
+{
+    unicode-bidi: bidi-override;
+    direction: rtl;
+}
+ 
+.acidjs-rating-stars label
+{
+    color: #ccc;
+}
+ 
+.acidjs-rating-stars label::before, .acidjs-rating-stars span::before
+{
+    display: inline;
+    content: "\2605";
+    width: 100%;
+    line-height: 18px;
+    text-align: center;
+    font-size: 50px;
+    cursor: pointer;
+    
+}
+ 
+.acidjs-rating-stars input:checked ~ label
+{
+    color: #f5b301;
+}
+ 
+.acidjs-rating-disabled
+{
+    opacity: .50;    
+    -webkit-pointer-events: none;
+    -moz-pointer-events: none;
+    pointer-events: none;
+}
+.acidjs-rating-stars span.checked {
+    color: #f5b301;
+}
+.acidjs-rating-stars span.no-checked {
+    color: #ccc;
+    float: right;
+
+}
+.acidjs-rating-stars.homepage {
+    direction: ltr;
+}
+.acidjs-rating-stars span:before {
+    font-size: 25px;
+    cursor: default;
+}
+.acidjs-rating-stars span.checked.homepage {
+    float: none;
+}
+.acidjs-rating-stars.homepage span.rating-value::before {
+    content: "";
+}
+.acidjs-rating-stars.homepage span.rating-value {
+    color: #f5b301;
+}
+.card .pull-right {
+    padding-right: 10px;
+    padding-top: 10px;
 }

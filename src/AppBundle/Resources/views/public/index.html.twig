@@ -40,11 +40,21 @@
                 <div class="card col-md-3"><a href="trainer/{{ trainer.usernameCanonical }}">
 
                     <img src="{{ asset('media/cache/my_heighten_filter/uploads/avatars/' ~ trainer.avatarName ) }}" style="width:100%;"/>
-                        <h4><b>{{ trainer.name }}</b></h4>
-                        <p>{{ trainer.city }}</p>
-
+                        <div class="pull-left">
+                            <h4><b>{{ trainer.name }}</b></h4>
+                            <p>{{ trainer.city }}</p>
+                        </div>
+                        <div class="pull-right">
+                            <div class="acidjs-rating-stars homepage">
+                                {% if trainer.rating is defined %}
+                                    <span class="checked homepage"></span><span class="rating-value">{{ trainer.rating }}</span>
+                                {% else %}
+                                    <span class="checked homepage"></span><span class="rating-value">0</span>
+                                {% endif %}
+                            </div>
+                        </div>  
                 </a></div>
-                {% if counter is divisible by(4) %}
+                {% if counter is divisible by(4) or loop.last %}
 
                    {% set counter = 0 %}
                     </div>

@@ -16,3 +16,14 @@ services:
         class: AppBundle\Form\Type\RegistrationType
         tags:
             - {name: form.type, alias: app_user_registration }
+    user_repository:
+        class: Doctrine\ORM\EntityRepository
+        factory: ["@doctrine.orm.entity_manager", getRepository]
+        arguments:
+            - AppBundle\Entity\User
+    filter:
+        class: AppBundle\Services\TrainersFilter
+        arguments: ['@user_repository']
+    average:
+        class: AppBundle\Services\RatingAverager
+        arguments: ['@user_repository']

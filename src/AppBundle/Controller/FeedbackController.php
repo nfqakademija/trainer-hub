@@ -19,7 +19,7 @@ class FeedbackController extends Controller
             $feedback = $repo->findFeedbackByTrainer($this->getUser());
         }
         if (false === $this->get('security.authorization_checker')->isGranted('ROLE_TRAINER')) {
-            $feedback = $repo->findFeedbackByClient($this->getUser());
+            $feedback = $repo->findFeedbackByClientAndTrainer($this->getUser());
         }
 
         return $this->render('@App/trainer/profileFeedbacks.html.twig', [
