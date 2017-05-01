@@ -17,40 +17,48 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
+/**
+* Generate new training form
+*/
 class TrainingType extends AbstractType
 {
+    /**
+    * @param FormBuilderInterface $builder
+    * @param array                $options
+    * Build the form
+    */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('title', TextType::class, [
                 'constraints' => [
-                    new NotBlank()
+                    new NotBlank(),
                 ],
-                'label' => 'Pavadinimas'
+                'label' => 'Pavadinimas',
             ])
             ->add('price', MoneyType::class, [
                 'constraints' => [
-                    new NotBlank()
+                    new NotBlank(),
                 ],
-                'label' => 'Kaina'
+                'label' => 'Kaina',
             ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
-                'label' => 'Kategorija'
+                'label' => 'Kategorija',
             ])
             ->add('city', EntityType::class, [
                 'class' => City::class,
-                'label' => 'Miestas'
+                'label' => 'Miestas',
             ])
             ->add('description', TextareaType::class, [
                 'constraints' => [
                     new NotBlank(),
                     new Length(array(
-                        'max' => 255
+                        'max' => 255,
                     )),
 
                 ],
-                'label' => 'Aprašymas'
+                'label' => 'Aprašymas',
             ]);
     }
 
@@ -60,7 +68,7 @@ class TrainingType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Training::class
+            'data_class' => Training::class,
         ]);
     }
 }

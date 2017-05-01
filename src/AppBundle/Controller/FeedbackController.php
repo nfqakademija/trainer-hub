@@ -6,6 +6,10 @@ use AppBundle\Entity\Feedback;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
+/**
+ * Class FeedbackController
+ * @package AppBundle\Controller;
+ */
 class FeedbackController extends Controller
 {
     /**

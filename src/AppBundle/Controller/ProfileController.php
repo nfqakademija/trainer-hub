@@ -34,7 +34,10 @@ use Symfony\Component\HttpFoundation\File\File;
  */
 class ProfileController extends Controller
 {
-
+    /**
+    * @param Request $request
+    * @return \Symfony\Component\HttpFoundation\Response
+    */
     public function editAction(Request $request)
     {
         $user = $this->getUser();

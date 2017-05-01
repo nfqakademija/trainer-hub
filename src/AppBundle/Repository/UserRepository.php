@@ -13,16 +13,24 @@ use AppBundle\Entity\Training;
  */
 class UserRepository extends EntityRepository
 {
+    /**
+    * Query to select trainers with feedbacks
+    * @param Role $role
+    * @return array
+    */
     public function findByRolesWithFeedbacks($role)
     {
-
         return $this->createQueryBuilder('u')
-            ->leftJoin('u.feedback_to', 'f')
+            ->leftJoin('u.feedbackTo', 'f')
             ->addSelect('f')
             ->where('u.roles LIKE :role')
             ->setParameter(':role', '%"'.$role.'"%')->getQuery()->getArrayResult();
     }
-
+    /**
+    * Query to select trainers with trainings
+    * @param User $user
+    * @return array
+    */
     public function findWithTrainings($user)
     {
         $username = $user['username'];
@@ -37,6 +45,12 @@ class UserRepository extends EntityRepository
             ->where('u.usernameCanonical = :username')
             ->setParameter(':username', $username)->getQuery()->getSingleResult();
     }
+    /**
+    * Query to filter trainers by city and category
+    * @param Category $category
+    * @param City     $city
+    * @return array
+    */
     public function filterBoth($category, $city)
     {
         return $this->createQueryBuilder('u')
@@ -50,6 +64,11 @@ class UserRepository extends EntityRepository
             ->setParameters(['category' => $category, 'city' => $city])
             ->getQuery()->getArrayResult();
     }
+    /**
+    * Query to filter trainers by city
+    * @param City $city
+    * @return array
+    */
     public function filterByCity($city)
     {
         return $this->createQueryBuilder('u')
@@ -63,6 +82,11 @@ class UserRepository extends EntityRepository
             ->setParameter(':city', $city)
             ->getQuery()->getArrayResult();
     }
+    /**
+    * Query to filter trainers by category
+    * @param Category $category
+    * @return array
+    */
     public function filterByCategory($category)
     {
         return $this->createQueryBuilder('u')

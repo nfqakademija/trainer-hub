@@ -26,4 +26,4 @@ services:
         arguments: ['@user_repository']
     average:
         class: AppBundle\Services\RatingAverager
-        arguments: ['@user_repository']
+        arguments: ['']

@@ -30,7 +30,7 @@ class Reservations
      * @ORM\ManyToOne(targetEntity="User", inversedBy="reservations")
      * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
      */
-    private $fos_user;
+    private $fosUser;
     /**
      * @ORM\ManyToOne(targetEntity="Training", inversedBy="reservations")
      * @ORM\JoinColumn(name="training_id", referencedColumnName="id")
@@ -79,7 +79,7 @@ class Reservations
      */
     public function setFosUser(\AppBundle\Entity\User $fosUser = null)
     {
-        $this->fos_user = $fosUser;
+        $this->fosUser = $fosUser;
 
         return $this;
     }
@@ -91,7 +91,7 @@ class Reservations
      */
     public function getFosUser()
     {
-        return $this->fos_user;
+        return $this->fosUser;
     }
 
     /**

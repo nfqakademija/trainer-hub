@@ -12,8 +12,15 @@ use AppBundle\Entity\Category;
 use AppBundle\Entity\Training;
 use Faker\Factory;
 
+/**
+ * Class LoadCities
+ * @package AppBundle\DataFixtures\ORM
+ */
 class LoadUserData extends Controller implements FixtureInterface
 {
+    /**
+     * @param ObjectManager $manager
+     */
     public function load(ObjectManager $manager)
     {
         $userClient = new User();
@@ -118,24 +125,24 @@ class LoadUserData extends Controller implements FixtureInterface
 
         $manager->persist($userTrainer);
         $manager->flush();
-            $cities_array = array();
+            $citiesArray = array();
         if (($handle = fopen(__DIR__."/cities.csv", "r")) !== false) {
             while (($data = fgetcsv($handle, null, ",")) !== false) {
-                $cities_array[] = $data[1];
+                $citiesArray[] = $data[1];
                    // $manager->persist($city);
                 //$manager->flush();
             }
             fclose($handle);
         }
            $faker = Factory::create();
-        for ($i=0; $i < 100; $i++) {
+        for ($i = 0; $i < 100; $i++) {
             $userTrainer = new User();
             $userTrainer->setUsername($faker->userName);
             $userTrainer->setPlainPassword($faker->password);
             $userTrainer->setEmail($faker->email);
             $userTrainer->setEnabled(true);
-            $randomKey = array_rand($cities_array);
-            $randomCity = $cities_array[$randomKey];
+            $randomKey = array_rand($citiesArray);
+            $randomCity = $citiesArray[$randomKey];
             $userTrainer->setRoles(array('ROLE_TRAINER'));
             $userTrainer->setCity($randomCity);
             $userTrainer->setName($faker->name);
@@ -161,7 +168,7 @@ class LoadUserData extends Controller implements FixtureInterface
             $categories = $em->getRepository(Category::class);
         if (($handle = fopen(__DIR__."/cities.csv", "r")) !== false) {
             while (($data = fgetcsv($handle, null, ",")) !== false) {
-                $cities_array[] = $data[1];
+                $citiesArray[] = $data[1];
                // $manager->persist($city);
                 //$manager->flush();
             }
@@ -171,13 +178,13 @@ class LoadUserData extends Controller implements FixtureInterface
             $users1 = $users->findAll();
             $categories1 = $categories->findAll();
         foreach ($cities1 as $city) {
-            $cities_ids[] = $city->getId();
+            $citiesIds[] = $city->getId();
         }
         foreach ($users1 as $user) {
-            $users_ids[] = $user->getId();
+            $usersIds[] = $user->getId();
         }
         foreach ($categories1 as $category) {
-            $categories_ids[] = $category->getId();
+            $categoriesIds[] = $category->getId();
         }
 
 
@@ -188,9 +195,9 @@ class LoadUserData extends Controller implements FixtureInterface
             $training->setPrice($faker->biasedNumberBetween($min = 10, $max = 100, $function = 'sqrt'));
             $training->setDescription($faker->text);
             $training->setDate($faker->dateTime());
-            $training->setFosUser($users->find(rand(min($users_ids), max($users_ids))));
-            $training->setCategory($categories->find(rand(min($categories_ids), max($categories_ids))));
-            $training->setCity($cities->find(rand(min($cities_ids), max($cities_ids))));
+            $training->setFosUser($users->find(rand(min($usersIds), max($usersIds))));
+            $training->setCategory($categories->find(rand(min($categoriesIds), max($categoriesIds))));
+            $training->setCity($cities->find(rand(min($citiesIds), max($citiesIds))));
             $manager->persist($training);
             $manager->flush();
         }

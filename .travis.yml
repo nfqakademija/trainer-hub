@@ -2,5 +2,7 @@ language: php
 php:
     - '7.1'
 before_script: composer install
+services:
+    - mysql
 script:
-    - vendor/bin/phpcs -p --standard=PSR2 --extensions=php ./src
+    - vendor/bin/phpcs -p --standard=Symfony2 --extensions=php ./src

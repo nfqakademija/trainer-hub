@@ -9,6 +9,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use AppBundle\Form\Type\FilterType;
 
+/**
+ * Class DefaultController
+ * @package AppBundle\Controller;
+ */
 class DefaultController extends Controller
 {
     /**
@@ -36,14 +40,13 @@ class DefaultController extends Controller
         $trainers = $trainersFinder->filter();
         $ratingsFinderWithTrainers = $this->get('average');
         $trainersWithRatings = $ratingsFinderWithTrainers->average($trainers);
-
         $paginator = $this->get('knp_paginator');
-       
         $trainersWithRatings = $paginator->paginate(
             $trainersWithRatings, /* query NOT result */
             $request->query->getInt('page', 1)/*page number*/,
             12/*limit per page*/
         );
+
         return $this->render('@App/public/index.html.twig', [
             'trainers' => $trainersWithRatings,
             'cities' => !empty($citiesNew)?array_unique($citiesNew):'',

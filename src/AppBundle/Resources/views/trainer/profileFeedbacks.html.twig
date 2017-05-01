@@ -52,13 +52,13 @@
 
                                     {% if is_granted('ROLE_TRAINER') %}
                                         <div class="pull-right">
-                                            <span class="testimonials-name">{{ feedback.fos_user_author.username }}</span>
+                                            <span class="testimonials-name">{{ feedback.fosUserAuthor.username }}</span>
                                         </div>
                                     {% endif %}
                                     {% if is_granted('ROLE_CLIENT') %}
                                         <div class="pull-left">
-                                            <span class="testimonials-name">Įvertinimas skirtas: <a href="{{ path('trainer_page', {'username': feedback.fos_user_object.username}) }}">
-                                                <i>{{ feedback.fos_user_object.username }}</i></a></span>
+                                            <span class="testimonials-name">Įvertinimas skirtas: <a href="{{ path('trainer_page', {'username': feedback.fosUserObject.username}) }}">
+                                                <i>{{ feedback.fosUserObject.username }}</i></a></span>
                                         </div>
                                     {% endif %}
                                 </div>
