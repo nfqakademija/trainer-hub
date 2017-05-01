@@ -7,4 +7,4 @@ before_script:
 services:
     - mysql
 script:
-    - vendor/bin/phpcs -p --standard=Symfony2 --extensions=php ./src
+    - vendor/bin/phpcs -p --standard=PSR2 --extensions=php ./src
