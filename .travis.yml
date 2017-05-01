@@ -2,7 +2,7 @@ language: php
 php:
     - '7.1'
 before_script: 
-    - cp app/config/parameters.yml.dist app/config/parameters.yml
+    - cp bin/config/parameters.yml.dist bin/config/parameters.yml
     - php bin/console doctrine:database:create --env=test
     - php bin/console doctrine:schema:create --env=test
     - php bin/console doctrine:fixtures:load -n --env=test
