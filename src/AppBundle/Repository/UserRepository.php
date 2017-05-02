@@ -100,7 +100,8 @@ class UserRepository extends EntityRepository
             ->setParameter(':category', $category)
             ->getQuery()->getArrayResult();
     }
-    public function findByRoles($role) {
+    public function findByRoles($role)
+    {
 
         return $this->createQueryBuilder('u')->where('u.roles LIKE :role')
             ->setParameter(':role', '%"'.$role.'"%')->getQuery()->getArrayResult();

@@ -19,7 +19,7 @@ use Faker\Factory;
 class LoadUserData implements FixtureInterface
 {
     /**
-    
+
      * @param ObjectManager $manager
      */
     public function load(ObjectManager $manager)
