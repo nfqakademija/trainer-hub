@@ -9,6 +9,9 @@ use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -59,6 +62,9 @@ class TrainingType extends AbstractType
 
                 ],
                 'label' => 'Aprašymas',
+            ])
+            ->add('trainingTime', CollectionType::class, [
+                'entry_type' => TrainingTimeType::class,
             ]);
     }
 
