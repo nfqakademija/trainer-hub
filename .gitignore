@@ -23,7 +23,6 @@
 .env
 /bower_components/
 *.php~
-phpunit.xml.dist
 .idea
 /web/uploads/*
 !web/uploads/.gitkeep
