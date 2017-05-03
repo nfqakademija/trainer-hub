@@ -2,6 +2,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Training;
+use AppBundle\Entity\TrainingTime;
 use AppBundle\Form\Type\TrainingType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -29,20 +30,25 @@ class TrainingController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $em = $this->get('doctrine.orm.entity_manager');
-            $data = $form -> getData();
-            $date = $data->getDate();
 
-            foreach ($date as $d) {
-                $trainings = clone $training;
+            $user = $this->getUser();
+            $training->setFosUser($user);
 
-                $user = $this->getUser();
-                $trainings->setFosUser($user);
-                $trainings->setDate(new \DateTime($d->format('Y-m-d H:i:s')));
-
-                $em->persist($trainings);
-            }
-
+//            $data = $form -> getData();
+//            $date = $data->getDate();
+//
+//            foreach ($date as $d) {
+//                $trainings = clone $training;
+//
+//                $user = $this->getUser();
+//                $trainings->setFosUser($user);
+//                $trainings->setDate(new \DateTime($d->format('Y-m-d H:i:s')));
+//
+//                $em->persist($trainings);
+//            }
+            $em->persist($training);
             $em->flush();
 
             return $this->redirectToRoute('homepage');

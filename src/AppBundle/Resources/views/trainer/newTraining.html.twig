@@ -28,17 +28,12 @@
                     {{ form_row(trainingForm.category) }}
                     {{ form_row(trainingForm.city) }}
                     {{ form_row(trainingForm.description) }}
-                    <ul id="email-fields-list"
-                        data-prototype="{{ form_widget(trainingForm.date.vars.prototype)|e }}">
-                        {% for dateField in trainingForm.date %}
-                            <li>
-                                {{ form_errors(dateField) }}
-                                {{ form_widget(dateField) }}
-                            </li>
+
+                    <ul class="tags" data-prototype="{{ form_widget(trainingForm.trainingTime.vars.prototype)|e('html_attr') }}">
+                        {% for tag in trainingForm.trainingTime %}
+                            <li>{{ form_row(tag.date) }}</li>
                         {% endfor %}
                     </ul>
-
-                    <a href="#" id="add-another-email">+ Pridėti treniruotės laiką</a>
 
                     {{ form_end(trainingForm) }}
                 </div>
@@ -46,6 +41,7 @@
             </div>
         </div>
     </div>
+
 
 
 {% endblock %}

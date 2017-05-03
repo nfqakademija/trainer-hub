@@ -5,6 +5,7 @@ namespace AppBundle\Form\Type;
 use AppBundle\Entity\Category;
 use AppBundle\Entity\City;
 use AppBundle\Entity\Training;
+use AppBundle\Entity\TrainingTime;
 use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -22,7 +23,7 @@ use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 /**
-* Generate new training form
+* Generate new trainingTime form
 */
 class TrainingType extends AbstractType
 {
@@ -63,17 +64,18 @@ class TrainingType extends AbstractType
                 ],
                 'label' => 'Aprašymas',
             ])
-            ->add('date', CollectionType::class, [
-                'entry_type' => DateTimeType::class,
+            ->add('trainingTime', CollectionType::class, [
+                'entry_type' => TrainingTimeType::class,
                 'allow_add' => true,
                 'prototype' => true,
                 'required' => true,
+                'by_reference' => false,
                 'allow_delete' => true,
                 'delete_empty' => true,
                 'constraints' => [
                   new NotBlank(),
                 ],
-                'label' => 'Data',
+                'label' => false,
             ])
             ->add('Sukurti', SubmitType::class, [
                 'attr' => [
@@ -91,9 +93,6 @@ class TrainingType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Training::class,
-            'attr' => [
-                'class' => 'form-class',
-            ],
         ]);
     }
 }

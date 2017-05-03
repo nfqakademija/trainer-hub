@@ -69,11 +69,9 @@ class Training
     private $city;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="datetime", nullable=true)
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\TrainingTime", mappedBy="training", cascade={"persist"})
      */
-    private $date;
+    private $trainingTime;
 
     /**
      * Get id
@@ -90,7 +88,7 @@ class Training
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
-        $this->date = new ArrayCollection();
+        $this->trainingTime = new ArrayCollection();
     }
 
     /**
@@ -280,26 +278,38 @@ class Training
     }
 
     /**
-     * Set date
+     * Add trainingTime
      *
-     * @param \DateTime $date
+     * @param \AppBundle\Entity\TrainingTime $trainingTime
      *
      * @return Training
      */
-    public function setDate($date)
+    public function addTrainingTime(\AppBundle\Entity\TrainingTime $trainingTime)
     {
-        $this->date = $date;
+        $this->trainingTime[] = $trainingTime;
+
+        $trainingTime->setTraining($this);
 
         return $this;
     }
 
     /**
-     * Get date
+     * Remove trainingTime
      *
-     * @return \DateTime
+     * @param \AppBundle\Entity\TrainingTime $trainingTime
      */
-    public function getDate()
+    public function removeTrainingTime(\AppBundle\Entity\TrainingTime $trainingTime)
     {
-        return $this->date;
+        $this->trainingTime->removeElement($trainingTime);
+    }
+
+    /**
+     * Get trainingTime
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTrainingTime()
+    {
+        return $this->trainingTime;
     }
 }
