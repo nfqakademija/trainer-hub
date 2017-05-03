@@ -24,10 +24,16 @@ class TrainingTime
 
     /**
      * @var \DateTime
-     * @Assert\NotBlank()
-     * @ORM\Column(name="date", type="datetime", nullable=false)
+     * @ORM\Column(name="date", type="datetime")
      */
     private $date;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="number", type="integer", nullable=false)
+     */
+    private $number;
 
     /**
      * @ORM\ManyToOne(targetEntity="Training", inversedBy="trainingTime")
@@ -91,5 +97,29 @@ class TrainingTime
     public function getTraining()
     {
         return $this->training;
+    }
+
+    /**
+     * Set number
+     *
+     * @param integer $number
+     *
+     * @return TrainingTime
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+
+        return $this;
+    }
+
+    /**
+     * Get number
+     *
+     * @return integer
+     */
+    public function getNumber()
+    {
+        return $this->number;
     }
 }

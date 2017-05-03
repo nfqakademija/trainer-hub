@@ -1,10 +1,10 @@
 // setup an "add a tag" link
-var $addTagLink = $('<a href="#" class="add_tag_link">Pridėti naują laiką</a>');
+var $addTagLink = $('<a href="#" class="add_date_link">Pridėti naują laiką</a>');
 var $newLinkLi = $('<li></li>').append($addTagLink);
 
 jQuery(document).ready(function() {
     // Get the ul that holds the collection of tags
-    var $collectionHolder = $('ul.tags');
+    var $collectionHolder = $('ul.date');
 
     // add the "add a tag" anchor and li to the tags ul
     $collectionHolder.append($newLinkLi);
@@ -18,13 +18,13 @@ jQuery(document).ready(function() {
         e.preventDefault();
 
         // add a new tag form (see code block below)
-        addTagForm($collectionHolder, $newLinkLi);
+        addDateForm($collectionHolder, $newLinkLi);
     });
 
 
 });
 
-function addTagForm($collectionHolder, $newLinkLi) {
+function addDateForm($collectionHolder, $newLinkLi) {
     // Get the data-prototype explained earlier
     var prototype = $collectionHolder.data('prototype');
 
@@ -42,12 +42,12 @@ function addTagForm($collectionHolder, $newLinkLi) {
     var $newFormLi = $('<li></li>').append(newForm);
 
     // also add a remove button, just for this example
-    $newFormLi.append('<a href="#" class="remove-tag">x</a>');
+    $newFormLi.append('<a href="#" class="remove-date">x</a>');
 
     $newLinkLi.before($newFormLi);
 
     // handle the removal, just for this example
-    $('.remove-tag').click(function(e) {
+    $('.remove-date').click(function(e) {
         e.preventDefault();
 
         $(this).parent().remove();
