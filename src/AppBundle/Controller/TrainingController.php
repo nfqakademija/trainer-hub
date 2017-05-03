@@ -2,6 +2,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Training;
+use AppBundle\Entity\TrainingTime;
 use AppBundle\Form\Type\TrainingType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -23,11 +24,14 @@ class TrainingController extends Controller
     public function newAction(Request $request)
     {
         $training = new Training();
+
         $form = $this->createForm(TrainingType::class, $training);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->get('doctrine.orm.entity_manager');
+
             $user = $this->getUser();
             $training->setFosUser($user);
 
@@ -59,6 +63,8 @@ class TrainingController extends Controller
             $em = $this->get('doctrine.orm.entity_manager');
             $user = $this->getUser();
             $training->setFosUser($user);
+
+
 
             $em->persist($training);
             $em->flush();

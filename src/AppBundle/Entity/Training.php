@@ -3,7 +3,9 @@
 namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\DBAL\Types\DateTimeType;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * Training
@@ -44,13 +46,6 @@ class Training
     private $description;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="datetime", nullable=true)
-     */
-    private $date;
-
-    /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="training")
      * @ORM\JoinColumn(name="trainer_id", referencedColumnName="id")
      */
@@ -74,6 +69,11 @@ class Training
     private $city;
 
     /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\TrainingTime", mappedBy="training", cascade={"persist"})
+     */
+    private $trainingTime;
+
+    /**
      * Get id
      *
      * @return int
@@ -88,6 +88,7 @@ class Training
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
+        $this->trainingTime = new ArrayCollection();
     }
 
     /**
@@ -160,30 +161,6 @@ class Training
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * Set date
-     *
-     * @param \DateTime $date
-     *
-     * @return Training
-     */
-    public function setDate($date)
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    /**
-     * Get date
-     *
-     * @return \DateTime
-     */
-    public function getDate()
-    {
-        return $this->date;
     }
 
     /**
@@ -298,5 +275,41 @@ class Training
     public function __toString()
     {
         return $this->title;
+    }
+
+    /**
+     * Add trainingTime
+     *
+     * @param \AppBundle\Entity\TrainingTime $trainingTime
+     *
+     * @return Training
+     */
+    public function addTrainingTime(\AppBundle\Entity\TrainingTime $trainingTime)
+    {
+        $this->trainingTime[] = $trainingTime;
+
+        $trainingTime->setTraining($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove trainingTime
+     *
+     * @param \AppBundle\Entity\TrainingTime $trainingTime
+     */
+    public function removeTrainingTime(\AppBundle\Entity\TrainingTime $trainingTime)
+    {
+        $this->trainingTime->removeElement($trainingTime);
+    }
+
+    /**
+     * Get trainingTime
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTrainingTime()
+    {
+        return $this->trainingTime;
     }
 }
