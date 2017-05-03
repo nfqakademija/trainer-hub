@@ -28,14 +28,18 @@
                     {{ form_row(trainingForm.category) }}
                     {{ form_row(trainingForm.city) }}
                     {{ form_row(trainingForm.description) }}
-                        {# iterate over each existing tag and render its only field: name #}
-                        {% for tag in trainingForm.trainingTime %}
-                            {{ form_widget(tag) }}
+                    <ul id="email-fields-list"
+                        data-prototype="{{ form_widget(trainingForm.date.vars.prototype)|e }}">
+                        {% for dateField in trainingForm.date %}
+                            <li>
+                                {{ form_errors(dateField) }}
+                                {{ form_widget(dateField) }}
+                            </li>
                         {% endfor %}
+                    </ul>
 
-                    <div class="form-group">
-                        <input type="submit" value="Sukurti" class="form-control btn btn-login"/>
-                    </div>
+                    <a href="#" id="add-another-email">+ Pridėti treniruotės laiką</a>
+
                     {{ form_end(trainingForm) }}
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-3"></div>
@@ -43,29 +47,6 @@
         </div>
     </div>
 
-    {#<script type="text/javascript">#}
-        {#// keep track of how many email fields have been rendered#}
-        {#var emailCount = '{{ trainingForm.date|length }}';#}
-
-        {#jQuery(document).ready(function() {#}
-            {#jQuery('#add-another-email').click(function(e) {#}
-                {#e.preventDefault();#}
-
-                {#var emailList = jQuery('#email-fields-list');#}
-
-                {#// grab the prototype template#}
-                {#var newWidget = emailList.attr('data-prototype');#}
-                {#// replace the "__name__" used in the id and name of the prototype#}
-                {#// with a number that's unique to your emails#}
-                {#// end name attribute looks like name="contact[emails][2]"#}
-                {#newWidget = newWidget.replace(/__name__/g, emailCount);#}
-                {#emailCount++;#}
-
-                {#// create a new list element and add it to the list#}
-                {#var newLi = jQuery('<li></li>').html(newWidget);#}
-                {#newLi.appendTo(emailList);#}
-            {#});#}
-        {#})#}
-    {#</script>#}
 
 {% endblock %}
+

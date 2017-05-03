@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -59,12 +60,27 @@ class TrainingType extends AbstractType
                     new Length(array(
                         'max' => 255,
                     )),
-
                 ],
                 'label' => 'Aprašymas',
             ])
-            ->add('trainingTime', CollectionType::class, [
-                'entry_type' => TrainingTimeType::class,
+            ->add('date', CollectionType::class, [
+                'entry_type' => DateTimeType::class,
+                'allow_add' => true,
+                'prototype' => true,
+                'required' => true,
+                'allow_delete' => true,
+                'delete_empty' => true,
+                'constraints' => [
+                  new NotBlank(),
+                ],
+                'label' => 'Data',
+            ])
+            ->add('Sukurti', SubmitType::class, [
+                'attr' => [
+                    'class' => 'form-control btn btn-login',
+                    'label' => 'Sukurti',
+                ],
+
             ]);
     }
 
@@ -75,6 +91,9 @@ class TrainingType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Training::class,
+            'attr' => [
+                'class' => 'form-class',
+            ],
         ]);
     }
 }

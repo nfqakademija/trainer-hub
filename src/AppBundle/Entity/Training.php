@@ -3,7 +3,9 @@
 namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\DBAL\Types\DateTimeType;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * Training
@@ -67,9 +69,11 @@ class Training
     private $city;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\TrainingTime", mappedBy="training", cascade={"persist"})
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime", nullable=true)
      */
-    private $trainingTime;
+    private $date;
 
     /**
      * Get id
@@ -86,6 +90,7 @@ class Training
     public function __construct()
     {
         $this->reservations = new ArrayCollection();
+        $this->date = new ArrayCollection();
     }
 
     /**
@@ -275,36 +280,26 @@ class Training
     }
 
     /**
-     * Add trainingTime
+     * Set date
      *
-     * @param \AppBundle\Entity\TrainingTime $trainingTime
+     * @param \DateTime $date
      *
      * @return Training
      */
-    public function addTrainingTime(\AppBundle\Entity\TrainingTime $trainingTime)
+    public function setDate($date)
     {
-        $this->trainingTime[] = $trainingTime;
+        $this->date = $date;
 
         return $this;
     }
 
     /**
-     * Remove trainingTime
+     * Get date
      *
-     * @param \AppBundle\Entity\TrainingTime $trainingTime
+     * @return \DateTime
      */
-    public function removeTrainingTime(\AppBundle\Entity\TrainingTime $trainingTime)
+    public function getDate()
     {
-        $this->trainingTime->removeElement($trainingTime);
-    }
-
-    /**
-     * Get trainingTime
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getTrainingTime()
-    {
-        return $this->trainingTime;
+        return $this->date;
     }
 }

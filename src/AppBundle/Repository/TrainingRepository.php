@@ -24,7 +24,7 @@ class TrainingRepository extends EntityRepository
             ->addSelect('ca')
             ->leftJoin('t.city', 'ci')
             ->addSelect('ci')
-            ->where('t.fos_user = :user')
+            ->where('t.fosUser = :user')
             ->setParameter(':user', $user)->getQuery()->getArrayResult();
     }
     /**

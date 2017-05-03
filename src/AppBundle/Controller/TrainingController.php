@@ -23,15 +23,26 @@ class TrainingController extends Controller
     public function newAction(Request $request)
     {
         $training = new Training();
+
         $form = $this->createForm(TrainingType::class, $training);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->get('doctrine.orm.entity_manager');
-            $user = $this->getUser();
-            $training->setFosUser($user);
+            $data = $form -> getData();
+            $date = $data->getDate();
 
-            $em->persist($training);
+            foreach ($date as $d) {
+                $trainings = clone $training;
+
+                $user = $this->getUser();
+                $trainings->setFosUser($user);
+                $trainings->setDate(new \DateTime($d->format('Y-m-d H:i:s')));
+
+                $em->persist($trainings);
+            }
+
             $em->flush();
 
             return $this->redirectToRoute('homepage');
@@ -59,6 +70,8 @@ class TrainingController extends Controller
             $em = $this->get('doctrine.orm.entity_manager');
             $user = $this->getUser();
             $training->setFosUser($user);
+
+
 
             $em->persist($training);
             $em->flush();
