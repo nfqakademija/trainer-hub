@@ -3,7 +3,9 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\Training;
 use AppBundle\Entity\TrainingTime;
+use AppBundle\Entity\Reservations;
 use AppBundle\Form\Type\TrainingType;
+use AppBundle\Form\Type\ReservationType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -56,7 +58,7 @@ class TrainingController extends Controller
     {
         $form = $this->createForm(TrainingType::class, $training);
 
-        $form->handleRequest($training);
+        $form->handleRequest($request);
 
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -90,6 +92,20 @@ class TrainingController extends Controller
 
         return $this->render('@App/trainer/profileTrainings.html.twig', [
             'trainings' => $trainings,
+        ]);
+    }
+    /**
+     * @Route("/trainer/training/{id}", name="training_page")
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+    */
+    public function displayTrainingAction(Training $training)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $trainingRepo = $em->getRepository(Training::class);
+        $trainingsWithTimes = $trainingRepo->findWithTimes($training);
+
+        return $this->render('@App/trainer/trainingPage.html.twig', [
+            'training' => $trainingsWithTimes,
         ]);
     }
 }

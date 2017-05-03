@@ -51,4 +51,16 @@ class TrainingRepository extends EntityRepository
             ->select('ci.title')
             ->getQuery()->getArrayResult();
     }
+    /**
+    * Find training and trainings times by id
+    * @return array
+    */
+    public function findWithTimes($training)
+    {
+        return $this->createQueryBuilder('training')
+            ->leftJoin('training.trainingTime', 'training_time')
+            ->addSelect('training_time')
+            ->where('training.id = :training')
+            ->setParameter(':training', $training)->getQuery()->getSingleResult();
+    }
 }

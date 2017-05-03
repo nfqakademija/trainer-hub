@@ -52,11 +52,6 @@ class Training
     private $fosUser;
 
     /**
-     * @ORM\OneToMany(targetEntity="Reservations", mappedBy="training", cascade={"persist"})
-     */
-    private $reservations;
-
-    /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Category", inversedBy="training")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
