@@ -42,6 +42,11 @@ class TrainingTime
     private $training;
 
     /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reservations", mappedBy="trainingTime", cascade={"persist"})
+     */
+    private $reservations;
+
+    /**
      * Get id
      *
      * @return int
@@ -121,5 +126,46 @@ class TrainingTime
     public function getNumber()
     {
         return $this->number;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->reservations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add reservation
+     *
+     * @param \AppBundle\Entity\Reservations $reservation
+     *
+     * @return TrainingTime
+     */
+    public function addReservation(\AppBundle\Entity\Reservations $reservation)
+    {
+        $this->reservations[] = $reservation;
+
+        return $this;
+    }
+
+    /**
+     * Remove reservation
+     *
+     * @param \AppBundle\Entity\Reservations $reservation
+     */
+    public function removeReservation(\AppBundle\Entity\Reservations $reservation)
+    {
+        $this->reservations->removeElement($reservation);
+    }
+
+    /**
+     * Get reservations
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReservations()
+    {
+        return $this->reservations;
     }
 }

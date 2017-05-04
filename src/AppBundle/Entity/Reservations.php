@@ -21,21 +21,15 @@ class Reservations
      */
     private $id;
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="datetime")
-     */
-    private $date;
-    /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="reservations")
      * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
      */
     private $fosUser;
     /**
-     * @ORM\ManyToOne(targetEntity="Training", inversedBy="reservations")
+     * @ORM\ManyToOne(targetEntity="TrainingTime", inversedBy="reservations")
      * @ORM\JoinColumn(name="training_id", referencedColumnName="id")
      */
-    private $training;
+    private $trainingTime;
     /**
      * Get id
      *
@@ -95,26 +89,26 @@ class Reservations
     }
 
     /**
-     * Set training
+     * Set trainingTime
      *
-     * @param \AppBundle\Entity\Training $training
+     * @param \AppBundle\Entity\TrainingTime $trainingTime
      *
      * @return Reservations
      */
-    public function setTraining(\AppBundle\Entity\Training $training = null)
+    public function setTrainingTime(\AppBundle\Entity\TrainingTime $trainingTime = null)
     {
-        $this->training = $training;
+        $this->trainingTime = $trainingTime;
 
         return $this;
     }
 
     /**
-     * Get training
+     * Get trainingTime
      *
-     * @return \AppBundle\Entity\Training
+     * @return \AppBundle\Entity\TrainingTime
      */
-    public function getTraining()
+    public function getTrainingTime()
     {
-        return $this->training;
+        return $this->trainingTime;
     }
 }
