@@ -24,8 +24,7 @@ class RatingAverager
                 $ratingsArray = [];
             }
             $trainersNew[] = $trainer;
-
-            return $trainersNew;
         }
+        return $trainersNew;
     }
 }
