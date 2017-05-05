@@ -10,4 +10,15 @@ namespace AppBundle\Repository;
  */
 class ReservationsRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findIfRegistered(\AppBundle\Entity\User $user, \AppBundle\Entity\TrainingTime $trainingTime)
+    {
+        try {
+            return $this->createQueryBuilder('r')
+                ->where('r.fosUser = :user AND r.trainingTime = :training')
+                ->setParameters(['user' => $user, 'training' => $trainingTime])
+                ->getQuery()->getSingleResult();
+        } catch (\Doctrine\ORM\NoResultException $e) {
+            return false;
+        }
+    }
 }

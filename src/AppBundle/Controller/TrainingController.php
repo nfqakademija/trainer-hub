@@ -103,9 +103,11 @@ class TrainingController extends Controller
         $em = $this->getDoctrine()->getManager();
         $trainingRepo = $em->getRepository(Training::class);
         $trainingsWithTimes = $trainingRepo->findWithTimes($training);
+        $reservationsService = $this->get('is_registered');
+        $reservations = $reservationsService->isRegistered($this->getUser(), $trainingsWithTimes);
 
         return $this->render('@App/trainer/trainingPage.html.twig', [
-            'training' => $trainingsWithTimes,
+            'training' => $reservations,
         ]);
     }
 }

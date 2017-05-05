@@ -22,27 +22,37 @@ class ReservationsController extends Controller
      */
     public function reservationAction(TrainingTime $trainingTime)
     {
+
         $em = $this->getDoctrine()->getManager();
-
-        $trainingTimeRepo = $em->getRepository(TrainingTime::class);
-
-        $training = $trainingTimeRepo->find($trainingTime);
-        
-        $training->setNumber($training->getNumber()-1);
-
+        $trainingTime->setNumber($trainingTime->getNumber()-1);
         $reservation = new Reservations();
-
         $reservation->setFosUser($this->getUser());
-
-        $reservation->setTrainingTime($training);
-
+        $reservation->setTrainingTime($trainingTime);
         $em->persist($reservation);
-
-        $em->persist($training);
-
+        $em->persist($trainingTime);
         $em->flush();
 
+        return $this->redirectToRoute('training_page', ['id' => $trainingTime->getTraining()->getId()]);
+    }
 
-        return $this->redirectToRoute('homepage');
+    /**
+     * @Route("/remove/reservation/{id}", name="remove_reservation")
+     * @param Reservations $reservation
+     * @Security("has_role('ROLE_CLIENT')")
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function removeReservationAction(Reservations $reservation)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $trainingTimeRepo = $em->getRepository(TrainingTime::class);
+        $trainingTime = $reservation->getTrainingTime();
+        $trainingTime->setNumber($trainingTime->getNumber()+1);
+        $trainingTime->removeReservation($reservation);
+        $em->remove($reservation);
+        $em->persist($trainingTime);
+        $em->flush();
+
+        return $this->redirectToRoute('training_page', ['id' => $trainingTime->getTraining()->getId()]);
     }
 }
