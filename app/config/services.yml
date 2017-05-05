@@ -21,9 +21,17 @@ services:
         factory: ["@doctrine.orm.entity_manager", getRepository]
         arguments:
             - AppBundle\Entity\User
+    reservation_repository:
+        class: Doctrine\ORM\EntityRepository
+        factory: ["@doctrine.orm.entity_manager", getRepository]
+        arguments:
+            - AppBundle\Entity\Reservations
     filter:
         class: AppBundle\Services\TrainersFilter
         arguments: ['@user_repository']
     average:
         class: AppBundle\Services\RatingAverager
         arguments: ['']
+    is_registered:
+        class: AppBundle\Services\ReservationChecker
+        arguments: ['@reservation_repository']

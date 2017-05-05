@@ -30,8 +30,8 @@
                                 <td>{{ training.category.title }}</td>
                                 <td>{{ training.city.title }}</td>
                                 <td style="text-align: center;">
-                                    <a href="reservate/{{ training.id }}">
-                                        <button class="form-control btn btn-login">Rezervuoti</button>
+                                    <a href="training/{{ training.id }}">
+                                        <button class="form-control btn btn-login">Peržiūrėti</button>
                                     </a>
                                 </td>
                             </tr>
@@ -86,96 +86,6 @@
                 {% endif %}
             </div>
         </div>
-
-        {#<div class="user-area">#}
-            {#<nav class="user-menu">#}
-                {#<div>#}
-                    {#<img src="{{ asset('media/cache/my_heighten_filter/uploads/avatars/' ~ trainers.avatarName ) }}" class="img-responsive"/>#}
-                    {#<h3>Vardas: </h3>{{ trainers.name }} <br>#}
-                    {#<h3>Pavardė: </h3>{{ trainers.surname }} <br>#}
-                    {#<h3>Miestas: </h3>{{ trainers.city }} <br>#}
-                    {#<h3>Telefonas: </h3>{{ trainers.phone }} <br>#}
-
-                {#</div>#}
-            {#</nav>#}
-
-        {#</div>#}
-        {#<div class="user-block">#}
-            {#<h3>Trenerio aprašymas: </h3><br>{{ trainers.description }} <br><hr>#}
-            {#<h3>Mano treniruotės</h3>#}
-            {#<table class="table table-bordered table-striped">#}
-                {#<thead>#}
-                {#<th>Pavadinimas</th>#}
-                {#<th>Kaina (€)</th>#}
-                {#<th>Kategorija</th>#}
-                {#<th>Miestas</th>#}
-                {#<th>Veiksmas</th>#}
-                {#</thead>#}
-                {#<tbody>#}
-                {#{% for training in trainers.training %}#}
-                    {#<tr>#}
-                        {#<td>{{ training.title }}</td>#}
-                        {#<td>{{ training.price }}</td>#}
-                        {#<td>{{ training.category.title }}</td>#}
-                        {#<td>{{ training.city.title }}</td>#}
-                        {#<td style="text-align: center;">#}
-                            {#<a href="reservate/{{ training.id }}">#}
-                                {#<button class="form-control btn btn-login">Rezervuoti</button>#}
-                            {#</a>#}
-                        {#</td>#}
-                    {#</tr>#}
-                {#{% endfor %}#}
-                {#</tbody>#}
-            {#</table>#}
-            {#<h3>Atsiliepimai</h3>#}
-            {#{% if feedbacks is defined and feedbacks is not empty %}#}
-                {#{% for feedback in feedbacks %}#}
-                    {#<div class="testimonials">#}
-                        {#<div class="active item">#}
-                            {#Įvertinimas:#}
-                            {#<div class="acidjs-rating-stars">#}
-                                {#{% set counter = 0 %}#}
-                                {#{% for i in 0..feedback.rating-1 %}#}
-                                    {#<span class="checked"></span>#}
-                                    {#{% set counter = counter + 1 %}#}
-                                {#{% endfor %}#}
-                                {#{% if feedback.rating < 5 %}#}
-                                    {#{% for j in 0..5-feedback.rating-1 %}#}
-                                        {#<span class="no-checked"></span>#}
-                                    {#{% endfor %}#}
-                                {#{% endif %}#}
-                            {#</div>#}
-                            {#<blockquote><p>{{ feedback.feedback }}</p></blockquote>#}
-                            {#<div class="carousel-info">#}
-                                {#<div class="pull-left">#}
-                                    {#<span class="testimonials-date"><i>{{ feedback.createdAt|date('Y-m-d H:i:s')  }}</i></span>#}
-                                {#</div>#}
-                                {#<div class="pull-right">#}
-                                    {#<span class="testimonials-name">{{ feedback.fosUserAuthor.username }}</span>#}
-                                {#</div>#}
-                            {#</div>#}
-                        {#</div>#}
-                    {#</div>#}
-                {#{% endfor %}#}
-            {#{% else %}#}
-                {#<p>Atsiliepimų nėra. </p>#}
-            {#{% endif %}#}
-            {#{% if is_granted('ROLE_CLIENT') %}#}
-                {#{{ form_start(feedback, {'attr' : {'novalidate' : 'novalidate', 'class' : 'feedback'}}) }}#}
-
-                {#{{ form_rest(feedback) }}#}
-
-                {#<input type="submit" value="Palikti atsiliepimą" class="form-control btn btn-feedback"/>#}
-
-                {#{{ form_end(feedback) }}#}
-            {#{% elseif is_granted('ROLE_TRAINER') %}#}
-
-            {#{% else %}#}
-                {#<p>Norėdami parašyti atsiliepimą privalote <a href="{{ path('fos_user_security_login') }}">prisijungti</a></p>#}
-            {#{% endif %}#}
-
-
-        {#</div>#}
     </div>
 
 {% endblock %}

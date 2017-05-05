@@ -16,9 +16,10 @@ use Faker\Factory;
  * Class LoadCities
  * @package AppBundle\DataFixtures\ORM
  */
-class LoadUserData extends Controller implements FixtureInterface
+class LoadUserData implements FixtureInterface
 {
     /**
+
      * @param ObjectManager $manager
      */
     public function load(ObjectManager $manager)
@@ -33,7 +34,7 @@ class LoadUserData extends Controller implements FixtureInterface
         $userClient->setName('Aurimas');
         $userClient->setSurname('Vanagas');
         $userClient->setPhone('869999999');
-        $userTrainer->setDescription('Lorem Ipsum is simply dummy 
+        $userClient->setDescription('Lorem Ipsum is simply dummy 
             text of the printing and typesetting industry. 
             Lorem Ipsum has been the industry\'s standard dummy 
             text ever since the 1500s, when an unknown printer 
@@ -125,7 +126,7 @@ class LoadUserData extends Controller implements FixtureInterface
 
         $manager->persist($userTrainer);
         $manager->flush();
-            $citiesArray = array();
+          /*  $citiesArray = array();
         if (($handle = fopen(__DIR__."/cities.csv", "r")) !== false) {
             while (($data = fgetcsv($handle, null, ",")) !== false) {
                 $citiesArray[] = $data[1];
@@ -200,6 +201,6 @@ class LoadUserData extends Controller implements FixtureInterface
             $training->setCity($cities->find(rand(min($citiesIds), max($citiesIds))));
             $manager->persist($training);
             $manager->flush();
-        }
+        }*/
     }
 }

@@ -52,28 +52,4 @@ class TrainerController extends Controller
             'feedbacks' => $feedbacks,
         ]);
     }
-
-    /**
-     * @Route("/trainer/reservate/{id}", name="reservation")
-     * @param Request $request
-     * @param Id      $id
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    public function reservationAction(Request $request, $id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $training = $em->getRepository(Training::class)->find($id);
-
-        $reservation = new Reservations();
-        $user = $this->getUser();
-        $reservation->setFosUser($user);
-        $reservation->setTraining($training);
-        $reservation->setDate(new \DateTime('now'));
-
-        $em->persist($reservation);
-        $em->flush();
-
-        return $this->redirectToRoute('homepage');
-    }
 }

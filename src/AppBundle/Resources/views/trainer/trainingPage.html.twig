@@ -1,0 +1,43 @@
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container spacer">
+        <div class="row">
+            <div class="col-md-12">
+                <strong>Pavadinimas: </strong>{{ training.title }} <br>
+                <strong>Kaina: </strong>{{ training.price }} <br>
+                <strong>Aprašymas </strong>{{ training.description }} <br>               
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <th>Data</th>
+                            <th>Likusiu vietų skaičius</th>
+                            <th></th>
+                        </thead>
+                        <tbody>
+                            {% for training in training.trainingTime %}
+                                <tr>
+                                    <td>{{ training.date.date|date('Y-m-d H:i:s') }}</td>
+                                    <td>{{ training.number }}</td>
+                                    <td style="text-align: center;">
+                                        {% if training.is_registered is not defined %}
+                                            <a href="{{ path('reservation_training', {id: training.id}) }}"><button class="form-control btn btn-login" >Rezervuoti</button></a>
+                                        {% elseif training.number == 0 %}
+                                            <p>Laisvu vietų nėra</p>
+                                        {% else %}
+                                            <a href="{{ path('remove_reservation', {id: training.reservation}) }}"><button class="form-control btn btn-login" >Atšaukti</button></a>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
