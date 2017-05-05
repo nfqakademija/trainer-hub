@@ -55,10 +55,5 @@ class DefaultController extends Controller
             'currentCity' => isset($_GET['cities'])?$_GET['cities']:'all',
             'currentCategory' => isset($_GET['categories'])?$_GET['categories']:'all',
         ]);
-
-        $trainers = $this->get('doctrine.orm.entity_manager')->getRepository(User::class);
-        $trainers = $trainers->findByRoles('ROLE_TRAINER');
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', array('trainers' => $trainers));
     }
 }
