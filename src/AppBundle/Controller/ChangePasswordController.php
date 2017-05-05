@@ -64,8 +64,8 @@ class ChangePasswordController extends BaseController
                 $response = new RedirectResponse($url);
             }
 
-            $dispatcher->dispatch(FOSUserEvents::CHANGE_PASSWORD_COMPLETED,
-                new FilterUserResponseEvent($user, $request, $response));
+            $filterUserResponseEvent = new FilterUserResponseEvent($user, $request, $response);
+            $dispatcher->dispatch(FOSUserEvents::CHANGE_PASSWORD_COMPLETED, $filterUserResponseEvent);
 
             return $this->redirectToRoute('homepage');
         }
