@@ -65,11 +65,10 @@ class TrainingController extends Controller
             throw $this->createNotFoundException('No training found for id '.$id);
         }
 
-        $originalTags = new ArrayCollection();
+        $originalTime = new ArrayCollection();
 
-        // Create an ArrayCollection of the current Tag objects in the database
         foreach ($training->getTrainingTime() as $trainingTime) {
-            $originalTags->add($trainingTime);
+            $originalTime->add($trainingTime);
         }
 
         $editForm = $this->createForm(TrainingType::class, $training);
@@ -77,19 +76,14 @@ class TrainingController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            foreach ($originalTags as $tag) {
-                if (false === $training->getTrainingTime()->contains($tag)) {
-                     $em->remove($tag);
+            foreach ($originalTime as $time) {
+                if (false === $training->getTrainingTime()->contains($time)) {
+                     $em->remove($time);
                 }
             }
 
             $em->persist($training);
             $em->flush();
-
-            $this->addFlash(
-                'notice',
-                'Your changes were saved!'
-            );
 
             return $this->redirectToRoute('homepage', array('id' => $id));
         }
