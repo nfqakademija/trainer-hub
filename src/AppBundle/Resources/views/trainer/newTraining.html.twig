@@ -32,8 +32,8 @@
                     <ul class="date" data-prototype="{{ form_widget(trainingForm.trainingTime.vars.prototype)|e('html_attr') }}">
                         {% for date in trainingForm.trainingTime %}
                             <li>
-                                {{ form_row(date) }}
-                                {{ form_row(number) }}
+                                {{ form_rest(date) }}
+                                {#{{ form_row(number) }}#}
                             </li>
                         {% endfor %}
                     </ul>
