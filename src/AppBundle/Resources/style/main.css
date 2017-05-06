@@ -889,28 +889,39 @@ ul {
 .acidjs-rating-stars span.checked {
     color: #f5b301;
 }
+
 .acidjs-rating-stars span.no-checked {
     color: #ccc;
     float: right;
 
 }
+
 .acidjs-rating-stars.homepage {
     direction: ltr;
 }
+
 .acidjs-rating-stars span:before {
     font-size: 25px;
     cursor: default;
 }
+
 .acidjs-rating-stars span.checked.homepage {
     float: none;
 }
+
 .acidjs-rating-stars.homepage span.rating-value::before {
     content: "";
 }
+
 .acidjs-rating-stars.homepage span.rating-value {
     color: #f5b301;
 }
+
 .card .pull-right {
     padding-right: 10px;
     padding-top: 10px;
+}
+
+.trainer-page {
+    background-color: #FFFFFF;
 }

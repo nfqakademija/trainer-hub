@@ -26,7 +26,9 @@ class TrainingTimeType extends AbstractType
             ->add('date', DateTimeType::class, [
                 'label' => false,
             ])
-            ->add('number', NumberType::class);
+            ->add('number', NumberType::class, [
+                'label' => 'Vietų skaičius',
+            ]);
     }
 
     /**
