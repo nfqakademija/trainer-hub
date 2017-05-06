@@ -104,10 +104,21 @@ class TrainingController extends Controller
         $trainingRepo = $em->getRepository(Training::class);
         $trainingsWithTimes = $trainingRepo->findWithTimes($training);
         $reservationsService = $this->get('is_registered');
-        $reservations = $reservationsService->isRegistered($this->getUser(), $trainingsWithTimes);
+        if (true === $this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
 
-        return $this->render('@App/trainer/trainingPage.html.twig', [
+          $reservations = $reservationsService->isRegistered($this->getUser(), $trainingsWithTimes);
+
+          return $this->render('@App/trainer/trainingPage.html.twig', [
             'training' => $reservations,
-        ]);
+          ]);
+        } else {
+
+          return $this->render('@App/trainer/trainingPage.html.twig', [
+            'training' => $trainingsWithTimes,
+          ]);
+        }
+        
+
+        
     }
 }
