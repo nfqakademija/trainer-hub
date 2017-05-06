@@ -38,7 +38,6 @@ class ReservationsController extends Controller
 
             return $this->redirectToRoute('training_page', ['id' => $trainingTime->getTraining()->getId()]);
         } else {
-
             return $this->render('@App/trainer/error.html.twig');
         }
     }
