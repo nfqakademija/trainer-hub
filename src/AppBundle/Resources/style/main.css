@@ -119,7 +119,7 @@ body {
 }
 
 .navigation-clean-button.navbar-default .navbar-nav > li > a:focus, .navigation-clean-button.navbar-default .navbar-nav > li > a:hover{
-    color:#37434d !important;
+    color:#56c6c6 !important;
     background-color:transparent;
 }
 
@@ -924,4 +924,42 @@ ul {
 
 .trainer-page {
     background-color: #FFFFFF;
+}
+
+.filter-bar {
+    height: 55px;
+    margin-top: 5px;
+    margin-bottom: 25px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+    padding-right: 5px;
+    display: block;
+}
+
+.filter-bar .trainer-filters form {
+    float: right;
+    padding-top: 10px;
+}
+
+.filter-bar .trainer-filters .form-control {
+    display: inline;
+    width: auto;
+}
+
+.filter-bar .trainer-filters .btn-login {
+    padding: 5px;
+}
+
+.filter-bar .trainer-filters {
+    float: right;
+    position: relative;
+    z-index: 5;
+    height: 55px;
+}
+
+.filter-bar .trainer-text {
+    float: left;
+    height: 55px;
+    box-sizing: border-box;
+    position: relative;
 }

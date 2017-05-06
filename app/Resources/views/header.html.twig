@@ -7,11 +7,15 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav" style="float:right;">
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                        <li role="presentation"><a href="{{ path('fos_user_profile_edit') }}">Mano profilis</a></li>
+                        <li role="presentation"><a href="{{ path('fos_user_profile_edit') }}">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Mano profilis</a></li>
                     {% if is_granted('ROLE_TRAINER') %}
-                        <li role="presentation"><a href="{{ path('new_training') }}">Nauja Treniruotė</a></li>
+                        <li role="presentation"><a href="{{ path('new_training') }}">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                Nauja Treniruotė</a></li>
                     {% endif %}
-                        <li role="presentation"><a href="{{ path('fos_user_security_logout') }}">Atsijungti</a></li>
+                        <li role="presentation"><a href="{{ path('fos_user_security_logout') }}">
+                                <span class="glyphicon glyphicon-off" aria-hidden="true"></span> Atsijungti</a></li>
                     {% endif %}
                 </ul>
                 {% if not is_granted('IS_AUTHENTICATED_FULLY') %}

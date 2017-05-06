@@ -9,30 +9,36 @@
         <div class="container">
             <div class="row filter">
                 {{ include('notifications.html.twig') }}
-                <div class="headline-wrapper"><h1>Treneriai</h1></div>
-                <form method="GET" action="">
-                    <select class="categories" name="categories">
-                        <option value="" name="city">Visi</option>
-                        {% for category in categories %}
-                            {% if currentCategory == category %}
-                                <option selected="selected" value="{{ category }}">{{ category }}</option>
-                            {% else %}
-                                <option value="{{ category }}">{{ category }}</option>
-                            {% endif %}
-                        {% endfor %}
-                    </select>
-                    <select class="cities" name="cities">
-                        <option value="">Visi</option>
-                        {% for city in cities %}
-                            {% if currentCity == city %}
-                                <option selected="selected" value="{{ city }}">{{ city }}</option>
-                            {% else %}
-                                <option value="{{ city }}">{{ city }}</option>
-                            {% endif %}
-                        {% endfor %}
-                    </select>
-                    <input value="Filtruoti" class="form-control btn btn-filter" type="submit">
-                </form>
+                <div class="headline-wrapper"><h1>Asmeniniai treneriai</h1></div>
+                <div class="filter-bar">
+                    {#<div class="trainer-text"><h2>Asmeniniai treneriai</h2></div>#}
+                    <div class="trainer-filters">
+                        <form method="GET" action="">
+                            <select name="categories" class="form-control">
+                                <option value="" name="city">Visi</option>
+                                {% for category in categories %}
+                                    {% if currentCategory == category %}
+                                        <option selected="selected" value="{{ category }}">{{ category }}</option>
+                                    {% else %}
+                                        <option value="{{ category }}">{{ category }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                            <select name="cities" class="form-control">
+                                <option value="">Visi</option>
+                                {% for city in cities %}
+                                    {% if currentCity == city %}
+                                        <option selected="selected" value="{{ city }}">{{ city }}</option>
+                                    {% else %}
+                                        <option value="{{ city }}">{{ city }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                            <input value="Filtruoti" class="form-control btn-login" type="submit">
+                        </form>
+                    </div>
+
+                </div>
             </div>
             {% set counter = 0 %}
             {% for trainer in trainers %}

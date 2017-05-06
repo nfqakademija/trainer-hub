@@ -32,12 +32,6 @@ class ProfileType extends AbstractType
                 'class' => 'form-control',
             ],
         ]);
-        $builder->add('surname', null, [
-            'label' => 'Pavardė',
-            'attr' => [
-                'class' => 'form-control',
-            ],
-        ]);
         $builder->add('city', null, [
             'label' => 'Miestas',
             'attr' => [
@@ -66,9 +60,6 @@ class ProfileType extends AbstractType
                 'attr' => [
                     'class' => 'form-control',
                 ],
-            ]);
-            $builder->add('birthday', BirthdayType::class, [
-                'label' => 'Gimimo data',
             ]);
         }
     }
