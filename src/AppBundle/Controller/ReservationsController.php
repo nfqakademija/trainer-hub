@@ -62,4 +62,20 @@ class ReservationsController extends Controller
 
         return $this->redirectToRoute('training_page', ['id' => $trainingTime->getTraining()->getId()]);
     }
+
+    /**
+     * @Route("/my-reservations", name="my_reservations")
+     * @Security("has_role('ROLE_CLIENT')")
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function displayReservations()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $trainingTimeRepo = $em->getRepository(Reservations::class);
+        $reservations = $trainingTimeRepo->findReservationsByUser($this->getUser());
+
+        return $this->render('@App/clientReservations.html.twig', [
+            'reservations' => $reservations
+        ]);
+    }
 }

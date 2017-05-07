@@ -37,9 +37,9 @@ class DefaultController extends Controller
             $citiesNew[] = $city['title'];
         }
 
-        $trainersFinder = $this->get('filter');
+        $trainersFinder = $this->get('app.filter');
         $trainers = $trainersFinder->filter();
-        $ratingsFinderWithTrainers = $this->get('average');
+        $ratingsFinderWithTrainers = $this->get('app.average');
         $trainersWithRatings = $ratingsFinderWithTrainers->average($trainers);
         $paginator = $this->get('knp_paginator');
         $trainersWithRatings = $paginator->paginate(
