@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="user-area">
+            <nav class="user-menu">
+                <div>
+                    {{ include('@App/myProfileTabs.html.twig', {'active': 'reservations'}) }}
+                </div>
+            </nav>
+
+        </div>
+        <div class="user-block">
+            <div class="page-header no-margin padding">Mano rezervacijos</div>
+            <div class="page-block">
+                 <table class="table">
+                        <thead style="color: #868686; background-color: #f0f0f0; text-transform: uppercase;">
+                            <th>Treniruotė</th>
+                            <th>Data</th>
+                            <th>Likusiu vietų skaičius</th>
+                            <th>Veiksmas</th>
+                        </thead>
+                        <tbody>
+                            {% if reservations is defined and reservations is not empty%}
+                                {% for reservation in reservations %}
+                                    {% if reservation.trainingTime.date|date('Y-m-d H:i:s') > "now"|date("Y-m-d H:i:s")%}
+                                        <tr>
+                                            <td>
+                                            <a href="{{ path('training_page', { id : reservation.trainingTime.training.id }) }}">
+                                                {{ reservation.trainingTime.training.title }}</a>
+                                            </td>
+                                            <td>{{ reservation.trainingTime.date|date('Y-m-d H:i:s') }}</td>
+                                            <td>{{ reservation.trainingTime.number }}</td>
+                                            <td style="text-align: center;">
+                                                <a href="{{ path('remove_reservation', {id: reservation.id}) }}">
+                                                    <button class="form-control btn btn-login" >Atšaukti</button>
+                                                </a>        
+                                            </td>
+                                        </tr>
+                                    {% endif %}
+                                {% endfor %}
+                            {% else %}
+                                <tr><td>Rezervacijų nėra</td></tr>
+                            {% endif %}    
+                        </tbody>
+                    </table>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

@@ -21,4 +21,16 @@ class ReservationsRepository extends \Doctrine\ORM\EntityRepository
             return false;
         }
     }
+
+    public function findReservationsByUser(\AppBundle\Entity\User $user)
+    {
+
+        return $this->createQueryBuilder('r')
+            ->leftJoin('r.trainingTime', 't')
+            ->addSelect('t')
+            ->leftJoin('t.training', 'tr')
+            ->addSelect('tr')
+            ->where('r.fosUser = :user')
+            ->setParameter(':user', $user)->getQuery()->getArrayResult();
+    }
 }

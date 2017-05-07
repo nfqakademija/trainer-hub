@@ -14,7 +14,7 @@
                     {#<div class="trainer-text"><h2>Asmeniniai treneriai</h2></div>#}
                     <div class="trainer-filters">
                         <form method="GET" action="">
-                            <select name="categories" class="form-control">
+                            <select name="categories" class="selectpicker">
                                 <option value="" name="city">Visi</option>
                                 {% for category in categories %}
                                     {% if currentCategory == category %}
@@ -24,7 +24,7 @@
                                     {% endif %}
                                 {% endfor %}
                             </select>
-                            <select name="cities" class="form-control">
+                            <select name="cities" class="selectpicker">
                                 <option value="">Visi</option>
                                 {% for city in cities %}
                                     {% if currentCity == city %}
@@ -40,40 +40,45 @@
 
                 </div>
             </div>
-            {% set counter = 0 %}
-            {% for trainer in trainers %}
-                {% if counter is divisible by(4) %}
-                    <div class="row trainers-inner">
-                {% endif %}
-                {% set counter = counter + 1 %}
-                <div class="card col-md-3"><a href="trainer/{{ trainer.usernameCanonical }}">
+            {% if trainers is defined and trainers is not empty %}
+                {% set counter = 0 %}
+                {% for trainer in trainers %}
+                    {% if counter is divisible by(4) %}
+                        <div class="row trainers-inner">
+                    {% endif %}
+                    {% set counter = counter + 1 %}
+                    <div class="card col-md-3"><a href="trainer/{{ trainer.usernameCanonical }}">
 
-                    <img src="{{ asset('media/cache/my_heighten_filter/uploads/avatars/' ~ trainer.avatarName ) }}" style="width:100%;"/>
-                        <div class="pull-left">
-                            <h4><b>{{ trainer.name }}</b></h4>
-                            <p>{{ trainer.city }}</p>
-                        </div>
-                        <div class="pull-right">
-                            <div class="acidjs-rating-stars homepage">
-                                {% if trainer.rating is defined %}
-                                    <span class="checked homepage"></span><span class="rating-value">{{ trainer.rating }}</span>
-                                {% else %}
-                                    <span class="checked homepage"></span><span class="rating-value">0</span>
-                                {% endif %}
+                        <img src="{{ asset('media/cache/my_heighten_filter/uploads/avatars/' ~ trainer.avatarName ) }}" style="width:100%;"/>
+                            <div class="pull-left">
+                                <h4><b>{{ trainer.name }}</b></h4>
+                                <p>{{ trainer.city }}</p>
                             </div>
-                        </div>  
-                </a></div>
-                {% if counter is divisible by(4) or loop.last %}
+                            <div class="pull-right">
+                                <div class="acidjs-rating-stars homepage">
+                                    {% if trainer.rating is defined %}
+                                        <span class="checked homepage"></span><span class="rating-value">{{ trainer.rating }}</span>
+                                    {% else %}
+                                        <span class="checked homepage"></span><span class="rating-value">0</span>
+                                    {% endif %}
+                                </div>
+                            </div>  
+                    </a></div>
+                    {% if counter is divisible by(4) or loop.last %}
 
-                   {% set counter = 0 %}
-                    </div>
+                       {% set counter = 0 %}
+                        </div>
 
-                {% endif %}
-            {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <p class="no-trainings">Trenerių nerasta</p>
+            {% endif %}
         </div>
 
         <div class="navigation">
             {{ knp_pagination_render(trainers) }}
         </div>
+
     </div>
 {% endblock %}

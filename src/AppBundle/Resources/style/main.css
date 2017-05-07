@@ -920,6 +920,11 @@ ul {
 .card .pull-right {
     padding-right: 10px;
     padding-top: 10px;
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
 }
 
 .trainer-page {
@@ -962,4 +967,14 @@ ul {
     height: 55px;
     box-sizing: border-box;
     position: relative;
+}
+.no-trainings {
+    color: red;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+.trainer-filters .bootstrap-select.form-control:not([class*="col-"]) {
+    width: auto;
 }

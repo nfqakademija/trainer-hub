@@ -7,6 +7,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class TrainingController
@@ -24,15 +25,21 @@ class ReservationsController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
-        $trainingTime->setNumber($trainingTime->getNumber()-1);
-        $reservation = new Reservations();
-        $reservation->setFosUser($this->getUser());
-        $reservation->setTrainingTime($trainingTime);
-        $em->persist($reservation);
-        $em->persist($trainingTime);
-        $em->flush();
+        $resRepo = $em->getRepository(Reservations::class);
+        $ifRegistered = $resRepo->findIfRegistered($this->getUser(), $trainingTime);
+        if (!$ifRegistered) {
+            $trainingTime->setNumber($trainingTime->getNumber()-1);
+            $reservation = new Reservations();
+            $reservation->setFosUser($this->getUser());
+            $reservation->setTrainingTime($trainingTime);
+            $em->persist($reservation);
+            $em->persist($trainingTime);
+            $em->flush();
 
-        return $this->redirectToRoute('training_page', ['id' => $trainingTime->getTraining()->getId()]);
+            return $this->redirectToRoute('training_page', ['id' => $trainingTime->getTraining()->getId()]);
+        } else {
+            return $this->render('@App/trainer/error.html.twig');
+        }
     }
 
     /**
@@ -54,5 +61,21 @@ class ReservationsController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('training_page', ['id' => $trainingTime->getTraining()->getId()]);
+    }
+
+    /**
+     * @Route("/my-reservations", name="my_reservations")
+     * @Security("has_role('ROLE_CLIENT')")
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
+    public function displayReservations()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $trainingTimeRepo = $em->getRepository(Reservations::class);
+        $reservations = $trainingTimeRepo->findReservationsByUser($this->getUser());
+
+        return $this->render('@App/clientReservations.html.twig', [
+            'reservations' => $reservations
+        ]);
     }
 }
