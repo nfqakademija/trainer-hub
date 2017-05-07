@@ -3,17 +3,17 @@
 
 {% block body %}
     <div class="container spacer">
-        <div class="row">
+        <div class="row" style="background-color: #FFFFFF; border-radius: 4px;">
             <div class="col-md-4">
                 <img src="{{ asset('media/cache/my_heighten_filter/uploads/avatars/' ~ trainers.avatarName ) }}" class="img-responsive"/>
+                <h3>Treneris {{ trainers.name }}</h3><hr>
+                <h3 style="font-weight: bold; font-size: 20px;">Kontaktai</h3>
+                <p>Miestas: {{ trainers.city }}</p>
+                <p>Telefonas: {{ trainers.phone }}</p><br><hr>
             </div>
             <div class="col-md-8">
-                <strong>Vardas: </strong>{{ trainers.name }} <br>
-                <strong>Pavardė: </strong>{{ trainers.surname }} <br>
-                <strong>Miestas: </strong>{{ trainers.city }} <br>
-                <strong>Telefonas: </strong>{{ trainers.phone }} <br>
-                <strong>Aprašymas: </strong><br>{{ trainers.description }} <br>
-                <h3>Mano treniruotės</h3>
+                <h3 style="font-weight: bold; font-size: 20px;">Trenerio aprašymas: </h3>{{ trainers.description }} <br><hr>
+                <h3 style="font-weight: bold; font-size: 20px;">Mano treniruotės</h3>
                 <table class="table table-bordered table-striped">
                     <thead>
                         <th>Pavadinimas</th>
@@ -38,12 +38,12 @@
                         {% endfor %}
                     </tbody>
                 </table>
-                <h3>Atsiliepimai</h3>
+                <h3 style="font-weight: bold; font-size: 20px;">Atsiliepimai</h3>
                 {% if feedbacks is defined and feedbacks is not empty %}
                     {% for feedback in feedbacks %}
                     <div class="testimonials">
                         <div class="active item">
-                            Įvertinimas: 
+                            Įvertinimas:
                             <div class="acidjs-rating-stars">
                                 {% set counter = 0 %}
                                 {% for i in 0..feedback.rating-1 %}
@@ -53,7 +53,7 @@
                                 {% if feedback.rating < 5 %}
                                     {% for j in 0..5-feedback.rating-1 %}
                                         <span class="no-checked"></span>
-                                    {% endfor %}    
+                                    {% endfor %}
                                 {% endif %}
                             </div>
                             <blockquote><p>{{ feedback.feedback }}</p></blockquote>

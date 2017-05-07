@@ -5,6 +5,7 @@ use AppBundle\Entity\Training;
 use AppBundle\Entity\TrainingTime;
 use AppBundle\Entity\Reservations;
 use AppBundle\Form\Type\TrainingType;
+use Doctrine\Common\Collections\ArrayCollection;
 use AppBundle\Form\Type\ReservationType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -50,32 +51,45 @@ class TrainingController extends Controller
 
     /**
      * @Route("/training/edit/{id}", name="edit_training")
-     * @param Training $training
-     * @param Request  $request
+     * @param Request $request
+     * @Security("has_role('ROLE_TRAINER')")
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function editAction(Training $training, Request $request)
+    public function editAction(Request $request, $id)
     {
-        $form = $this->createForm(TrainingType::class, $training);
 
-        $form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
+        $training = $em->getRepository(Training::class)->find($id);
 
+        if (!$training) {
+            throw $this->createNotFoundException('No training found for id '.$id);
+        }
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->get('doctrine.orm.entity_manager');
-            $user = $this->getUser();
-            $training->setFosUser($user);
+        $originalTime = new ArrayCollection();
 
+        foreach ($training->getTrainingTime() as $trainingTime) {
+            $originalTime->add($trainingTime);
+        }
 
+        $editForm = $this->createForm(TrainingType::class, $training);
+
+        $editForm->handleRequest($request);
+
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            foreach ($originalTime as $time) {
+                if (false === $training->getTrainingTime()->contains($time)) {
+                     $em->remove($time);
+                }
+            }
 
             $em->persist($training);
             $em->flush();
 
-            return $this->redirectToRoute('my_trainings');
+            return $this->redirectToRoute('homepage', array('id' => $id));
         }
 
         return $this->render('@App/trainer/newTraining.html.twig', [
-            'trainingForm' => $form->createView(),
+            'trainingForm' => $editForm->createView(),
         ]);
     }
 

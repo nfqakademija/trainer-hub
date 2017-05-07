@@ -1,0 +1,1 @@
+server 'deploy.nfqakademija.lt', user: 'trainershub', roles: %w{web}

@@ -33,13 +33,6 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="surname", type="string", nullable=true)
-     */
-    private $surname;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="city", type="string", nullable=true)
      */
     private $city;
@@ -58,12 +51,6 @@ class User extends BaseUser
      */
     private $description;
 
-    /**
-     * @var DateTime $birthday
-     *
-     * @ORM\Column(name="birthday", type="datetime", nullable=true)
-     */
-    private $birthday;
     /**
      * @ORM\OneToMany(targetEntity="Training", mappedBy="fosUser", cascade={"persist"})
      */
@@ -149,30 +136,6 @@ class User extends BaseUser
     }
 
     /**
-     * Set surname
-     *
-     * @param string $surname
-     *
-     * @return User
-     */
-    public function setSurname($surname)
-    {
-        $this->surname = $surname;
-
-        return $this;
-    }
-
-    /**
-     * Get surname
-     *
-     * @return string
-     */
-    public function getSurname()
-    {
-        return $this->surname;
-    }
-
-    /**
      * Set city
      *
      * @param string $city
@@ -242,30 +205,6 @@ class User extends BaseUser
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * Set birthday
-     *
-     * @param \DateTime $birthday
-     *
-     * @return User
-     */
-    public function setBirthday($birthday)
-    {
-        $this->birthday = $birthday;
-
-        return $this;
-    }
-
-    /**
-     * Get birthday
-     *
-     * @return \DateTime
-     */
-    public function getBirthday()
-    {
-        return $this->birthday;
     }
 
     /**
