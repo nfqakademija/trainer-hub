@@ -67,13 +67,21 @@ class ProfileController extends Controller
                 'uploads/avatars/'.$user->getAvatarName(),      // original image you want to apply a filter to
                 'my_heighten_filter'              // filter defined in config.yml
             );
-
+            $imagemanagerResponse = $imagine->filterAction(
+                $request,         // http request
+                'uploads/avatars/'.$user->getAvatarName(),      // original image you want to apply a filter to
+                'my_thumbnail_filter'              // filter defined in config.yml
+            );
             $cacheManager = $this->get('liip_imagine.cache.manager');
 
             /** @var string */
             $sourcePath = $cacheManager->getBrowserPath(
                 'uploads/avatars/'.$user->getAvatarName(),
                 'my_heighten_filter'
+            );
+            $sourcePath = $cacheManager->getBrowserPath(
+                'uploads/avatars/'.$user->getAvatarName(),
+                'my_thumbnail_filter'
             );
             if (null === $response = $event->getResponse()) {
                 $url = $this->generateUrl('fos_user_profile_show');
