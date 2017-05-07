@@ -25,8 +25,11 @@ class TrainerController extends Controller
      * @param User    $user
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function trainerAction(Request $request, User $user)
+    public function trainerAction(Request $request, User $user = null)
     {
+        if ($user == null) {
+            return $this->redirectToRoute('homepage');
+        }
         $em = $this->getDoctrine()->getManager();
         $feedbacks = $em->getRepository(Feedback::class);
         $feedbacks = $feedbacks->findFeedbackByTrainer($user);
