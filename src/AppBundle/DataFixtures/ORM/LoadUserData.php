@@ -32,7 +32,6 @@ class LoadUserData implements FixtureInterface
         $userClient->setRoles(array('ROLE_CLIENT'));
         $userClient->setCity('Vilnius');
         $userClient->setName('Aurimas');
-        $userClient->setSurname('Vanagas');
         $userClient->setPhone('869999999');
         $userClient->setDescription('Lorem Ipsum is simply dummy 
             text of the printing and typesetting industry. 
@@ -59,7 +58,6 @@ class LoadUserData implements FixtureInterface
         $userTrainer->setRoles(array('ROLE_TRAINER'));
         $userTrainer->setCity('Vilnius');
         $userTrainer->setName('Aurimas');
-        $userTrainer->setSurname('Vanagas');
         $userTrainer->setPhone('869999999');
         $userTrainer->setDescription('Lorem Ipsum is simply dummy 
             text of the printing and typesetting industry. 
@@ -84,7 +82,6 @@ class LoadUserData implements FixtureInterface
         $userTrainer->setRoles(array('ROLE_TRAINER'));
         $userTrainer->setCity('Vilnius');
         $userTrainer->setName('Marek');
-        $userTrainer->setSurname('Zavoronok');
         $userTrainer->setPhone('869999999');
         $userTrainer->setDescription('Lorem Ipsum is simply dummy 
             text of the printing and typesetting industry. 
@@ -109,7 +106,6 @@ class LoadUserData implements FixtureInterface
         $userTrainer->setRoles(array('ROLE_TRAINER'));
         $userTrainer->setCity('Vilnius');
         $userTrainer->setName('Marek');
-        $userTrainer->setSurname('Zavoronok');
         $userTrainer->setPhone('869999999');
         $userTrainer->setDescription('Lorem Ipsum is simply dummy 
             text of the printing and typesetting industry. 
