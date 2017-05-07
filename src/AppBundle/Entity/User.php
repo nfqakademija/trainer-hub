@@ -72,7 +72,7 @@ class User extends BaseUser
      *
      * @var string
      */
-    private $avatarName = '5900d0379c62b.png';
+    private $avatarName = '590f3955418dd.png';
 
     /**
      * @ORM\Column(type="integer", length=255, nullable=true)

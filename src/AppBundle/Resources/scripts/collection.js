@@ -21,6 +21,7 @@ jQuery(document).ready(function() {
 
 
 });
+
 function addDateForm($collectionHolder, $newLinkLi) {
     var prototype = $collectionHolder.data('prototype');
     var index = $collectionHolder.data('index');

@@ -50,17 +50,21 @@ class ReservationsController extends Controller
      */
     public function removeReservationAction(Reservations $reservation)
     {
+        $user = $reservation->getFosUser();
+        if ($this->getUser() == $user) {
+            $em = $this->getDoctrine()->getManager();
+            $trainingTimeRepo = $em->getRepository(TrainingTime::class);
+            $trainingTime = $reservation->getTrainingTime();
+            $trainingTime->setNumber($trainingTime->getNumber()+1);
+            $trainingTime->removeReservation($reservation);
+            $em->remove($reservation);
+            $em->persist($trainingTime);
+            $em->flush();
 
-        $em = $this->getDoctrine()->getManager();
-        $trainingTimeRepo = $em->getRepository(TrainingTime::class);
-        $trainingTime = $reservation->getTrainingTime();
-        $trainingTime->setNumber($trainingTime->getNumber()+1);
-        $trainingTime->removeReservation($reservation);
-        $em->remove($reservation);
-        $em->persist($trainingTime);
-        $em->flush();
-
-        return $this->redirectToRoute('training_page', ['id' => $trainingTime->getTraining()->getId()]);
+            return $this->redirectToRoute('training_page', ['id' => $trainingTime->getTraining()->getId()]);
+        } else {
+            return new Response("Neture teisių ištrinti šitos rezervacijos");
+        }
     }
 
     /**

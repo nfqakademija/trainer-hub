@@ -973,3 +973,10 @@ ul {
 .trainer-filters .bootstrap-select.form-control:not([class*="col-"]) {
     width: auto;
 }
+.compat-object-fit {
+   background-size: cover;
+   background-position: center center;
+}
+.compat-object-fit img {
+    opacity: 0;
+}
