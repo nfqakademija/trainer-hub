@@ -2,7 +2,9 @@
 
 namespace AppBundle\Form\Type;
 
+use AppBundle\Entity\City;
 use AppBundle\Entity\User;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -32,11 +34,9 @@ class ProfileType extends AbstractType
                 'class' => 'form-control',
             ],
         ]);
-        $builder->add('city', null, [
+        $builder->add('city', EntityType::class, [
+            'class' => City::class,
             'label' => 'Miestas',
-            'attr' => [
-                'class' => 'form-control',
-            ],
         ]);
         $builder->add('phone', null, [
             'label' => 'Telefonas',
