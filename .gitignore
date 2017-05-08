@@ -28,3 +28,4 @@
 !web/uploads/.gitkeep
 /web/media/cache/*
 !web/media/cache/.gitkeep
+/web/filters
