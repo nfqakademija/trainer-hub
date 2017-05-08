@@ -9,13 +9,12 @@
         <div class="container">
             <div class="row filter">
                 {{ include('notifications.html.twig') }}
-                <div class="headline-wrapper"><h1>Asmeniniai treneriai</h1></div>
                 <div class="filter-bar">
                     {#<div class="trainer-text"><h2>Asmeniniai treneriai</h2></div>#}
                     <div class="trainer-filters">
                         <form method="GET" action="">
                             <select name="categories" class="selectpicker">
-                                <option value="" name="city">Visi</option>
+                                <option value="" name="city">Visos kategorijos</option>
                                 {% for category in categories %}
                                     {% if currentCategory == category %}
                                         <option selected="selected" value="{{ category }}">{{ category }}</option>
@@ -25,7 +24,7 @@
                                 {% endfor %}
                             </select>
                             <select name="cities" class="selectpicker">
-                                <option value="">Visi</option>
+                                <option value="">Visi miestai</option>
                                 {% for city in cities %}
                                     {% if currentCity == city %}
                                         <option selected="selected" value="{{ city }}">{{ city }}</option>
@@ -34,7 +33,7 @@
                                     {% endif %}
                                 {% endfor %}
                             </select>
-                            <input value="Filtruoti" class="form-control btn-login" type="submit">
+                            <input value="Paieška" class="form-control btn-login" type="submit">
                         </form>
                     </div>
 
