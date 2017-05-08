@@ -48,7 +48,7 @@ class ReservationsController extends Controller
      * @Security("has_role('ROLE_CLIENT')")
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function removeReservationAction(Reservations $reservation)
+    public function removeReservationAction(Reservations $reservation, Request $request)
     {
         $user = $reservation->getFosUser();
         if ($this->getUser() == $user) {
@@ -61,7 +61,7 @@ class ReservationsController extends Controller
             $em->persist($trainingTime);
             $em->flush();
 
-            return $this->redirectToRoute('training_page', ['id' => $trainingTime->getTraining()->getId()]);
+            return $this->redirect($request->headers->get('referer'));
         } else {
             return new Response("Neture teisių ištrinti šitos rezervacijos");
         }
