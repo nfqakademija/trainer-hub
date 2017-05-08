@@ -23,11 +23,15 @@ class TrainingTimeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date', DateTimeType::class, [
-                'label' => false,
-            ])
             ->add('number', NumberType::class, [
                 'label' => 'Vietų skaičius',
+                'constraints' => [
+                    new NotBlank(),
+                ],
+            ])
+            ->add('date', DateTimeType::class, [
+                'label' => false,
+                'data' => new \DateTime('now'),
             ]);
     }
 

@@ -235,7 +235,7 @@ class LoadUserData implements FixtureInterface
         $userTrainer->setCity('Klaipėda');
         $userTrainer->setName('Rokas');
         $userTrainer->setPhone('864449777');
-        $userTrainer->setAvatarName('590f388d88b37.jpg');
+        $userTrainer->setAvatarName('59103c732136c.jpg');
         $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -255,7 +255,7 @@ class LoadUserData implements FixtureInterface
         $userTrainer->setCity('Palanga');
         $userTrainer->setName('Ervinas');
         $userTrainer->setPhone('868741777');
-        $userTrainer->setAvatarName('590f388d88b37.jpg');
+        $userTrainer->setAvatarName('59103b5711dc5.png');
         $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -275,7 +275,7 @@ class LoadUserData implements FixtureInterface
         $userTrainer->setCity('Vilnius');
         $userTrainer->setName('Marek');
         $userTrainer->setPhone('8687747477');
-        $userTrainer->setAvatarName('590f388d88b37.jpg');
+        $userTrainer->setAvatarName('590f3bf06714b.jpg');
         $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -295,7 +295,7 @@ class LoadUserData implements FixtureInterface
         $userTrainer->setCity('Kaunas');
         $userTrainer->setName('Viktoras');
         $userTrainer->setPhone('868514777');
-        $userTrainer->setAvatarName('590f388d88b37.jpg');
+        $userTrainer->setAvatarName('590f3c73d4e62.jpeg');
         $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -315,7 +315,7 @@ class LoadUserData implements FixtureInterface
         $userTrainer->setCity('Gargždai');
         $userTrainer->setName('Dainius');
         $userTrainer->setPhone('868741777');
-        $userTrainer->setAvatarName('590f388d88b37.jpg');
+        $userTrainer->setAvatarName('590f3c316733e.jpg');
         $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -335,7 +335,7 @@ class LoadUserData implements FixtureInterface
         $userTrainer->setCity('Šiauliai');
         $userTrainer->setName('Vilius');
         $userTrainer->setPhone('868558414');
-        $userTrainer->setAvatarName('590f388d88b37.jpg');
+        $userTrainer->setAvatarName('590f3955418dd.png');
         $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
