@@ -117,7 +117,7 @@ class TrainingController extends Controller
         $em = $this->getDoctrine()->getManager();
         $trainingRepo = $em->getRepository(Training::class);
         $trainingsWithTimes = $trainingRepo->findWithTimes($training);
-        $reservationsService = $this->get('is_registered');
+        $reservationsService = $this->get('app.is_registered');
         if (true === $this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
             $reservations = $reservationsService->isRegistered($this->getUser(), $trainingsWithTimes);
 

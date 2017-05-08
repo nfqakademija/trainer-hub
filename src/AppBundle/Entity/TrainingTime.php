@@ -42,7 +42,7 @@ class TrainingTime
     private $training;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reservations", mappedBy="trainingTime", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reservations", mappedBy="trainingTime", cascade={"remove"})
      */
     private $reservations;
 

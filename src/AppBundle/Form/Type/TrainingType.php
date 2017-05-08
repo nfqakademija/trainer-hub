@@ -40,6 +40,7 @@ class TrainingType extends AbstractType
                     new NotBlank(),
                 ],
                 'label' => 'Pavadinimas',
+                'attr' => ['class' => 'bs-datepicker'],
             ])
             ->add('price', MoneyType::class, [
                 'constraints' => [
@@ -76,6 +77,7 @@ class TrainingType extends AbstractType
                   new NotBlank(),
                 ],
                 'label' => false,
+                'attr' => ['class' => 'bs-datepicker'],
             ])
             ->add('Sukurti', SubmitType::class, [
                 'attr' => [

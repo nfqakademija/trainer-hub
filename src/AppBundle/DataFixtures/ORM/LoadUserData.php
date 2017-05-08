@@ -24,183 +24,325 @@ class LoadUserData implements FixtureInterface
      */
     public function load(ObjectManager $manager)
     {
-        $userClient = new User();
-        $userClient->setUsername('klientas');
-        $userClient->setPlainPassword('test');
-        $userClient->setEmail('klientas@klientas.lt');
-        $userClient->setEnabled(true);
-        $userClient->setRoles(array('ROLE_CLIENT'));
-        $userClient->setCity('Vilnius');
-        $userClient->setName('Aurimas');
-        $userClient->setSurname('Vanagas');
-        $userClient->setPhone('869999999');
-        $userClient->setDescription('Lorem Ipsum is simply dummy 
-            text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry\'s standard dummy 
-            text ever since the 1500s, when an unknown printer 
-            took a galley of type and scrambled it to make a 
-            type specimen book. It has survived not only 
-            five centuries, but also the leap into 
-            electronic typesetting, remaining 
-            essentially unchanged. It was popularised 
-            in the 1960s with the release of Letraset 
-            sheets containing Lorem Ipsum passages/');
-       // $userClient->setAvatar('658b645d80c5789389a771cd340ee798.png');
-
-        $manager->persist($userClient);
-        $manager->flush();
-
-
         $userTrainer = new User();
-        $userTrainer->setUsername('treneris');
-        $userTrainer->setPlainPassword('test');
-        $userTrainer->setEmail('treneris@treneris.lt');
+        $userTrainer->setUsername('Paulius');
+        $userTrainer->setPlainPassword('paulius');
+        $userTrainer->setEmail('paulius@trainerhub.lt');
         $userTrainer->setEnabled(true);
         $userTrainer->setRoles(array('ROLE_TRAINER'));
         $userTrainer->setCity('Vilnius');
-        $userTrainer->setName('Aurimas');
-        $userTrainer->setSurname('Vanagas');
+        $userTrainer->setName('Paulius');
         $userTrainer->setPhone('869999999');
-        $userTrainer->setDescription('Lorem Ipsum is simply dummy 
-            text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry\'s standard dummy 
-            text ever since the 1500s, when an unknown printer 
-            took a galley of type and scrambled it to make a 
-            type specimen book. It has survived not only 
-            five centuries, but also the leap into 
-            electronic typesetting, remaining 
-            essentially unchanged. It was popularised 
-            in the 1960s with the release of Letraset 
-            sheets containing Lorem Ipsum passages/');
-       // $userTrainer->setAvatar('658b645d80c5789389a771cd340ee798.png');
+        $userTrainer->setAvatarName('590f3bf06714b.jpg');
+        $userTrainer->setDescription('
+        Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!
+        ');
+
         $manager->persist($userTrainer);
         $manager->flush();
 
+
         $userTrainer = new User();
-        $userTrainer->setUsername('treneris1');
-        $userTrainer->setPlainPassword('test');
-        $userTrainer->setEmail('treneris1@treneris1.lt');
+        $userTrainer->setUsername('Tomas');
+        $userTrainer->setPlainPassword('tomas');
+        $userTrainer->setEmail('tomas@trainerhub.lt');
+        $userTrainer->setEnabled(true);
+        $userTrainer->setRoles(array('ROLE_TRAINER'));
+        $userTrainer->setCity('Kaunas');
+        $userTrainer->setName('Tomas');
+        $userTrainer->setPhone('869994719');
+        $userTrainer->setAvatarName('590f3c73d4e62.jpeg');
+        $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!');
+
+        $manager->persist($userTrainer);
+        $manager->flush();
+
+
+        $userTrainer = new User();
+        $userTrainer->setUsername('Simonas');
+        $userTrainer->setPlainPassword('simonas');
+        $userTrainer->setEmail('simonas@trainerhub.lt');
+        $userTrainer->setEnabled(true);
+        $userTrainer->setRoles(array('ROLE_TRAINER'));
+        $userTrainer->setCity('Radviliškis');
+        $userTrainer->setName('Simonas');
+        $userTrainer->setPhone('869999777');
+        $userTrainer->setAvatarName('590f3c316733e.jpg');
+        $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!');
+
+        $manager->persist($userTrainer);
+        $manager->flush();
+
+
+        $userTrainer = new User();
+        $userTrainer->setUsername('Danielius');
+        $userTrainer->setPlainPassword('danielius');
+        $userTrainer->setEmail('danielius@trainerhub.lt');
+        $userTrainer->setEnabled(true);
+        $userTrainer->setRoles(array('ROLE_TRAINER'));
+        $userTrainer->setCity('Jonava');
+        $userTrainer->setName('Danielius');
+        $userTrainer->setPhone('861479777');
+        $userTrainer->setAvatarName('590f3955418dd.png');
+        $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!');
+
+        $manager->persist($userTrainer);
+        $manager->flush();
+
+
+        $userTrainer = new User();
+        $userTrainer->setUsername('Lukas');
+        $userTrainer->setPlainPassword('lukas');
+        $userTrainer->setEmail('lukas@trainerhub.lt');
+        $userTrainer->setEnabled(true);
+        $userTrainer->setRoles(array('ROLE_TRAINER'));
+        $userTrainer->setCity('Klaipėda');
+        $userTrainer->setName('Lukas');
+        $userTrainer->setPhone('864498777');
+        $userTrainer->setAvatarName('59103b5711dc5.png');
+        $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!');
+
+        $manager->persist($userTrainer);
+        $manager->flush();
+
+
+        $userTrainer = new User();
+        $userTrainer->setUsername('Danas');
+        $userTrainer->setPlainPassword('danas');
+        $userTrainer->setEmail('danas@trainerhub.lt');
+        $userTrainer->setEnabled(true);
+        $userTrainer->setRoles(array('ROLE_TRAINER'));
+        $userTrainer->setCity('Klaipėda');
+        $userTrainer->setName('Danas');
+        $userTrainer->setPhone('868799777');
+        $userTrainer->setAvatarName('59103b7379cde.png');
+        $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!');
+
+        $manager->persist($userTrainer);
+        $manager->flush();
+
+
+        $userTrainer = new User();
+        $userTrainer->setUsername('Donatas');
+        $userTrainer->setPlainPassword('donatas');
+        $userTrainer->setEmail('donatas@trainerhub.lt');
+        $userTrainer->setEnabled(true);
+        $userTrainer->setRoles(array('ROLE_TRAINER'));
+        $userTrainer->setCity('Kretinga');
+        $userTrainer->setName('Donatas');
+        $userTrainer->setPhone('869412355');
+        $userTrainer->setAvatarName('59103be9a4811.png');
+        $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!');
+
+        $manager->persist($userTrainer);
+        $manager->flush();
+
+
+        $userTrainer = new User();
+        $userTrainer->setUsername('Deividas');
+        $userTrainer->setPlainPassword('deividas');
+        $userTrainer->setEmail('deividas@trainerhub.lt');
+        $userTrainer->setEnabled(true);
+        $userTrainer->setRoles(array('ROLE_TRAINER'));
+        $userTrainer->setCity('Kaunas');
+        $userTrainer->setName('Deividas');
+        $userTrainer->setPhone('869911177');
+        $userTrainer->setAvatarName('59103c0e3e750.png');
+        $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!');
+
+        $manager->persist($userTrainer);
+        $manager->flush();
+
+
+        $userTrainer = new User();
+        $userTrainer->setUsername('Elvinas');
+        $userTrainer->setPlainPassword('elvinas');
+        $userTrainer->setEmail('elvinas@trainerhub.lt');
+        $userTrainer->setEnabled(true);
+        $userTrainer->setRoles(array('ROLE_TRAINER'));
+        $userTrainer->setCity('Palanga');
+        $userTrainer->setName('Elvinas');
+        $userTrainer->setPhone('869333777');
+        $userTrainer->setAvatarName('59103c5bbf887.png');
+        $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!');
+
+        $manager->persist($userTrainer);
+        $manager->flush();
+
+
+        $userTrainer = new User();
+        $userTrainer->setUsername('Marius');
+        $userTrainer->setPlainPassword('marius');
+        $userTrainer->setEmail('marius@trainerhub.lt');
+        $userTrainer->setEnabled(true);
+        $userTrainer->setRoles(array('ROLE_TRAINER'));
+        $userTrainer->setCity('Kaunas');
+        $userTrainer->setName('Marius');
+        $userTrainer->setPhone('868559777');
+        $userTrainer->setAvatarName('59103c732136c.jpg');
+        $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!');
+
+        $manager->persist($userTrainer);
+        $manager->flush();
+
+
+        $userTrainer = new User();
+        $userTrainer->setUsername('Rokas');
+        $userTrainer->setPlainPassword('rokas');
+        $userTrainer->setEmail('rokas@trainerhub.lt');
+        $userTrainer->setEnabled(true);
+        $userTrainer->setRoles(array('ROLE_TRAINER'));
+        $userTrainer->setCity('Klaipėda');
+        $userTrainer->setName('Rokas');
+        $userTrainer->setPhone('864449777');
+        $userTrainer->setAvatarName('59103c732136c.jpg');
+        $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!');
+
+        $manager->persist($userTrainer);
+        $manager->flush();
+
+
+        $userTrainer = new User();
+        $userTrainer->setUsername('Ervinas');
+        $userTrainer->setPlainPassword('ervinas');
+        $userTrainer->setEmail('ervinas@trainerhub.lt');
+        $userTrainer->setEnabled(true);
+        $userTrainer->setRoles(array('ROLE_TRAINER'));
+        $userTrainer->setCity('Palanga');
+        $userTrainer->setName('Ervinas');
+        $userTrainer->setPhone('868741777');
+        $userTrainer->setAvatarName('59103b5711dc5.png');
+        $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!');
+
+        $manager->persist($userTrainer);
+        $manager->flush();
+
+
+        $userTrainer = new User();
+        $userTrainer->setUsername('Marek');
+        $userTrainer->setPlainPassword('marek');
+        $userTrainer->setEmail('marek@trainerhub.lt');
         $userTrainer->setEnabled(true);
         $userTrainer->setRoles(array('ROLE_TRAINER'));
         $userTrainer->setCity('Vilnius');
         $userTrainer->setName('Marek');
-        $userTrainer->setSurname('Zavoronok');
-        $userTrainer->setPhone('869999999');
-        $userTrainer->setDescription('Lorem Ipsum is simply dummy 
-            text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry\'s standard dummy 
-            text ever since the 1500s, when an unknown printer 
-            took a galley of type and scrambled it to make a 
-            type specimen book. It has survived not only 
-            five centuries, but also the leap into 
-            electronic typesetting, remaining 
-            essentially unchanged. It was popularised 
-            in the 1960s with the release of Letraset 
-            sheets containing Lorem Ipsum passages/');
-       // $userTrainer->setAvatar('63e3264cd41e7e79e5e86dab50ac22d5.png');
+        $userTrainer->setPhone('8687747477');
+        $userTrainer->setAvatarName('590f3bf06714b.jpg');
+        $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!');
+
         $manager->persist($userTrainer);
         $manager->flush();
+
 
         $userTrainer = new User();
-        $userTrainer->setUsername('Kažkoks Treneris');
-        $userTrainer->setPlainPassword('test');
-        $userTrainer->setEmail('treneris2@treneris1.lt');
+        $userTrainer->setUsername('Viktoras');
+        $userTrainer->setPlainPassword('viktoras');
+        $userTrainer->setEmail('viktoras@trainerhub.lt');
         $userTrainer->setEnabled(true);
         $userTrainer->setRoles(array('ROLE_TRAINER'));
-        $userTrainer->setCity('Vilnius');
-        $userTrainer->setName('Marek');
-        $userTrainer->setSurname('Zavoronok');
-        $userTrainer->setPhone('869999999');
-        $userTrainer->setDescription('Lorem Ipsum is simply dummy 
-            text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry\'s standard dummy 
-            text ever since the 1500s, when an unknown printer 
-            took a galley of type and scrambled it to make a 
-            type specimen book. It has survived not only 
-            five centuries, but also the leap into 
-            electronic typesetting, remaining 
-            essentially unchanged. It was popularised 
-            in the 1960s with the release of Letraset 
-            sheets containing Lorem Ipsum passages/');
-       // $userTrainer->setAvatar('63e3264cd41e7e79e5e86dab50ac22d5.png');
+        $userTrainer->setCity('Kaunas');
+        $userTrainer->setName('Viktoras');
+        $userTrainer->setPhone('868514777');
+        $userTrainer->setAvatarName('590f3c73d4e62.jpeg');
+        $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!');
 
         $manager->persist($userTrainer);
         $manager->flush();
-          /*  $citiesArray = array();
-        if (($handle = fopen(__DIR__."/cities.csv", "r")) !== false) {
-            while (($data = fgetcsv($handle, null, ",")) !== false) {
-                $citiesArray[] = $data[1];
-                   // $manager->persist($city);
-                //$manager->flush();
-            }
-            fclose($handle);
-        }
-           $faker = Factory::create();
-        for ($i = 0; $i < 100; $i++) {
-            $userTrainer = new User();
-            $userTrainer->setUsername($faker->userName);
-            $userTrainer->setPlainPassword($faker->password);
-            $userTrainer->setEmail($faker->email);
-            $userTrainer->setEnabled(true);
-            $randomKey = array_rand($citiesArray);
-            $randomCity = $citiesArray[$randomKey];
-            $userTrainer->setRoles(array('ROLE_TRAINER'));
-            $userTrainer->setCity($randomCity);
-            $userTrainer->setName($faker->name);
-            $userTrainer->setSurname('Zavoronok');
-            $userTrainer->setPhone('869999999');
-            $userTrainer->setDescription('Lorem Ipsum is simply dummy 
-            text of the printing and typesetting industry. 
-            Lorem Ipsum has been the industry\'s standard dummy 
-            text ever since the 1500s, when an unknown printer 
-            took a galley of type and scrambled it to make a 
-            type specimen book. It has survived not only 
-            five centuries, but also the leap into 
-            electronic typesetting, remaining 
-            essentially unchanged. It was popularised 
-            in the 1960s with the release of Letraset 
-            sheets containing Lorem Ipsum passages/');
-            $manager->persist($userTrainer);
-            $manager->flush();
-        }
-            $em = $this->getDoctrine()->getManager();
-            $users = $em->getRepository(User::class);
-            $cities = $em->getRepository(City::class);
-            $categories = $em->getRepository(Category::class);
-        if (($handle = fopen(__DIR__."/cities.csv", "r")) !== false) {
-            while (($data = fgetcsv($handle, null, ",")) !== false) {
-                $citiesArray[] = $data[1];
-               // $manager->persist($city);
-                //$manager->flush();
-            }
-            fclose($handle);
-        }
-            $cities1 = $cities->findAll();
-            $users1 = $users->findAll();
-            $categories1 = $categories->findAll();
-        foreach ($cities1 as $city) {
-            $citiesIds[] = $city->getId();
-        }
-        foreach ($users1 as $user) {
-            $usersIds[] = $user->getId();
-        }
-        foreach ($categories1 as $category) {
-            $categoriesIds[] = $category->getId();
-        }
 
 
-            $faker = Factory::create();
-        for ($i = 0; $i < 200; $i++) {
-            $training = new Training();
-            $training->setTitle($faker->word);
-            $training->setPrice($faker->biasedNumberBetween($min = 10, $max = 100, $function = 'sqrt'));
-            $training->setDescription($faker->text);
-            $training->setDate($faker->dateTime());
-            $training->setFosUser($users->find(rand(min($usersIds), max($usersIds))));
-            $training->setCategory($categories->find(rand(min($categoriesIds), max($categoriesIds))));
-            $training->setCity($cities->find(rand(min($citiesIds), max($citiesIds))));
-            $manager->persist($training);
-            $manager->flush();
-        }*/
+        $userTrainer = new User();
+        $userTrainer->setUsername('Dainius');
+        $userTrainer->setPlainPassword('dainius');
+        $userTrainer->setEmail('dainius@trainerhub.lt');
+        $userTrainer->setEnabled(true);
+        $userTrainer->setRoles(array('ROLE_TRAINER'));
+        $userTrainer->setCity('Gargždai');
+        $userTrainer->setName('Dainius');
+        $userTrainer->setPhone('868741777');
+        $userTrainer->setAvatarName('590f3c316733e.jpg');
+        $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!');
+
+        $manager->persist($userTrainer);
+        $manager->flush();
+
+
+        $userTrainer = new User();
+        $userTrainer->setUsername('Vilius');
+        $userTrainer->setPlainPassword('vilius');
+        $userTrainer->setEmail('vilius@trainerhub.lt');
+        $userTrainer->setEnabled(true);
+        $userTrainer->setRoles(array('ROLE_TRAINER'));
+        $userTrainer->setCity('Šiauliai');
+        $userTrainer->setName('Vilius');
+        $userTrainer->setPhone('868558414');
+        $userTrainer->setAvatarName('590f3955418dd.png');
+        $userTrainer->setDescription('Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!');
+
+        $manager->persist($userTrainer);
+        $manager->flush();
     }
 }

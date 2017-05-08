@@ -26,6 +26,10 @@ class RatingAverager
             $trainersNew[] = $trainer;
         }
 
-        return $trainersNew;
+        if (!empty($trainersNew)) {
+            return $trainersNew;
+        } else {
+            return $trainers;
+        }
     }
 }

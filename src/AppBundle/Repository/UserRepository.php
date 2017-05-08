@@ -42,8 +42,9 @@ class UserRepository extends EntityRepository
             ->addSelect('ca')
             ->leftJoin('t.city', 'ci')
             ->addSelect('ci')
-            ->where('u.usernameCanonical = :username')
-            ->setParameter(':username', $username)->getQuery()->getSingleResult();
+            ->where('u.usernameCanonical = :username AND u.roles LIKE :roles')
+            ->setParameters(['username' => $username, 'roles' => "%ROLE_TRAINER%"])
+            ->getQuery()->getSingleResult();
     }
     /**
     * Query to filter trainers by city and category

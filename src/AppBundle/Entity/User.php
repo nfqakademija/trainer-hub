@@ -72,7 +72,8 @@ class User extends BaseUser
      *
      * @var string
      */
-    private $avatarName = '5900d0379c62b.png';
+
+    private $avatarName = '590f3955418dd.png';
 
     /**
      * @ORM\Column(type="integer", length=255, nullable=true)
@@ -133,30 +134,6 @@ class User extends BaseUser
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set city
-     *
-     * @param string $city
-     *
-     * @return User
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return string
-     */
-    public function getCity()
-    {
-        return $this->city;
     }
 
     /**
@@ -442,5 +419,29 @@ class User extends BaseUser
     public function getFeedbackTo()
     {
         return $this->feedbackTo;
+    }
+
+    /**
+     * Set city
+     *
+     * @param string $city
+     *
+     * @return User
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
     }
 }
