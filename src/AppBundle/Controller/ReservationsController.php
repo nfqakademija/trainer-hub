@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class TrainingController
@@ -46,7 +47,7 @@ class ReservationsController extends Controller
      * @Route("/remove/reservation/{id}", name="remove_reservation")
      * @param Reservations $reservation
      * @Security("has_role('ROLE_CLIENT')")
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|NotFoundHttpException
      */
     public function removeReservationAction(Reservations $reservation)
     {
@@ -63,7 +64,7 @@ class ReservationsController extends Controller
 
             return $this->redirectToRoute('training_page', ['id' => $trainingTime->getTraining()->getId()]);
         } else {
-            return new Response("Neture teisių ištrinti šitos rezervacijos");
+            throw $this->createNotFoundException();
         }
     }
 

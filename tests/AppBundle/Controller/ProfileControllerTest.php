@@ -16,7 +16,7 @@ class ProfileControllerTest extends WebTestCase
         $client = static::createClient();
         DbFixturesHelper::loadFixtures( $client->getContainer(),
         	[new LoadUserData()]);
-        LogInHelper::logInUser($client, 'treneris@treneris.lt');
+        LogInHelper::logInUser($client, 'paulius@trainerhub.lt');
 
         $response = $client->request('GET', '/profile/edit');
 
