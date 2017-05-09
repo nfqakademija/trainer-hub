@@ -31,7 +31,29 @@
                                     </td>
                                     <td>{{ reservation.trainingTime.date|date('Y-m-d H:i:s') }}</td>
                                     <td>
-                                        {{ reservation.fosUser.username }}
+                                        <div class="modal fade" id="myModal-client-{{ reservation.fosUser.username }}"
+                                             role="dialog">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close"
+                                                                data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title">Kliento informacija</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Vardas: {{ reservation.fosUser.name }}</p>
+                                                        <p>El. paštas: {{ reservation.fosUser.email }}</p>
+                                                        <p>Tel. nr.: {{ reservation.fosUser.phone }}</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">Uždaryti
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="" data-toggle="modal" data-target="#myModal-client-{{ reservation.fosUser.username }}">{{ reservation.fosUser.username }}</a>
                                     </td>
                                     {% if reservation.status == 0 %}
                                         <td>
