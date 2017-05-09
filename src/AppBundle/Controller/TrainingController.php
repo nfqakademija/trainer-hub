@@ -120,7 +120,6 @@ class TrainingController extends Controller
         $reservationsService = $this->get('app.is_registered');
         if (true === $this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
             $reservations = $reservationsService->isRegistered($this->getUser(), $trainingsWithTimes);
-
             return $this->render('@App/trainer/trainingPage.html.twig', [
             'training' => $reservations,
             ]);

@@ -980,3 +980,14 @@ ul {
 .compat-object-fit img {
     opacity: 0;
 }
+.btn-reservate {
+    width: auto;
+    background-color: #56c6c6;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    height: auto;
+    font-weight: normal;
+    padding: 6px 12px;
+    border-color: #56c6c6;
+}
