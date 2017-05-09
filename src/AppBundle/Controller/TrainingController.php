@@ -1,4 +1,5 @@
 <?php
+
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Training;
@@ -110,7 +111,7 @@ class TrainingController extends Controller
     }
 
     /**
-     * @Route("/trainer/training/{id}", name="training_page")
+     * @Route("/training/{id}", name="training_page")
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
     */
     public function displayTrainingAction(Training $training)

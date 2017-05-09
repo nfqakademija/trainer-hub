@@ -2,7 +2,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Reservations;
-use AppBundle\Entity\Training;
 use AppBundle\Entity\User;
 use AppBundle\Entity\Feedback;
 use AppBundle\Form\Type\FeedbackType;
@@ -84,7 +83,6 @@ class TrainerController extends Controller
         $user = $trainingTime->getTraining()->getFosUser();
         if ($user == $this->getUser()) {
             $em = $this->getDoctrine()->getManager();
-            //$training = $em->getRepository(Reservations::class)->findAll();
             $reservation->setStatus(1);
             $em->persist($reservation);
             $em->flush();
@@ -107,7 +105,6 @@ class TrainerController extends Controller
         $user = $trainingTime->getTraining()->getFosUser();
         if ($user == $this->getUser()) {
             $em = $this->getDoctrine()->getManager();
-            //$training = $em->getRepository(Reservations::class)->findAll();
             $reservation->setStatus(2);
             $em->persist($reservation);
             $em->flush();
@@ -130,7 +127,6 @@ class TrainerController extends Controller
         $user = $trainingTime->getTraining()->getFosUser();
         if ($user == $this->getUser()) {
             $em = $this->getDoctrine()->getManager();
-            //$training = $em->getRepository(Reservations::class)->findAll();
             $reservation->setStatus(0);
             $em->persist($reservation);
             $em->flush();

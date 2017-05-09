@@ -2,18 +2,34 @@
 
 namespace AppBundle\Services;
 
+use AppBundle\Entity\User;
+use AppBundle\Repository\ReservationsRepository;
+
+/**
+ * Class ReservationChecker
+ * @package AppBundle\Services
+ */
 class ReservationChecker
 {
 
     private $repo;
 
-    public function __construct(\AppBundle\Repository\ReservationsRepository $repo)
+    /**
+     * ReservationChecker constructor.
+     * @param ReservationsRepository $repo
+     */
+    public function __construct(ReservationsRepository $repo)
     {
 
         $this->repo = $repo;
     }
 
-    public function isRegistered(\AppBundle\Entity\User $user, $trainingTime)
+    /**
+     * @param User $user
+     * @param $trainingTime
+     * @return mixed
+     */
+    public function isRegistered(User $user, $trainingTime)
     {
         foreach ($trainingTime->getTrainingTime() as $training) {
             $oldTraining = $training;
