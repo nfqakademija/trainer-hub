@@ -15,15 +15,14 @@ class ReservationChecker
 
     public function isRegistered(\AppBundle\Entity\User $user, $trainingTime)
     {
-            //dump($trainingTime);
         foreach ($trainingTime->getTrainingTime() as $training) {
-            $old_training = $training;
+            $oldTraining = $training;
             $result = $this->repo->findIfRegistered($user, $training);
             if ($result) {
                 $training->is_registered = true;
                 $training->reservation = $result->getId();
             }
-            $trainingTime->removeTrainingTime($old_training);
+            $trainingTime->removeTrainingTime($oldTraining);
             $trainingTime->addTrainingTime($training);
         }
 

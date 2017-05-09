@@ -5,7 +5,7 @@ namespace AppBundle\Services;
 /**
 * Calculating rating average
 */
-class RatingAverager
+class RatingAverage
 {
     /**
     * Average of trainers ratings
