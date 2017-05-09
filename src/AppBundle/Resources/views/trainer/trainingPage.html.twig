@@ -16,7 +16,7 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <th>Data</th>
-                            <th>Likusiu vietų skaičius</th>
+                            <th>Likusių vietų skaičius</th>
                             <th></th>
                         </thead>
                         <tbody>
@@ -27,7 +27,7 @@
                                     <tr>
                                         <td>{{ training.date.date|date('Y-m-d H:i:s') }}</td>
                                         <td>{{ training.number }}</td>
-                                        <td style="text-align: center;">
+                                        <td>
                                                                                     <!-- Modal -->
                                           <div class="modal fade" id="myModal-approve-{{ training.id }}" role="dialog">
                                             <div class="modal-dialog">
@@ -56,7 +56,7 @@
                                               <div class="modal-content">
                                                 <div class="modal-header">
                                                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                  <h4 class="modal-title">Patvirtinimas</h4>
+                                                  <h4 class="modal-title">Dėmesio!</h4>
                                                 </div>
                                                 <div class="modal-body">
                                                   <p>Ar tikrai norite atšaukti rezervaciją?</p>
@@ -74,7 +74,7 @@
                                             {% if training.is_registered is not defined %}
                                                <button class="form-control btn btn-login" data-toggle="modal" data-target="#myModal-approve-{{ training.id }}">Rezervuoti</button></a>
                                             {% elseif training.number == 0 %}
-                                                <p>Laisvu vietų nėra</p>
+                                                <p>Laisvų vietų nėra</p>
                                             {% else %}
                                                 <button class="form-control btn btn-login"  data-toggle="modal" data-target="#myModal-cancel-{{ training.id }}" >Atšaukti</button>
                                             {% endif %}

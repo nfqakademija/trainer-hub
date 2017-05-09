@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="user-area">
+            <nav class="user-menu">
+                <div>
+                    {{ include('@App/myProfileTabs.html.twig', {'active': 'trainer_reservations'}) }}
+                </div>
+            </nav>
+
+        </div>
+        <div class="user-block">
+            <div class="page-header no-margin padding">Rezervacijos</div>
+            <div class="page-block">
+                <table class="table">
+                    <thead style="color: #868686; background-color: #f0f0f0; text-transform: uppercase;">
+                    <th>Treniruotė</th>
+                    <th>Data</th>
+                    <th>Klientas</th>
+                    <th>Būsena</th>
+                    <th>Veiksmas</th>
+                    </thead>
+                    <tbody>
+                    {% if reservations is defined and reservations is not empty%}
+                        {% for reservation in reservations %}
+                            {% if reservation.trainingTime.date|date('Y-m-d H:i:s') > "now"|date("Y-m-d H:i:s")%}
+                                <tr>
+                                    <td>
+                                        <a href="{{ path('training_page', { id : reservation.trainingTime.training.id }) }}">
+                                            {{ reservation.trainingTime.training.title }}</a>
+                                    </td>
+                                    <td>{{ reservation.trainingTime.date|date('Y-m-d H:i:s') }}</td>
+                                    <td>
+                                        {{ reservation.fosUser.username }}
+                                    </td>
+                                    <td>{{ reservation.status }}</td>
+                                    <td>
+                                        <button class="form-control btn btn-success" >Patvirtinti</button>
+                                        <button class="form-control btn btn-danger" >Atšaukti</button>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <tr><td>Rezervacijų nėra</td></tr>
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

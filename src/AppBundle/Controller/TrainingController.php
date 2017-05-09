@@ -108,6 +108,7 @@ class TrainingController extends Controller
             'trainings' => $trainings,
         ]);
     }
+
     /**
      * @Route("/trainer/training/{id}", name="training_page")
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
@@ -120,12 +121,13 @@ class TrainingController extends Controller
         $reservationsService = $this->get('app.is_registered');
         if (true === $this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
             $reservations = $reservationsService->isRegistered($this->getUser(), $trainingsWithTimes);
+
             return $this->render('@App/trainer/trainingPage.html.twig', [
-            'training' => $reservations,
+                'training' => $reservations,
             ]);
         } else {
             return $this->render('@App/trainer/trainingPage.html.twig', [
-            'training' => $trainingsWithTimes,
+                'training' => $trainingsWithTimes,
             ]);
         }
     }

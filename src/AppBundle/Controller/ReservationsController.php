@@ -7,7 +7,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -73,14 +72,14 @@ class ReservationsController extends Controller
      * @Security("has_role('ROLE_CLIENT')")
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function displayReservations()
+    public function displayReservationsAction()
     {
         $em = $this->getDoctrine()->getManager();
         $trainingTimeRepo = $em->getRepository(Reservations::class);
         $reservations = $trainingTimeRepo->findReservationsByUser($this->getUser());
 
         return $this->render('@App/clientReservations.html.twig', [
-            'reservations' => $reservations
+            'reservations' => $reservations,
         ]);
     }
 }

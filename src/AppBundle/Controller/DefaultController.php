@@ -6,8 +6,6 @@ use AppBundle\Entity\Training;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use AppBundle\Form\Type\FilterType;
 
 /**
  * Class DefaultController
