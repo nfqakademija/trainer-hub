@@ -18,8 +18,8 @@
                     <th>Treniruotė</th>
                     <th>Data</th>
                     <th>Klientas</th>
-                    <th>Būsena</th>
-                    <th>Veiksmas</th>
+                    <th></th>
+                    <th></th>
                     </thead>
                     <tbody>
                     {% if reservations is defined and reservations is not empty%}
@@ -34,11 +34,38 @@
                                     <td>
                                         {{ reservation.fosUser.username }}
                                     </td>
-                                    <td>{{ reservation.status }}</td>
-                                    <td>
-                                        <button class="form-control btn btn-success" >Patvirtinti</button>
-                                        <button class="form-control btn btn-danger" >Atšaukti</button>
-                                    </td>
+                                    {% if reservation.status == 0 %}
+                                        <td>
+                                            <div class="col-md-6">
+                                                <a href="{{ path('confirm_reservation', {id: reservation.id}) }}">
+                                                    <button class="form-control btn btn-success" >Patvirtinti</button>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a href="{{ path('cancel_reservation', {id: reservation.id}) }}">
+                                                    <button class="form-control btn btn-danger" >Atšaukti</button>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    {% endif %}
+                                    {% if reservation.status == 1 or reservation.status == 2 %}
+                                        <td>
+                                            <div class="col-md-6">
+                                                {% if reservation.status == 0 %}
+                                                    Nepatvirtinta
+                                                {% elseif reservation.status == 1 %}
+                                                    Patvirtinta
+                                                {% elseif reservation.status == 2 %}
+                                                    Atšaukta
+                                                {% endif %}
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a href="{{ path('restore_reservation', {id: reservation.id}) }}">
+                                                    <button class="form-control btn btn-primary" >Anuliuoti</button>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    {% endif %}
                                 </tr>
                             {% endif %}
                         {% endfor %}
