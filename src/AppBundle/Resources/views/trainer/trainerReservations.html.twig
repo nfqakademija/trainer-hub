@@ -1,0 +1,154 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="user-area">
+            <nav class="user-menu">
+                <div>
+                    {{ include('@App/myProfileTabs.html.twig', {'active': 'trainer_reservations'}) }}
+                </div>
+            </nav>
+
+        </div>
+        <div class="user-block">
+            <div class="page-header no-margin padding">Rezervacijos</div>
+
+                <table class="table">
+                    <thead style="color: #868686; background-color: #f0f0f0; text-transform: uppercase;">
+                    <th>Treniruotė</th>
+                    <th>Data</th>
+                    <th>Klientas</th>
+                    <th></th>
+                    </thead>
+                    <tbody>
+                    {% if reservations is defined and reservations is not empty %}
+                        {% for reservation in reservations %}
+                            {% if reservation.trainingTime.date|date('Y-m-d H:i:s') > "now"|date("Y-m-d H:i:s") %}
+                                <tr>
+                                    <td>
+                                        <a href="{{ path('training_page', { id : reservation.trainingTime.training.id }) }}">
+                                            {{ reservation.trainingTime.training.title }}</a>
+                                    </td>
+                                    <td>{{ reservation.trainingTime.date|date('Y-m-d H:i:s') }}</td>
+                                    <td>
+                                        <div class="modal fade" id="myModal-client-{{ reservation.fosUser.username }}"
+                                             role="dialog">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close"
+                                                                data-dismiss="modal">&times;</button>
+                                                        <h4 class="modal-title">Kliento informacija</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>Vardas: {{ reservation.fosUser.name }}</p>
+                                                        <p>El. paštas: {{ reservation.fosUser.email }}</p>
+                                                        <p>Tel. nr.: {{ reservation.fosUser.phone }}</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">Uždaryti
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <a href="" data-toggle="modal" data-target="#myModal-client-{{ reservation.fosUser.username }}">{{ reservation.fosUser.username }}</a>
+                                    </td>
+                                    {% if reservation.status == 0 %}
+                                        <td>
+                                            <div class="col-md-6">
+                                                <div class="modal fade" id="myModal-approve-{{ reservation.id }}"
+                                                     role="dialog">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close"
+                                                                        data-dismiss="modal">&times;</button>
+                                                                <h4 class="modal-title">Dėmesio!</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>Ar tikrai norite patvirtinti rezervaciją?</p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <a href="{{ path('confirm_reservation', {id: reservation.id}) }}">
+                                                                    <button class="form-control btn btn-login btn-reservate">
+                                                                        Patvirtinti
+                                                                    </button>
+                                                                </a>
+                                                                <button type="button" class="btn btn-default"
+                                                                        data-dismiss="modal">Uždaryti
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button class="form-control btn btn-success" data-toggle="modal"
+                                                        data-target="#myModal-approve-{{ reservation.id }}">Patvirtinti
+                                                </button>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="modal fade" id="myModal-cancel-{{ reservation.id }}"
+                                                     role="dialog">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close"
+                                                                        data-dismiss="modal">&times;</button>
+                                                                <h4 class="modal-title">Dėmesio!</h4>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>Ar tikrai norite atšaukti rezervaciją?</p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <a href="{{ path('cancel_reservation', {id: reservation.id}) }}">
+                                                                    <button class="form-control btn btn-login btn-reservate">
+                                                                        Atšaukti
+                                                                    </button>
+                                                                </a>
+                                                                <button type="button" class="btn btn-default"
+                                                                        data-dismiss="modal">Uždaryti
+                                                                </button>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <button class="form-control btn btn-danger" data-toggle="modal"
+                                                        data-target="#myModal-cancel-{{ reservation.id }}">Atšaukti
+                                                </button>
+                                            </div>
+                                        </td>
+                                    {% endif %}
+                                    {% if reservation.status == 1 or reservation.status == 2 %}
+                                        <td>
+                                            <div class="col-md-6">
+                                                {% if reservation.status == 0 %}
+                                                    Nepatvirtinta
+                                                {% elseif reservation.status == 1 %}
+                                                    Patvirtinta
+                                                {% elseif reservation.status == 2 %}
+                                                    Atšaukta
+                                                {% endif %}
+                                            </div>
+                                            <div class="col-md-6">
+                                                <a href="{{ path('restore_reservation', {id: reservation.id}) }}">
+                                                    <button class="form-control btn btn-primary">Anuliuoti</button>
+                                                </a>
+                                            </div>
+                                        </td>
+                                    {% endif %}
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td>Rezervacijų nėra</td>
+                        </tr>
+                    {% endif %}
+                    </tbody>
+                </table>
+
+        </div>
+    </div>
+{% endblock %}

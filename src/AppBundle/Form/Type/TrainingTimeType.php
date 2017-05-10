@@ -31,7 +31,6 @@ class TrainingTimeType extends AbstractType
             ])
             ->add('date', DateTimeType::class, [
                 'label' => false,
-                'data' => new \DateTime('now'),
             ]);
     }
 

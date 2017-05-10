@@ -27,21 +27,25 @@ class Feedback
      * @ORM\Column(name="feedback", type="string", length=2500)
      */
     private $feedback;
+
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="feedbackAuthor")
      * @ORM\JoinColumn(name="author_id", referencedColumnName="id")
      */
     private $fosUserAuthor;
+
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="feedbackTo")
      * @ORM\JoinColumn(name="object_id", referencedColumnName="id")
      */
     private $fosUserObject;
 
+
     /**
      * @ORM\Column(name="created_at", type="datetime", nullable=true)
     */
     private $createdAt;
+
     /**
      * @ORM\Column(name="rating", type="integer", nullable=false)
     */
@@ -52,7 +56,6 @@ class Feedback
     */
     public function __construct()
     {
-
         $this->createdAt = new \DateTime("now");
     }
 
@@ -141,7 +144,7 @@ class Feedback
     /**
      * Get createdAt
      *
-     * @return datetime
+     * @return \Datetime
      */
     public function getCreatedAt()
     {

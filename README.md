@@ -1,10 +1,10 @@
-TrainerHub - Asmeninių trenerių puslapis
+[TrainerHub](http://trainershub.projektai.nfqakademija.lt/) - Asmeninių trenerių puslapis
 ===========
 [![Build Status](https://travis-ci.org/nfqakademija/trainer-hub.svg?branch=master)](https://travis-ci.org/nfqakademija/trainer-hub)
 
 # Environment requirements
 
-* PHP 7.1
+* PHP 7.0
 * MySQL
 * and the [usual Symfony application requirements](http://symfony.com/doc/current/reference/requirements.html).
 

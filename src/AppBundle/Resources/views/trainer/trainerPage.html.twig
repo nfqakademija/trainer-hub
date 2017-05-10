@@ -3,13 +3,14 @@
 
 {% block body %}
     <div class="container spacer">
-        <div class="row" style="background-color: #FFFFFF; border-radius: 4px;">
+        <div class="row" style="background-color: #FFFFFF; border-radius: 4px; padding-top: 10px; padding-bottom: 10px;">
             <div class="col-md-4">
                 <img src="{{ asset('filters/my_heighten_filter/uploads/avatars/' ~ trainers.avatarName ) }}" class="img-responsive"/>
                 <h3>Treneris {{ trainers.name }}</h3><hr>
                 <h3 style="font-weight: bold; font-size: 20px;">Kontaktai</h3>
                 <p>Miestas: {{ trainers.city }}</p>
-                <p>Telefonas: {{ trainers.phone }}</p><br><hr>
+                <p>Telefonas: {{ trainers.phone }}</p>
+                <p>El. paštas: {{ trainers.email }}</p><br><hr>
             </div>
             <div class="col-md-8">
                 <h3 style="font-weight: bold; font-size: 20px;">Trenerio aprašymas: </h3>{{ trainers.description }} <br><hr>
@@ -30,7 +31,7 @@
                                 <td>{{ training.category.title }}</td>
                                 <td>{{ training.city.title }}</td>
                                 <td style="text-align: center;">
-                                    <a href="training/{{ training.id }}">
+                                    <a href="{{ path('training_page', {id: training.id}) }}">
                                         <button class="form-control btn btn-login">Peržiūrėti</button>
                                     </a>
                                 </td>

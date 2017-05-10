@@ -20,16 +20,25 @@ class Reservations
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="reservations")
      * @ORM\JoinColumn(name="client_id", referencedColumnName="id")
      */
     private $fosUser;
+
     /**
      * @ORM\ManyToOne(targetEntity="TrainingTime", inversedBy="reservations")
      * @ORM\JoinColumn(name="training_id", referencedColumnName="id")
      */
     private $trainingTime;
+
+    /**
+     * @var integer
+     * @ORM\Column(name="status", options={"default" : 0})
+     */
+    private $status = 0;
+
     /**
      * Get id
      *
@@ -110,5 +119,29 @@ class Reservations
     public function getTrainingTime()
     {
         return $this->trainingTime;
+    }
+
+    /**
+     * Set status
+     *
+     * @param string $status
+     *
+     * @return Reservations
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * Get status
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }
