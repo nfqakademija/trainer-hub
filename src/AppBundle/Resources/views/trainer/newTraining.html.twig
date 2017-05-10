@@ -28,12 +28,12 @@
                     {{ form_row(trainingForm.category) }}
                     {{ form_row(trainingForm.city) }}
                     {{ form_row(trainingForm.description) }}
+                    <hr>
 
                     <ul class="date" data-prototype="{{ form_widget(trainingForm.trainingTime.vars.prototype)|e('html_attr') }}">
                         {% for date in trainingForm.trainingTime %}
                             <li>
                                 {{ form_rest(date) }}
-                                {#{{ form_row(number) }}#}
                             </li>
                         {% endfor %}
                     </ul>
