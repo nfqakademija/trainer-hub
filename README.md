@@ -1,6 +1,6 @@
 TrainerHub - Asmeninių trenerių puslapis
 ===========
-<img src="https://travis-ci.org/nfqakademija/trainer-hub.svg?branch=master"/>
+[![Build Status](https://travis-ci.org/nfqakademija/trainer-hub.svg?branch=master)](https://travis-ci.org/nfqakademija/trainer-hub)
 
 # Environment requirements
 
