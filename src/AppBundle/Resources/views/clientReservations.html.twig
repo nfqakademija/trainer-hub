@@ -17,7 +17,7 @@
                         <thead style="color: #868686; background-color: #f0f0f0; text-transform: uppercase;">
                             <th>Treniruotė</th>
                             <th>Data</th>
-                            <th>Likusiu vietų skaičius</th>
+                            <th>Būsena</th>
                             <th>Veiksmas</th>
                         </thead>
                         <tbody>
@@ -26,15 +26,42 @@
                                     {% if reservation.trainingTime.date|date('Y-m-d H:i:s') > "now"|date("Y-m-d H:i:s")%}
                                         <tr>
                                             <td>
-                                            <a href="{{ path('training_page', { id : reservation.trainingTime.training.id }) }}">
-                                                {{ reservation.trainingTime.training.title }}</a>
-                                            </td>
-                                            <td>{{ reservation.trainingTime.date|date('Y-m-d H:i:s') }}</td>
-                                            <td>{{ reservation.trainingTime.number }}</td>
-                                            <td style="text-align: center;">
-                                                <a href="{{ path('remove_reservation', {id: reservation.id}) }}">
-                                                    <button class="form-control btn btn-login" >Atšaukti</button>
-                                                </a>
+                                                <a href="{{ path('training_page', { id : reservation.trainingTime.training.id }) }}">
+                                                    {{ reservation.trainingTime.training.title }}</a>
+                                                </td>
+                                                <td>{{ reservation.trainingTime.date|date('Y-m-d H:i:s') }}</td>
+                                                <td>
+                                                    {% if reservation.status == 0 %}
+                                                        Nepatvirtinta
+                                                    {% elseif reservation.status == 1 %}
+                                                        <span style="color: green;">Patvirtinta</span>
+                                                    {% elseif reservation.status == 2 %}
+                                                        <span style="color: red;">Atšaukta</span>
+                                                    {% endif %}
+                                                </td>
+                                                <td >
+                                                
+                                              <div class="modal fade" id="myModal-cancel-{{ reservation.id }}" role="dialog">
+                                                <div class="modal-dialog">
+                                                
+                                                  <!-- Modal content-->
+                                                  <div class="modal-content">
+                                                    <div class="modal-header">
+                                                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                      <h4 class="modal-title">Dėmesio!</h4>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                      <p>Ar tikrai norite atšaukti rezervaciją?</p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                            <a href="{{ path('remove_reservation', {id: reservation.id}) }}"><button class="form-control btn btn-login btn-reservate" >Atšaukti</button></a>
+                                                      <button type="button" class="btn btn-default" data-dismiss="modal">Uždaryti</button>
+                                                    </div>
+                                                  </div>
+                                                  
+                                                </div>
+                                              </div>
+                                                    <button class="form-control btn btn-login" data-toggle="modal" data-target="#myModal-cancel-{{ reservation.id }}">Atšaukti</button>
                                             </td>
                                         </tr>
                                     {% endif %}

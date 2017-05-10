@@ -26,6 +26,7 @@ class UserRepository extends EntityRepository
             ->where('u.roles LIKE :role')
             ->setParameter(':role', '%"'.$role.'"%')->getQuery()->getArrayResult();
     }
+
     /**
     * Query to select trainers with trainings
     * @param User $user
@@ -46,6 +47,7 @@ class UserRepository extends EntityRepository
             ->setParameters(['username' => $username, 'roles' => "%ROLE_TRAINER%"])
             ->getQuery()->getSingleResult();
     }
+
     /**
     * Query to filter trainers by city and category
     * @param Category $category
@@ -65,6 +67,7 @@ class UserRepository extends EntityRepository
             ->setParameters(['category' => $category, 'city' => $city])
             ->getQuery()->getArrayResult();
     }
+
     /**
     * Query to filter trainers by city
     * @param City $city
@@ -83,6 +86,7 @@ class UserRepository extends EntityRepository
             ->setParameter(':city', $city)
             ->getQuery()->getArrayResult();
     }
+
     /**
     * Query to filter trainers by category
     * @param Category $category
@@ -101,6 +105,11 @@ class UserRepository extends EntityRepository
             ->setParameter(':category', $category)
             ->getQuery()->getArrayResult();
     }
+
+    /**
+     * @param $role
+     * @return array
+     */
     public function findByRoles($role)
     {
 

@@ -1,4 +1,5 @@
 <?php
+
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\Training;
@@ -108,8 +109,9 @@ class TrainingController extends Controller
             'trainings' => $trainings,
         ]);
     }
+
     /**
-     * @Route("/trainer/training/{id}", name="training_page")
+     * @Route("/training/{id}", name="training_page")
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
     */
     public function displayTrainingAction(Training $training)
@@ -122,11 +124,11 @@ class TrainingController extends Controller
             $reservations = $reservationsService->isRegistered($this->getUser(), $trainingsWithTimes);
 
             return $this->render('@App/trainer/trainingPage.html.twig', [
-            'training' => $reservations,
+                'training' => $reservations,
             ]);
         } else {
             return $this->render('@App/trainer/trainingPage.html.twig', [
-            'training' => $trainingsWithTimes,
+                'training' => $trainingsWithTimes,
             ]);
         }
     }

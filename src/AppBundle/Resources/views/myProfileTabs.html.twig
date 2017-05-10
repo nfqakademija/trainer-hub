@@ -3,11 +3,14 @@
 </span>
 <ul>
     <li><a href="{{ path('fos_user_profile_edit') }}" class="{{ active == 'profileEdit' ? 'active' }}" >Redaguoti profilį </a></li>
-    {% if is_granted("ROLE_TRAINER") %}
+    {% if is_granted('ROLE_TRAINER') %}
         <li><a href="{{ path('my_trainings') }}" class="{{ active == 'trainings' ? 'active' }}" >Mano treniruotės</a></li>
     {% endif %}
-    {% if is_granted("ROLE_CLIENT") %}
+    {% if is_granted('ROLE_CLIENT') %}
         <li><a href="{{ path('my_reservations') }}" class="{{ active == 'reservations' ? 'active' }}" >Mano rezervacijos</a></li>
+    {% endif %}
+    {% if is_granted('ROLE_TRAINER') %}
+        <li><a href="{{ path('trainer_reservations') }}" class="{{ active == 'trainer_reservations' ? 'active' }}" >Rezervacijos</a></li>
     {% endif %}
     <li><a href="{{ path('my_feedbacks') }}" class="{{ active == 'feedbacks' ? 'active' }}" >Mano įvertinimai</a></li>
     <li><a href="{{ path('fos_user_change_password') }}" class="{{ active == 'password' ? 'active' }}" >Slaptažodžio keitimas</a></li>
