@@ -1,0 +1,244 @@
+AppBundle\Entity\User:
+    user0:
+        username: Paulius
+        plainPassword: paulius
+        email: paulius@trainerhub.lt
+        enabled: 1
+        roles: ['ROLE_TRAINER']
+        city: Vilnius
+        name: Paulius
+        phone: 869999999
+        avatarName: 590f3bf06714b.jpg
+        description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!'
+    user1:
+        username: Tomas
+        plainPassword: tomas
+        email: tomas@trainerhub.lt
+        enabled: 1
+        roles: ['ROLE_TRAINER']
+        city: Kaunas
+        name: Tomas
+        phone: 869994719
+        avatarName: 590f3c73d4e62.jpeg
+        description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!'
+    user2:
+        username: Simonas
+        plainPassword: simonas
+        email: simonas@simonas.lt
+        enabled: 1
+        roles: ['ROLE_TRAINER']
+        city: Radviliškis
+        name: Simonas
+        phone: 869999777
+        avatarName: 590f3c316733e.jpg
+        description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!'
+    user3:
+        username: Danielius
+        plainPassword: danielius
+        email: danielius@danielius.lt
+        enabled: 1
+        roles: ['ROLE_TRAINER']
+        city: Jonava
+        name: Danielius
+        phone: 861479777
+        avatarName: 590f3955418dd.png
+        description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!'
+    user4:
+        username: Lukas
+        plainPassword: lukas
+        email: lukas@trainerhub.lt
+        enabled: 1
+        roles: ['ROLE_TRAINER']
+        city: Klaipėda
+        name: Lukas
+        phone: 864498777
+        avatarName: 59103b5711dc5.png
+        description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!'
+    user5:
+        username: Danas
+        plainPassword: danas
+        email: danas@trainerhub.lt
+        enabled: 1
+        roles: ['ROLE_TRAINER']
+        city: Klaipėda
+        name: Danas
+        phone: 868799777
+        avatarName: 59103b7379cde.png
+        description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!'
+    user6:
+        username: Donatas
+        plainPassword: donatas
+        email: donatas@trainerhub.lt
+        enabled: 1
+        roles: ['ROLE_TRAINER']
+        city: Kretinga
+        name: Donatas
+        phone: 869999999
+        avatarName: 59103be9a4811.png
+        description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!'
+    user7:
+        username: Deividas
+        plainPassword: deividas
+        email: deividas@trainerhub.lt
+        enabled: 1
+        roles: ['ROLE_TRAINER']
+        city: Kaunas
+        name: Deividas
+        phone: 869911177
+        avatarName: 59103c0e3e750.png
+        description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!'
+    user8:
+        username: Elvinas
+        plainPassword: elvinas
+        email: elvinas@trainerhub.lt
+        enabled: 1
+        roles: ['ROLE_TRAINER']
+        city: Palanga
+        name: Elvinas
+        phone: 869333777
+        avatarName: 59103c5bbf887.png
+        description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!'
+    user9:
+        username: Marius
+        plainPassword: marius
+        email: marius@trainerhub.lt
+        enabled: 1
+        roles: ['ROLE_TRAINER']
+        city: Kaunas
+        name: Marius
+        phone: 868559777
+        avatarName: 59103c732136c.jpg
+        description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!'
+    user10:
+        username: Rokas
+        plainPassword: rokas
+        email: rokas@trainerhub.lt
+        enabled: 1
+        roles: ['ROLE_TRAINER']
+        city: Klaipėda
+        name: Rokas
+        phone: 861479777
+        avatarName: 59103c732136c.jpg
+        description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!'
+    user11:
+        username: Ervinas
+        plainPassword: ervinas
+        email: ervinas@trainerhub.lt
+        enabled: 1
+        roles: ['ROLE_TRAINER']
+        city: Palanga
+        name: Ervinas
+        phone: 864498777
+        avatarName: 59103b5711dc5.png
+        description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!'
+    user12:
+        username: Marek
+        plainPassword: marek
+        email: marek@trainerhub.lt
+        enabled: 1
+        roles: ['ROLE_TRAINER']
+        city: Vilnius
+        name: Marek
+        phone: 8687747477
+        avatarName: 590f3bf06714b.jpg
+        description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!'
+    user13:
+        username: Viktoras
+        plainPassword: viktoras
+        email: viktoras@trainerhub.lt
+        enabled: 1
+        roles: ['ROLE_TRAINER']
+        city: Kaunas
+        name: Viktoras
+        phone: 868514777
+        avatarName: 590f3c73d4e62.jpeg
+        description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!'
+    user14:
+        username: Dainius
+        plainPassword: dainius
+        email: dainius@trainerhub.lt
+        enabled: 1
+        roles: ['ROLE_TRAINER']
+        city: Gargždai
+        name: Dainius
+        phone: 868741777
+        avatarName: 590f3c316733e.jpg
+        description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!'
+    user15:
+        username: Vilius
+        plainPassword: vilius
+        email: vilius@trainerhub.lt
+        enabled: 1
+        roles: ['ROLE_TRAINER']
+        city: Šiauliai
+        name: Vilius
+        phone: 868558414
+        avatarName: 590f3955418dd.png
+        description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
+        varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
+        Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
+        Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
+        pasiruošęs siekti to, apie ką jau seniai svajojate!'
+
+
+
