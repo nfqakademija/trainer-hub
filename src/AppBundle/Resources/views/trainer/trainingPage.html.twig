@@ -35,14 +35,22 @@
                                               <div class="modal-content">
                                                 <div class="modal-header">
                                                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                  <h4 class="modal-title">Patvirtinimas</h4>
+                                                  <h4 class="modal-title">Dėmesio!</h4>
                                                 </div>
                                                 <div class="modal-body">
-                                                  <p>Ar tikrai norite atlikti rezervaciją?</p>
+                                                  {% if is_granted('ROLE_TRAINER') %}
+                                                      <p>Treniruotes rezervuoti gali tik klientai!</p>
+                                                  {% elseif is_granted('ROLE_CLIENT') %}
+                                                      <p>Ar tikrai norite atlikti rezervaciją?</p>
+                                                  {% endif %}
                                                 </div>
                                                 <div class="modal-footer">
-                                                     <a href="{{ path('reservation_training', {id: training.id}) }}"><button class="form-control btn btn-login btn-reservate" data-toggle="modal" data-target="#myModal">Rezervuoti</button></a>
-                                                  <button type="button" class="btn btn-default" data-dismiss="modal">Uždaryti</button>
+                                                    {% if is_granted('ROLE_CLIENT') %}
+                                                        <a href="{{ path('reservation_training', {id: training.id}) }}">
+                                                            <button class="form-control btn btn-login btn-reservate" data-toggle="modal" data-target="#myModal">Rezervuoti</button>
+                                                        </a>
+                                                    {% endif %}
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Uždaryti</button>
                                                 </div>
                                               </div>
                                               

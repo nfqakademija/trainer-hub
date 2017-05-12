@@ -31,6 +31,7 @@ class TrainingTimeType extends AbstractType
             ])
             ->add('date', DateTimeType::class, [
                 'label' => false,
+                'years' => range(date('Y'), date('Y') + 5),
             ]);
     }
 

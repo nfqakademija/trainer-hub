@@ -2,7 +2,9 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Faker\Provider\cs_CZ\DateTime;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -46,6 +48,14 @@ class TrainingTime
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Reservations", mappedBy="trainingTime", cascade={"remove"})
      */
     private $reservations;
+
+    /**
+     * TrainingTime constructor.
+     */
+    public function __construct()
+    {
+        $this->reservations = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -127,13 +137,6 @@ class TrainingTime
     public function getNumber()
     {
         return $this->number;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->reservations = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**

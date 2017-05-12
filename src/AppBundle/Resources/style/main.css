@@ -1010,3 +1010,10 @@ ul {
     padding: 6px 28px;
     border-color: #56c6c6;
 }
+
+.btn-reservate1:hover,
+.btn-reservate1:focus {
+    color: #fff;
+    background-color: #66d7d7;
+    border-color: #66d7d7;
+}
