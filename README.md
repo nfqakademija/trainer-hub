@@ -18,7 +18,7 @@
 2. Run `npm install` and `bower install`, to install frontend dependencies.
 3. Run `php bin/console doctrine:database:create`, to create MySQL database according to parameters provided in the first step.
 4. Run `php bin/console doctrine:schema:update --force`, to create required MySQL tables.
-5. Run `php bin/console doctrine:fixtures:load` to insert all needed fixtures to the database.
+5. Run `php bin/console hautelook:fixtures:load` to insert all needed fixtures to the database.
 6. Run `gulp` 
 
 ## Run project:

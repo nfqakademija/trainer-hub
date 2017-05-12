@@ -7,7 +7,7 @@ AppBundle\Entity\User:
         roles: ['ROLE_TRAINER']
         city: Vilnius
         name: Paulius
-        phone: 869999999
+        phone: '869999999'
         avatarName: 590f3bf06714b.jpg
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
@@ -22,7 +22,7 @@ AppBundle\Entity\User:
         roles: ['ROLE_TRAINER']
         city: Kaunas
         name: Tomas
-        phone: 869994719
+        phone: '869994719'
         avatarName: 590f3c73d4e62.jpeg
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
@@ -37,7 +37,7 @@ AppBundle\Entity\User:
         roles: ['ROLE_TRAINER']
         city: Radviliškis
         name: Simonas
-        phone: 869999777
+        phone: '869999777'
         avatarName: 590f3c316733e.jpg
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
@@ -52,7 +52,7 @@ AppBundle\Entity\User:
         roles: ['ROLE_TRAINER']
         city: Jonava
         name: Danielius
-        phone: 861479777
+        phone: '861479777'
         avatarName: 590f3955418dd.png
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
@@ -67,7 +67,7 @@ AppBundle\Entity\User:
         roles: ['ROLE_TRAINER']
         city: Klaipėda
         name: Lukas
-        phone: 864498777
+        phone: '864498777'
         avatarName: 59103b5711dc5.png
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
@@ -82,7 +82,7 @@ AppBundle\Entity\User:
         roles: ['ROLE_TRAINER']
         city: Klaipėda
         name: Danas
-        phone: 868799777
+        phone: '868799777'
         avatarName: 59103b7379cde.png
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
@@ -97,7 +97,7 @@ AppBundle\Entity\User:
         roles: ['ROLE_TRAINER']
         city: Kretinga
         name: Donatas
-        phone: 869999999
+        phone: '869999999'
         avatarName: 59103be9a4811.png
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
@@ -112,7 +112,7 @@ AppBundle\Entity\User:
         roles: ['ROLE_TRAINER']
         city: Kaunas
         name: Deividas
-        phone: 869911177
+        phone: '869911177'
         avatarName: 59103c0e3e750.png
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
@@ -127,7 +127,7 @@ AppBundle\Entity\User:
         roles: ['ROLE_TRAINER']
         city: Palanga
         name: Elvinas
-        phone: 869333777
+        phone: '869333777'
         avatarName: 59103c5bbf887.png
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
@@ -142,7 +142,7 @@ AppBundle\Entity\User:
         roles: ['ROLE_TRAINER']
         city: Kaunas
         name: Marius
-        phone: 868559777
+        phone: '868559777'
         avatarName: 59103c732136c.jpg
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
@@ -157,7 +157,7 @@ AppBundle\Entity\User:
         roles: ['ROLE_TRAINER']
         city: Klaipėda
         name: Rokas
-        phone: 861479777
+        phone: '861479777'
         avatarName: 59103c732136c.jpg
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
@@ -172,7 +172,7 @@ AppBundle\Entity\User:
         roles: ['ROLE_TRAINER']
         city: Palanga
         name: Ervinas
-        phone: 864498777
+        phone: '864498777'
         avatarName: 59103b5711dc5.png
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
@@ -187,7 +187,7 @@ AppBundle\Entity\User:
         roles: ['ROLE_TRAINER']
         city: Vilnius
         name: Marek
-        phone: 8687747477
+        phone: '8687747477'
         avatarName: 590f3bf06714b.jpg
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
@@ -202,7 +202,7 @@ AppBundle\Entity\User:
         roles: ['ROLE_TRAINER']
         city: Kaunas
         name: Viktoras
-        phone: 868514777
+        phone: '868514777'
         avatarName: 590f3c73d4e62.jpeg
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
@@ -217,7 +217,7 @@ AppBundle\Entity\User:
         roles: ['ROLE_TRAINER']
         city: Gargždai
         name: Dainius
-        phone: 868741777
+        phone: '868741777'
         avatarName: 590f3c316733e.jpg
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
@@ -232,13 +232,22 @@ AppBundle\Entity\User:
         roles: ['ROLE_TRAINER']
         city: Šiauliai
         name: Vilius
-        phone: 868558414
+        phone: '868558414'
         avatarName: 590f3955418dd.png
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
         Turite viziją, bet nežinote nuo ko pradėti? Treneris yra 
         pasiruošęs siekti to, apie ką jau seniai svajojate!'
+    user16:
+        username: Klientas
+        plainPassword: klientas
+        email: klientas@trainerhub.lt
+        enabled: 1
+        roles: ['ROLE_CLIENT']
+        city: Šiauliai
+        name: Marek
+        phone: '868558414'
 
 
 

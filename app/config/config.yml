@@ -134,9 +134,9 @@ nelmio_alice:
         - 'current'      # native functions. PHP functions have the priority,
                          # so if you want to use a Faker formatter instead,
                          # blacklist this function here
-    loading_limit: 5 # Alice may do some recursion to resolve certain values.
+    loading_limit: 1500 # Alice may do some recursion to resolve certain values.
                      # This parameter defines a limit which will stop the
                      # resolution once reached.
-    max_unique_values_retry: 150 
+    max_unique_values_retry: 1500
 hautelook_alice:
     fixtures_path: 'DataFixtures/ORM' 

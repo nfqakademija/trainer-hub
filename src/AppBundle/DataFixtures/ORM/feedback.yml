@@ -1,0 +1,8 @@
+AppBundle\Entity\Feedback:
+    feedback{1..32}:
+        feedback: <generate()>
+        fosUserAuthor: '@user16'
+        fosUserObject: '@user<numberBetween(0, 15)>'
+        createdAt: <dateTimeBetween('-1 month', '-1 day')>
+        rating: <numberBetween(1, 5)>
+

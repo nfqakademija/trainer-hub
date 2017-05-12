@@ -1,0 +1,233 @@
+AppBundle\Entity\Training:
+    training_0:
+        title: 'Krepšinio treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Krepšinio treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite krepšinio pagrindu'
+        fosUser: '@user0'
+        category: '@category0'
+        city: '@city*'
+    training_1:
+        title: 'Futbolo treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Futbolo treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite futbolo pagrindu'
+        fosUser: '@user0'
+        category: '@category1'
+        city: '@city*'
+    training_2:
+        title: 'Jogos treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Jogos treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite jogos pagrindu'
+        fosUser: '@user1'
+        category: '@category2'
+        city: '@city*'
+    training_3:
+        title: 'Slidinėjimo treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Slidinėjimo treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite slidinėjimo pagrindu'
+        fosUser: '@user1'
+        category: '@category3'
+        city: '@city*'
+    training_4:
+        title: 'Fitneso treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Fitneso treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite fitneso pagrindu'
+        fosUser: '@user2'
+        category: '@category4'
+        city: '@city*'
+    training_5:
+        title: 'Bokso treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Bokso treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite bokso pagrindu'
+        fosUser: '@user2'
+        category: '@category5'
+        city: '@city*'
+    training_6:
+        title: 'Imtynių treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Imtynių treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite imtynių pagrindu'
+        fosUser: '@user3'
+        category: '@category6'
+        city: '@city*'
+    training_7:
+        title: 'Teniso treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Teniso treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite teniso pagrindu'
+        fosUser: '@user3'
+        category: '@category7'
+        city: '@city*'
+    training_8:
+        title: 'Golfo treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Golfo treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite golfo pagrindu'
+        fosUser: '@user4'
+        category: '@category8'
+        city: '@city*'
+    training_9:
+        title: 'Boulingo treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Boulingo treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite boulingo pagrindu'
+        fosUser: '@user4'
+        category: '@category9'
+        city: '@city*'
+    training_10:
+        title: 'Biliardo treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Biliardo treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite biliardo pagrindu'
+        fosUser: '@user5'
+        category: '@category10'
+        city: '@city*'
+    training_11:
+        title: 'Gimnastikos treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Gimnastikos treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite gimnastikos pagrindu'
+        fosUser: '@user5'
+        category: '@category11'
+        city: '@city*'
+    training_12:
+        title: 'Pilateso treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Pilateso treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite pilateso pagrindu'
+        fosUser: '@user6'
+        category: '@category12'
+        city: '@city*'
+    training_13:
+        title: 'Bokso treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Bokso treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite bokso pagrindu'
+        fosUser: '@user6'
+        category: '@category13'
+        city: '@city*'
+    training_14:
+        title: 'Imtynių treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Imtynių treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite imtynių pagrindu'
+        fosUser: '@user7'
+        category: '@category6'
+        city: '@city*'
+    training_15:
+        title: 'Slidinėjimo treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Slidinėjimo treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite slidinėjimo pagrindu'
+        fosUser: '@user7'
+        category: '@category7'
+        city: '@city*'
+    training_16:
+        title: 'Krepšinio treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Krepšinio treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite krepšinio pagrindu'
+        fosUser: '@user8'
+        category: '@category0'
+        city: '@city*'
+    training_17:
+        title: 'Futbolo treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Futbolo treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite futbolo pagrindu'
+        fosUser: '@user0'
+        category: '@category1'
+        city: '@city*'
+    training_18:
+        title: 'Jogos treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Jogos treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite jogos pagrindu'
+        fosUser: '@user8'
+        category: '@category2'
+        city: '@city*'
+    training_19:
+        title: 'Slidinėjimo treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Slidinėjimo treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite slidinėjimo pagrindu'
+        fosUser: '@user8'
+        category: '@category3'
+        city: '@city*'
+    training_20:
+        title: 'Fitneso treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Fitneso treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite fitneso pagrindu'
+        fosUser: '@user9'
+        category: '@category4'
+        city: '@city*'
+    training_21:
+        title: 'Bokso treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Bokso treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite bokso pagrindu'
+        fosUser: '@user9'
+        category: '@category5'
+        city: '@city*'
+    training_22:
+        title: 'Imtynių treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Imtynių treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite imtynių pagrindu'
+        fosUser: '@user10'
+        category: '@category6'
+        city: '@city*'
+    training_23:
+        title: 'Teniso treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Teniso treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite teniso pagrindu'
+        fosUser: '@user10'
+        category: '@category7'
+        city: '@city*'
+    training_24:
+        title: 'Golfo treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Golfo treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite golfo pagrindu'
+        fosUser: '@user11'
+        category: '@category8'
+        city: '@city*'
+    training_25:
+        title: 'Boulingo treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Boulingo treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite boulingo pagrindu'
+        fosUser: '@user11'
+        category: '@category9'
+        city: '@city*'
+    training_26:
+        title: 'Biliardo treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Biliardo treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite biliardo pagrindu'
+        fosUser: '@user12'
+        category: '@category10'
+        city: '@city*'
+    training_27:
+        title: 'Gimnastikos treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Gimnastikos treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite gimnastikos pagrindu'
+        fosUser: '@user13'
+        category: '@category11'
+        city: '@city*'
+    training_28:
+        title: 'Pilateso treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Pilateso treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite pilateso pagrindu'
+        fosUser: '@user13'
+        category: '@category12'
+        city: '@city*'
+    training_29:
+        title: 'Bokso treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Bokso treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite bokso pagrindu'
+        fosUser: '@user14'
+        category: '@category13'
+        city: '@city*'
+    training_30:
+        title: 'Imtynių treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Imtynių treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite imtynių pagrindu'
+        fosUser: '@user14'
+        category: '@category6'
+        city: '@city*'
+    training_31:
+        title: 'Slidinėjimo treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Slidinėjimo treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite slidinėjimo pagrindu'
+        fosUser: '@user15'
+        category: '@category7'
+        city: '@city*'
+    training_31:
+        title: 'Krepšinio treniruotė'
+        price: <numberBetween(20, 100)>
+        description: 'Krepšinio treniruotės įvairaus amžiaus žmonėms, kurioje išmoksite krepšinio pagrindu'
+        fosUser: '@user15'
+        category: '@category0'
+        city: '@city*'
+

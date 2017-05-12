@@ -1,0 +1,5 @@
+AppBundle\Entity\TrainingTime:
+    trainingTime_{1..100}:
+        training: '@training_*'
+        date: <dateTimeBetween('+1 day', '+1 month')>
+        number: <numberBetween(10, 20)>

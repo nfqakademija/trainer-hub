@@ -40,13 +40,15 @@ class DefaultController extends Controller
         $trainers = $trainersFinder->filter();
         $ratingsFinderWithTrainers = $this->get('app.average');
         $trainersWithRatings = $ratingsFinderWithTrainers->average($trainers);
+       /* usort($trainersWithRatings, function ($a, $b) {
+            return $b['rating'] <=> $a['rating'];
+        });*/
         $paginator = $this->get('knp_paginator');
         $trainersWithRatings = $paginator->paginate(
             $trainersWithRatings, /* query NOT result */
             $request->query->getInt('page', 1)/*page number*/,
             12/*limit per page*/
         );
-
         return $this->render('@App/public/index.html.twig', [
             'trainers' => $trainersWithRatings,
             'cities' => !empty($citiesNew)?array_unique($citiesNew):'',

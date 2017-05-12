@@ -39,3 +39,7 @@ services:
     app.is_registered:
         class: AppBundle\Services\ReservationChecker
         arguments: ['@app.reservation_repository']
+
+    data_fixtures.provider.random_feedback_generator:
+        class: AppBundle\DataFixtures\Random\RandomFeedbackGenerator
+        tags: [ { name: nelmio_alice.faker.provider } ]

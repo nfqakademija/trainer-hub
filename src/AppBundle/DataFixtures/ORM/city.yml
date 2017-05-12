@@ -1,0 +1,114 @@
+AppBundle\Entity\City:
+    city0:
+        title: Vilnius
+    city1:
+        title: Kaunas
+    city2:
+        title: Klaipėda
+    city3:
+        title: Šiauliai
+    city4:
+        title: Panevėžys
+    city5:
+        title: Akmenė
+    city6:
+        title: Alytus
+    city7:
+        title: Anykščiai
+    city8:
+        title: Biržtonas
+    city9:
+        title: Biržai
+    city10:
+        title: Druskininkai
+    city11:
+        title: Elektrėnai
+    city12:
+        title: Gargždai
+    city13:
+        title: Ignalina
+    city14:
+        title: Jonava
+    city15:
+        title: Joniškis
+    city16:
+        title: Jurbarkas
+    city17:
+        title: Kaišiadorys
+    city18:
+        title: Kalvarija
+    city19:
+        title: Kazlų Rūda
+    city20:
+        title: Kelmė
+    city21:
+        title: Kėdainiai
+    city22:
+        title: Kretinga
+    city23:
+        title: Kupiškis
+    city24:
+        title: Kuršėnai
+    city25:
+        title: Lazdijai
+    city26:
+        title: Marijampolė
+    city27:
+        title: Mažeikiai
+    city28:
+        title: Neringa
+    city29:
+        title: Pagėgiai
+    city30:
+        title: Pakruojis
+    city31:
+        title: Palanga
+    city32:
+        title: Pasvalys
+    city33:
+        title: Plungė
+    city34:
+        title: Prienai
+    city35:
+        title: Radviliškis
+    city36:
+        title: Raseiniai
+    city37:
+        title: Rietavas
+    city38:
+        title: Rokiškis
+    city39:
+        title: Skuodas
+    city40:
+        title: Šakiai
+    city41:
+        title: Šalčininkai
+    city42:
+        title: Šilalė
+    city43:
+        title: Šilutė
+    city44:
+        title: Širvintos
+    city45:
+        title: Švenčionys
+    city46:
+        title: Tauragė
+    city47:
+        title: Telšiai
+    city48:
+        title: Trakai
+    city49:
+        title: Ukmergė
+    city50:
+        title: Utena
+    city51:
+        title: Varėna
+    city52:
+        title: Vievis
+    city53:
+        title: Vilkaviškis
+    city54:
+        title: Visaginas
+    city55:
+        title: Zarasai
+

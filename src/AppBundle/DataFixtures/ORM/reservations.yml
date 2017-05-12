@@ -1,0 +1,5 @@
+AppBundle\Entity\Reservations:
+    reservation{1..15}:
+        fosUser: '@user16'
+        trainingTime: '@trainingTime_*'
+        status: <numberBetween(0, 2)>

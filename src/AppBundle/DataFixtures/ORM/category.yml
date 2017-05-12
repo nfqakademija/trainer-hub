@@ -1,0 +1,29 @@
+AppBundle\Entity\Category:
+    category0:
+        title: Krepšinis
+    category1:
+        title: Futbolas
+    category2:
+        title: Joga
+    category3:
+        title: Slidinėjimas
+    category4:
+        title: Fitnesas
+    category5:
+        title: Boksas
+    category6:
+        title: Imtynės
+    category7:
+        title: Tenisas
+    category8:
+        title: Golfas
+    category9:
+        title: Boulingas
+    category10:
+        title: Biliardas
+    category11:
+        title: Gimnastika
+    category12:
+        title: Pilatesas
+    category13:
+        title: Kita
