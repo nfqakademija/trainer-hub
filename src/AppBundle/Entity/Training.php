@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\DBAL\Types\DateTimeType;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints\DateTime;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Training
@@ -35,6 +36,7 @@ class Training
      * @var string
      *
      * @ORM\Column(name="price", type="decimal", precision=10, scale=0)
+     * @Assert\GreaterThanOrEqual(0)
      */
     private $price;
 

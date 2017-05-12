@@ -25,7 +25,6 @@ class RatingAverage
             }
             $trainersNew[] = $trainer;
         }
-
         if (!empty($trainersNew)) {
             return $trainersNew;
         } else {

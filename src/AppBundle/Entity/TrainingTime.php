@@ -32,6 +32,7 @@ class TrainingTime
      * @var int
      *
      * @ORM\Column(name="number", type="integer", nullable=false)
+     * @Assert\GreaterThanOrEqual(0)
      */
     private $number;
 

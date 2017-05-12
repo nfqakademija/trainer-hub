@@ -988,3 +988,25 @@ ul {
     padding: 6px 12px;
     border-color: #56c6c6;
 }
+.btn-reservate1 {
+    width: auto;
+    background-color: #56c6c6;
+    outline: none;
+    color: #fff;
+    font-size: 14px;
+    height: auto;
+    font-weight: normal;
+    padding: 6px 28px;
+    border-color: #56c6c6;
+}
+.btn-cancel1 {
+    width: auto;
+    background-color: #fff;
+    outline: none;
+    color: #56c6c6;
+    font-size: 14px;
+    height: auto;
+    font-weight: normal;
+    padding: 6px 28px;
+    border-color: #56c6c6;
+}

@@ -83,7 +83,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <button class="form-control btn btn-success" data-toggle="modal"
+                                                <button class="form-control btn btn-reservate1" data-toggle="modal"
                                                         data-target="#myModal-approve-{{ reservation.id }}">Patvirtinti
                                                 </button>
                                             </div>
@@ -114,7 +114,7 @@
 
                                                     </div>
                                                 </div>
-                                                <button class="form-control btn btn-danger" data-toggle="modal"
+                                                <button class="form-control btn btn-cancel1" data-toggle="modal"
                                                         data-target="#myModal-cancel-{{ reservation.id }}">Atšaukti
                                                 </button>
                                             </div>
@@ -133,7 +133,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <a href="{{ path('restore_reservation', {id: reservation.id}) }}">
-                                                    <button class="form-control btn btn-primary">Anuliuoti</button>
+                                                    <button class="form-control btn btn-cancel1">Anuliuoti</button>
                                                 </a>
                                             </div>
                                         </td>

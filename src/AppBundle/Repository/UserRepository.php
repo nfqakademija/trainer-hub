@@ -63,6 +63,8 @@ class UserRepository extends EntityRepository
             ->addSelect('ca')
             ->leftJoin('t.city', 'ci')
             ->addSelect('ci')
+            ->leftJoin('u.feedbackTo', 'f')
+            ->addSelect('f')
             ->where('ca.title = :category AND ci.title = :city')
             ->setParameters(['category' => $category, 'city' => $city])
             ->getQuery()->getArrayResult();
@@ -82,6 +84,8 @@ class UserRepository extends EntityRepository
             ->addSelect('ca')
             ->leftJoin('t.city', 'ci')
             ->addSelect('ci')
+            ->leftJoin('u.feedbackTo', 'f')
+            ->addSelect('f')
             ->where('ci.title = :city')
             ->setParameter(':city', $city)
             ->getQuery()->getArrayResult();
@@ -101,6 +105,8 @@ class UserRepository extends EntityRepository
             ->addSelect('ca')
             ->leftJoin('t.city', 'ci')
             ->addSelect('ci')
+            ->leftJoin('u.feedbackTo', 'f')
+            ->addSelect('f')
             ->where('ca.title = :category')
             ->setParameter(':category', $category)
             ->getQuery()->getArrayResult();
