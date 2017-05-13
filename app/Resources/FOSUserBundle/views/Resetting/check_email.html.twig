@@ -2,10 +2,18 @@
 
 {% block body %}
 
-    {% trans_default_domain 'FOSUserBundle' %}
+    <div class="container">
+        <div class="alert alert-success alert-dismissable">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+            {{ 'Slaptažodžio informacija išsiųstą į Jūsų el. paštą'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}
+        </div>
+        <br>
+        <br>
+        <a href="{{ path('fos_user_security_login') }}">
+            <button class="form-control btn btn-login btn-reservate">
+                Atgal
+            </button>
+        </a>
+    </div>
 
-
-    <p>
-        {{ 'resetting.check_email'|trans({'%tokenLifetime%': tokenLifetime})|nl2br }}
-    </p>
 {% endblock %}

@@ -28,6 +28,19 @@ services:
         factory: ["@doctrine.orm.entity_manager", getRepository]
         arguments:
             - AppBundle\Entity\Reservations
+
+    app.registration_confirm:
+        class: AppBundle\EventListener\RegistrationConfirmListener
+        arguments: ['@router']
+        tags:
+            - { name: kernel.event_subscriber }
+
+    app.change_password_success:
+        class: AppBundle\EventListener\ChangePasswordListener
+        arguments: ['@router']
+        tags:
+            - { name: kernel.event_subscriber }
+
     app.filter:
         class: AppBundle\Services\TrainersFilter
         arguments: ['@app.user_repository']
