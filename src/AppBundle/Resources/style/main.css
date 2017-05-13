@@ -1017,3 +1017,7 @@ ul {
     background-color: #66d7d7;
     border-color: #66d7d7;
 }
+.bootstrap-select div.dropdown-menu {
+    max-height: 300px !important;
+    overflow-y: scroll !important;
+}

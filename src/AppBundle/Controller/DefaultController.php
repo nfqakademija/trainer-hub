@@ -40,9 +40,7 @@ class DefaultController extends Controller
         $trainers = $trainersFinder->filter();
         $ratingsFinderWithTrainers = $this->get('app.average');
         $trainersWithRatings = $ratingsFinderWithTrainers->average($trainers);
-       /* usort($trainersWithRatings, function ($a, $b) {
-            return $b['rating'] <=> $a['rating'];
-        });*/
+
         $paginator = $this->get('knp_paginator');
         $trainersWithRatings = $paginator->paginate(
             $trainersWithRatings, /* query NOT result */
