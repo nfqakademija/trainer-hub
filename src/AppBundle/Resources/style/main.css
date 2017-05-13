@@ -1032,12 +1032,11 @@ ul {
     padding-right: 20px;
     z-index: 5; 
 }
-.spacer-about {
+
+.spacer > .row-wrapper {
+    border-radius: 14px;
     background-color: #FFFFFF; 
-    border-radius: 14px; 
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px;
 }
 .about-first:after {
     content: "";
@@ -1047,9 +1046,12 @@ ul {
     background: #000;
     opacity: 0.4;
     position: absolute;
-    top: 5%;
+    top: 4.5%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+.about-first {
+    text-align: center;
 }
 .about-text {
     margin-top: 20px;
@@ -1116,7 +1118,4 @@ form[name=contact] {padding-top: 0;}
 }
 .space {
     height: 15px;
-}
-.wrapper > .spacer-about {
-    padding-bottom: 20px !important;
 }

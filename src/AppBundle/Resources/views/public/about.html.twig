@@ -1,74 +1,74 @@
-{% extends 'base-about.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block body %}
 
-    <div class="container spacer-about">
-        <div class="row about-first">
-            <span class="about-title">Apie Mus</span>
-        </div>
-        <div class="row about-text">
-			<p><strong>TrainerHub</strong> - tai sistema skirta treneriams ir jų klientams. Treneriai gali lengviau planuoti ir sudaryti savo darbotvarkę,
-				o klientai - lengviau susirasti norimą trenerį, pagal miestą ir tam tikrą kategoriją.
-				Nuo šiol, visi treneriai vienoje vietoje!</p>
-        </div>
-        <div class="row about-first">
-            <span class="about-title">Treneriai atkeliauja iš:</span>
-        </div>
-        <div class="row logos">
-        	<div class="col-md-3">
-                <img src="/images/lemon-gym.jpg" />
+    <div class="container spacer">
+        <div class="row-wrapper">
+            <div class="row about-first">
+                <span class="about-title">Apie Mus</span>
+            </div>
+            <div class="row about-text">
+                <p>"Trainers Hub" sistema skirta treneriams, kad jie galėtu reklamuotis savo paslaugas bei lengviau tvarkytis darbotvarkę, o klientams būtų papraščiau rasti jam reikiama trenerį pagal miestą bei treniruotės kategoriją. Visi treneriai reklamuotusi vienoje vietoje, ir visiems būtų patogiau.</p>
+            </div>
+            <div class="row about-first">
+                <span class="about-title">Treneriai atkeliauja iš:</span>
+            </div>
+            <div class="row logos">
+            	<div class="col-md-3">
+                    <img src="/images/lemon-gym.jpg" />
+            	</div>
+            	<div class="col-md-3">
+                    <img src="/images/bodygym.png" />
+            	</div>
+            	<div class="col-md-3">
+                    <img src="/images/skygym.png" />
+            	</div>
+            	<div class="col-md-3">
+                    <img src="/images/gymplius.png" />
+            	</div>
         	</div>
-        	<div class="col-md-3">
-                <img src="/images/bodygym.png" />
-        	</div>
-        	<div class="col-md-3">
-                <img src="/images/skygym.png" />
-        	</div>
-        	<div class="col-md-3">
-                <img src="/images/gymplius.png" />
-        	</div>
-    	</div>
-    	<div class="row about-first">
-            <span class="about-title">Susisiekite</span>
-        </div>
-    	<div class="row contacts">
-    	    <div class="col-md-6">
-    	    	<div class="t-row">
-    	            <i class="fa fa-phone"></i><span>8699999999</span>
-    	    	</div>
-    	    	<div class="space"></div>
-    	    	<div class="t-row">
-    	            <i class="fa fa-envelope"></i><span>info@trainerhub.lt</span>
-    	        </div>
-    	    </div>
-    	    <div class="col-md-6">
-    	        {{ form_start(form, {'attr' : {'novalidate' : 'novalidate'}}) }}
-			    <div class="form-group">
-			        {{ form_widget(form.name) }}
-			        {{ form_errors(form.name) }}
-			    </div>
-			    <div class="form-group">
-			        {{ form_widget(form.email) }}
-			        {{ form_errors(form.email) }}
-			    </div>
-			    <div class="form-group">
-			        {{ form_widget(form.message) }}
-			        {{ form_errors(form.message) }}
-			    </div>
+        	<div class="row about-first">
+                <span class="about-title">Susisiekite</span>
+            </div>
+        	<div class="row contacts">
+        	    <div class="col-md-6">
+        	    	<div class="t-row">
+        	            <i class="fa fa-phone"></i><span>8699999999</span>
+        	    	</div>
+        	    	<div class="space"></div>
+        	    	<div class="t-row">
+        	            <i class="fa fa-envelope"></i><span>info@trainerhub.lt</span>
+        	        </div>
+        	    </div>
+        	    <div class="col-md-6">
+        	        {{ form_start(form, {'attr' : {'novalidate' : 'novalidate'}}) }}
+    			    <div class="form-group">
+    			        {{ form_widget(form.name) }}
+    			        {{ form_errors(form.name) }}
+    			    </div>
+    			    <div class="form-group">
+    			        {{ form_widget(form.email) }}
+    			        {{ form_errors(form.email) }}
+    			    </div>
+    			    <div class="form-group">
+    			        {{ form_widget(form.message) }}
+    			        {{ form_errors(form.message) }}
+    			    </div>
 
-			    {# Render CSRF token etc .#}
-			    <div style="display:none">
-			        {{ form_rest(form) }}
-			    </div>
-			    
-			    <div class="form-group">
-                    <input type="submit" value="Siųsti" tabindex="4"
-                               class="form-control btn btn-login">
-                </div>
-			    
-				{{ form_end(form) }}
-    	    </div>
-    	</div>
+    			    {# Render CSRF token etc .#}
+    			    <div style="display:none">
+    			        {{ form_rest(form) }}
+    			    </div>
+    			    
+    			    <div class="form-group">
+                        <input type="submit" value="Siųsti" tabindex="4"
+                                   class="form-control btn btn-login">
+                    </div>
+    			    
+    				{{ form_end(form) }}
+        	    </div>
+        	</div>
+        </div>
     </div>
 
 {% endblock %}
