@@ -1,4 +1,4 @@
-var $addTagLink = $('<a href="#" class="add_date_link">Pridėti naują laiką</a>');
+var $addTagLink = $('<a href="#" class="add_date_link">Pridėti treniruotės laiką</a>');
 var $newLinkLi = $('<p></p>').append($addTagLink);
 
 jQuery(document).ready(function() {
@@ -45,7 +45,7 @@ function addDateForm($collectionHolder, $newLinkLi) {
 }
 
 function addTagFormDeleteLink($tagFormLi) {
-    var $removeFormA = $('<a href="#">x</a>');
+    var $removeFormA = $('<a href="#"><span class="glyphicon glyphicon-trash"></span></a>');
     $tagFormLi.append($removeFormA);
 
     $removeFormA.on('click', function(e) {

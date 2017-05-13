@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Regex;
 
 /**
  * Generate new trainingTime form
@@ -27,11 +28,17 @@ class TrainingTimeType extends AbstractType
                 'label' => 'Vietų skaičius',
                 'constraints' => [
                     new NotBlank(),
+                    new Regex(
+                        [
+                            'pattern' => '/^[0-9]\d*$/',
+                        ]
+                    ),
                 ],
             ])
             ->add('date', DateTimeType::class, [
                 'label' => false,
                 'years' => range(date('Y'), date('Y') + 5),
+                'months' => range(date('m'), date('m')+11),
             ]);
     }
 

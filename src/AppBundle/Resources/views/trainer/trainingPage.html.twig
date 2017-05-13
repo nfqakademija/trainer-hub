@@ -3,7 +3,7 @@
 
 {% block body %}
     <div class="container spacer">
-        <div class="row" style="background-color: #FFFFFF; border-radius: 4px; padding-top: 10px; padding-bottom: 10px;">
+        <div class="row" style="background-color: #FFFFFF; border-radius: 14px; padding-top: 10px; padding-bottom: 10px;">
             <div class="col-md-2 col-lg-2"></div>
             <div class="col-md-8 col-lg-8">
                 <h2 style="text-align: center;">{{ training.title }}</h2> <br>
@@ -42,6 +42,8 @@
                                                       <p>Treniruotes rezervuoti gali tik klientai!</p>
                                                   {% elseif is_granted('ROLE_CLIENT') %}
                                                       <p>Ar tikrai norite atlikti rezervaciją?</p>
+                                                  {% else %}
+                                                      <p>Norint rezervuoti treniruotę, reikia <a href="{{ path('fos_user_security_login') }}">prisijungti</a></p>
                                                   {% endif %}
                                                 </div>
                                                 <div class="modal-footer">
