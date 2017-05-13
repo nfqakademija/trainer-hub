@@ -68,8 +68,9 @@ class DefaultController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             return $this->redirectToRoute('about_us');
         }
-        return $this->render("@App/public/about.html.twig", 
-            ['form' => $form->createView()]);
+        return $this->render(
+            "@App/public/about.html.twig",
+            ['form' => $form->createView()]
+        );
     }
-
 }
