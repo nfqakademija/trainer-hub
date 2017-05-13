@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
 use AppBundle\Entity\Training;
+use AppBundle\Form\Type\ContactType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -55,4 +56,20 @@ class DefaultController extends Controller
             'currentCategory' => isset($_GET['categories'])?$_GET['categories']:'all',
         ]);
     }
+    /**
+     * @Route("/about-us", name="about_us")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function aboutAction(Request $request)
+    {
+        $form = $this->createForm(ContactType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            return $this->redirectToRoute('about_us');
+        }
+        return $this->render("@App/public/about.html.twig", 
+            ['form' => $form->createView()]);
+    }
+
 }

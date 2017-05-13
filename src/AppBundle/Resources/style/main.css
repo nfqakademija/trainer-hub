@@ -1021,3 +1021,102 @@ ul {
     max-height: 300px !important;
     overflow-y: scroll !important;
 }
+.about-title {
+    font-size: 24px;
+    font-weight: 900;
+    text-align: center;
+    color: #465765;
+    position: relative;
+    background-color: #ffffff;
+    padding-left: 20px;
+    padding-right: 20px;
+    z-index: 5; 
+}
+.spacer-about {
+    background-color: #FFFFFF; 
+    border-radius: 14px; 
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.about-first:after {
+    content: "";
+    width: 50%;
+    height: 1px;
+    display: block;
+    background: #000;
+    opacity: 0.4;
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.about-text {
+    margin-top: 20px;
+    text-align: justify;
+    padding: 0 35px;
+}
+.logos .col-md-3 img {
+    max-width: 70%;
+}
+.logos {
+    margin-top: 20px;
+    font-size: 0;
+}
+.logos .col-md-3 {
+    display: inline-block;
+    float: none;
+}
+.about-first:nth-child(3), .about-first:nth-child(5) {
+    margin-top: 20px;
+}
+div.row.contacts { margin-top: 20px; }
+div.row.contacts input[type=text], div.row.contacts input[type=email], div.row.contacts textarea {
+    max-width: 100%;
+    min-width: 100%;
+    width: 100%;
+    height: 45px;
+    font-size: 16px;
+}
+.contacts .fa {
+    font-size: 28px;
+    color: #56c6c6;;
+}
+form[name=contact] {padding-top: 0;}
+.contacts .col-md-6:first-child {
+    display: table;
+}
+.contacts .col-md-6 i, .contacts .col-md-6 span {
+    display: table-cell;
+}
+.contacts .col-md-6 i {
+    padding-right: 10px;
+}
+.contacts .col-md-6 span {
+    padding-left: 10px;
+}
+.contacts i {
+    text-align: right;
+}
+.contacts span {
+    text-align: left;
+}
+.contacts span, .contacts i {
+    vertical-align: middle;
+}
+.contacts span {
+    width: 60%;
+}
+.contacts i {
+    width: 40%;
+}
+.t-row {
+    margin-bottom: 10px;
+    display: table-row;
+}
+.space {
+    height: 15px;
+}
+.wrapper > .spacer-about {
+    padding-bottom: 20px !important;
+}
