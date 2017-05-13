@@ -11,37 +11,63 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
+/**
+ * Class ContactType
+ * @package AppBundle\Form\Type
+ */
 class ContactType extends AbstractType
 {
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array                $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name', TextType::class, array('attr' => array('placeholder' => 'Vardas'),
-                'constraints' => array(
+            ->add('name', TextType::class, [
+                'attr' => [
+                    'placeholder' => 'Vardas',
+                    'class' => 'form-control',
+                ],
+                'constraints' => [
                     new NotBlank(),
-                )
-            ))
-            ->add('email', EmailType::class, array('attr' => array('placeholder' => 'El. paštas'),
-                'constraints' => array(
+                ],
+            ])
+            ->add('email', EmailType::class, [
+                'attr' => [
+                    'placeholder' => 'El. paštas',
+                    'class' => 'form-control',
+                ],
+                'constraints' => [
                     new NotBlank(),
                     new Email(),
-                )
-            ))
-            ->add('message', TextareaType::class, array('attr' => array('placeholder' => 'Žinutė'),
-                'constraints' => array(
+                ],
+            ])
+            ->add('message', TextareaType::class, [
+                'attr' => [
+                    'placeholder' => 'Žinutė',
+                    'class' => 'form-control',
+                ],
+                'constraints' => [
                     new NotBlank(),
-                )
-            ))
+                ],
+            ])
         ;
     }
 
+    /**
+     * @param OptionsResolver $resolver
+     */
     public function setDefaultOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'error_bubbling' => true
-        ));
+        $resolver->setDefaults([
+            'error_bubbling' => true,
+        ]);
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
         return 'contact_form';
