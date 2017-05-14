@@ -9,9 +9,9 @@
                 <h2 style="text-align: center;">{{ training.title }}</h2> <br>
                 <h4><strong>Kaina:</strong> {{ training.price }} €</h4>
                 <h4><strong>Treneris:</strong>
-                    <a:ho href="{{ path('trainer_page', {username: training.fosUser.username}) }}" style="text-decoration: none; color: inherit;">
+                    <a href="{{ path('trainer_page', {username: training.fosUser.usernameCanonical}) }}" style="text-decoration: none; color: inherit;">
                         {{ training.fosUser.username }}
-                    </a:ho>
+                    </a>
                 </h4>
                 <h4><strong>Aprašymas:</strong> </h4>
                 <span style="margin-bottom: 10px;">{{ training.description }}</span> <hr>
@@ -29,7 +29,7 @@
 
                                 {% if training.date.date|date('Y-m-d H:i:s') > "now"|date("Y-m-d H:i:s")%}
                                     <tr>
-                                        <td>{{ training.date.date|date('Y-m-d H:i:s') }}</td>
+                                        <td>{{ training.date.date|date('Y-m-d H:i') }}</td>
                                         <td>{{ training.number }}</td>
                                         <td>
                                                                                     <!-- Modal -->
