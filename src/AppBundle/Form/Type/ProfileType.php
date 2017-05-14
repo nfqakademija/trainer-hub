@@ -59,6 +59,7 @@ class ProfileType extends AbstractType
                 'label' => 'Aprašymas',
                 'attr' => [
                     'class' => 'form-control',
+                    'style' => 'height: 150px',
                 ],
             ]);
         }

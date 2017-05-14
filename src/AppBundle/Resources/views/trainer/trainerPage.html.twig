@@ -8,9 +8,9 @@
                 <img src="{{ asset('filters/my_heighten_filter/uploads/avatars/' ~ trainers.avatarName ) }}" class="img-responsive"/>
                 <h3>Treneris {{ trainers.name }}</h3><hr>
                 <h3 style="font-weight: bold; font-size: 20px;">Kontaktai</h3>
-                <p>Miestas: {{ trainers.city }}</p>
-                <p>Telefonas: {{ trainers.phone }}</p>
-                <p>El. paštas: {{ trainers.email }}</p><br><hr>
+                <p><span class="glyphicon glyphicon-map-marker"></span> {{ trainers.city }}</p>
+                <p><span class="glyphicon glyphicon-earphone"></span> {{ trainers.phone }}</p>
+                <p><span class="glyphicon glyphicon-envelope"></span> {{ trainers.email }}</p><br><hr>
             </div>
             <div class="col-md-8">
                 <h3 style="font-weight: bold; font-size: 20px;">Trenerio aprašymas: </h3>{{ trainers.description }} <br><hr>

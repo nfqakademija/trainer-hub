@@ -32,6 +32,13 @@ class RegistrationType extends AbstractType
                         'label' => false,
                     ),
             ));
+        $builder->add('username', null, [
+            'label' => false,
+        ]);
+
+        $builder->add('email', null, [
+            'label' => false,
+        ]);
     }
     /**
     * Get parent form

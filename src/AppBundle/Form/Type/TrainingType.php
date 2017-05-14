@@ -64,6 +64,9 @@ class TrainingType extends AbstractType
                     )),
                 ],
                 'label' => 'Aprašymas',
+                'attr' => [
+                    'style' => 'height: 100px',
+                ],
             ])
             ->add('trainingTime', CollectionType::class, [
                 'entry_type' => TrainingTimeType::class,

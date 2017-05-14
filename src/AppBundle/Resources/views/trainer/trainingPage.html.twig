@@ -8,6 +8,11 @@
             <div class="col-md-8 col-lg-8">
                 <h2 style="text-align: center;">{{ training.title }}</h2> <br>
                 <h4><strong>Kaina:</strong> {{ training.price }} €</h4>
+                <h4><strong>Treneris:</strong>
+                    <a href="{{ path('trainer_page', {username: training.fosUser.username}) }}" style="text-decoration: none; color: inherit;">
+                        {{ training.fosUser.username }}
+                    </a>
+                </h4>
                 <h4><strong>Aprašymas:</strong> </h4>
                 <span style="margin-bottom: 10px;">{{ training.description }}</span> <hr>
 
