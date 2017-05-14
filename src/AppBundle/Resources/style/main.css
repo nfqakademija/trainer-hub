@@ -1069,6 +1069,7 @@ ul {
 .logos .col-md-3 {
     display: inline-block;
     float: none;
+    text-align: center;
 }
 .about-first:nth-child(3), .about-first:nth-child(5) {
     margin-top: 20px;

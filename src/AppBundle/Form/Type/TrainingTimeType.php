@@ -36,9 +36,13 @@ class TrainingTimeType extends AbstractType
                 ],
             ])
             ->add('date', DateTimeType::class, [
-                'label' => false,
+                'label' => 'Paspausdami ant lauko pasirinkite dat',
                 'years' => range(date('Y'), date('Y') + 5),
                 'months' => range(date('m'), date('m')+11),
+                'days' => range(date('d'), date('d')+11),
+                'widget' => 'single_text',
+                'html5' => false,
+                'attr' => ['class' => 'js-datepicker'],
             ]);
     }
 

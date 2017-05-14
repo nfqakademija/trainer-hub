@@ -14,10 +14,10 @@ var dir = {
 
 var paths = {
     scripts: [
-        dir.bower + 'jquery/dist/jquery.min.js',
-        dir.bower + 'jquery-nice-select/js/jquery.nice-select.min.js',
-        dir.bower + 'bootstrap/dist/js/bootstrap.min.js',
-        dir.bower + 'bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js',
+        //dir.bower + 'jquery/dist/jquery.min.js',
+        //dir.bower + 'jquery-nice-select/js/jquery.nice-select.min.js',
+        //dir.bower + 'bootstrap/dist/js/bootstrap.min.js',
+       // dir.bower + 'bootstrap-datepicker/dist/js/bootstrap-datetimepicker.min.js',
         dir.assets + 'scripts/**'
     ],
     images: [
@@ -25,9 +25,9 @@ var paths = {
         dir.assets + 'images/**'
     ],
     css: [
-        dir.bower + 'jquery-nice-select/css/nice-select.css',
+        //dir.bower + 'jquery-nice-select/css/nice-select.css',
         dir.bower + 'bootstrap/dist/css/bootstrap.min.css',
-        dir.bower + 'bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css',
+       // dir.bower + 'bootstrap-datepicker/dist/css/bootstrap-datepicker3.min.css',
         dir.assets + 'style/**'
     ],
     fonts: [
