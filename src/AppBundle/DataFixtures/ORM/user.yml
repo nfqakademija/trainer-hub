@@ -8,7 +8,7 @@ AppBundle\Entity\User:
         city: Vilnius
         name: Paulius
         phone: '869999999'
-        avatarName: 590f3bf06714b.jpg
+        avatarName: 591892aa5982b.png
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -23,7 +23,7 @@ AppBundle\Entity\User:
         city: Kaunas
         name: Tomas
         phone: '869994719'
-        avatarName: 590f3c73d4e62.jpeg
+        avatarName: 591892b73ac4d.png
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -38,7 +38,7 @@ AppBundle\Entity\User:
         city: Radviliškis
         name: Simonas
         phone: '869999777'
-        avatarName: 590f3c316733e.jpg
+        avatarName: 591892ce9a020.jpg
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -53,7 +53,7 @@ AppBundle\Entity\User:
         city: Jonava
         name: Danielius
         phone: '861479777'
-        avatarName: 590f3955418dd.png
+        avatarName: 591893e83fca4.png
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -68,7 +68,7 @@ AppBundle\Entity\User:
         city: Klaipėda
         name: Lukas
         phone: '864498777'
-        avatarName: 59103b5711dc5.png
+        avatarName: 591893f2c7748.png
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -83,7 +83,7 @@ AppBundle\Entity\User:
         city: Klaipėda
         name: Danas
         phone: '868799777'
-        avatarName: 59103b7379cde.png
+        avatarName: 591893f791b02.png
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -98,7 +98,7 @@ AppBundle\Entity\User:
         city: Kretinga
         name: Donatas
         phone: '869999999'
-        avatarName: 59103be9a4811.png
+        avatarName: 591893fc2fba4.jpg
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -113,7 +113,7 @@ AppBundle\Entity\User:
         city: Kaunas
         name: Deividas
         phone: '869911177'
-        avatarName: 59103c0e3e750.png
+        avatarName: 5918925f9ab75.png
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -128,7 +128,7 @@ AppBundle\Entity\User:
         city: Palanga
         name: Elvinas
         phone: '869333777'
-        avatarName: 59103c5bbf887.png
+        avatarName: 5918929a793c7.png
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -143,7 +143,7 @@ AppBundle\Entity\User:
         city: Kaunas
         name: Marius
         phone: '868559777'
-        avatarName: 59103c732136c.jpg
+        avatarName: 5918933dbb043.png
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -158,7 +158,7 @@ AppBundle\Entity\User:
         city: Klaipėda
         name: Rokas
         phone: '861479777'
-        avatarName: 59103c732136c.jpg
+        avatarName: 591892597a48d.png
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -173,7 +173,7 @@ AppBundle\Entity\User:
         city: Palanga
         name: Ervinas
         phone: '864498777'
-        avatarName: 59103b5711dc5.png
+        avatarName: 591893378ff18.jpg
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -188,7 +188,7 @@ AppBundle\Entity\User:
         city: Vilnius
         name: Marek
         phone: '8687747477'
-        avatarName: 590f3bf06714b.jpg
+        avatarName: 59189397394dc.png
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -203,7 +203,7 @@ AppBundle\Entity\User:
         city: Kaunas
         name: Viktoras
         phone: '868514777'
-        avatarName: 590f3c73d4e62.jpeg
+        avatarName: 5918934243529.jpg
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -218,7 +218,7 @@ AppBundle\Entity\User:
         city: Gargždai
         name: Dainius
         phone: '868741777'
-        avatarName: 590f3c316733e.jpg
+        avatarName: 591893fc2fba4.jpg
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -233,7 +233,7 @@ AppBundle\Entity\User:
         city: Šiauliai
         name: Vilius
         phone: '868558414'
-        avatarName: 590f3955418dd.png
+        avatarName: 591892ce9a020.jpg
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.

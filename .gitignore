@@ -25,7 +25,7 @@
 *.php~
 .idea
 /web/uploads/*
-!web/uploads/.gitkeep
-/web/media/cache/*
-!web/media/cache/.gitkeep
-/web/filters
+#!web/uploads/.gitkeep
+#/web/media/cache/*
+#!web/media/cache/.gitkeep
+#/web/filters
