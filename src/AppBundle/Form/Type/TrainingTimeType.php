@@ -43,6 +43,9 @@ class TrainingTimeType extends AbstractType
                 'widget' => 'single_text',
                 'html5' => false,
                 'attr' => ['class' => 'js-datepicker'],
+                'constraints' => [
+                    new NotBlank(),
+                ],
             ]);
     }
 
