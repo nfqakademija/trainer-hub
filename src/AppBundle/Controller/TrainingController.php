@@ -112,9 +112,8 @@ class TrainingController extends Controller
 
     /**
      * @Route("/training/{id}", name="training_page")
-     * @param Training $training
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
-     */
+    */
     public function displayTrainingAction(Training $training)
     {
         $em = $this->getDoctrine()->getManager();

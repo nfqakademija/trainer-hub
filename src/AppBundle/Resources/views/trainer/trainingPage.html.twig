@@ -9,9 +9,9 @@
                 <h2 style="text-align: center;">{{ training.title }}</h2> <br>
                 <h4><strong>Kaina:</strong> {{ training.price }} €</h4>
                 <h4><strong>Treneris:</strong>
-                    <a href="{{ path('trainer_page', {username: training.fosUser.username}) }}" style="text-decoration: none; color: inherit;">
+                    <a:ho href="{{ path('trainer_page', {username: training.fosUser.username}) }}" style="text-decoration: none; color: inherit;">
                         {{ training.fosUser.username }}
-                    </a>
+                    </a:ho>
                 </h4>
                 <h4><strong>Aprašymas:</strong> </h4>
                 <span style="margin-bottom: 10px;">{{ training.description }}</span> <hr>
@@ -85,7 +85,7 @@
                                               
                                             </div>
                                           </div>
-                                            {% if training.is_registered is not defined %}
+                                            {% if training.is_registered is not defined and training.number > 0 %}
                                                <button class="form-control btn btn-login" data-toggle="modal" data-target="#myModal-approve-{{ training.id }}">Rezervuoti</button></a>
                                             {% elseif training.number == 0 %}
                                                 <p>Laisvų vietų nėra</p>

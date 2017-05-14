@@ -28,7 +28,7 @@ class ReservationsController extends Controller
         $em = $this->getDoctrine()->getManager();
         $resRepo = $em->getRepository(Reservations::class);
         $ifRegistered = $resRepo->findIfRegistered($this->getUser(), $trainingTime);
-        if (!$ifRegistered) {
+        if (!$ifRegistered && $trainingTime->getNumber() != 0) {
             $trainingTime->setNumber($trainingTime->getNumber()-1);
             $reservation = new Reservations();
             $reservation->setFosUser($this->getUser());
@@ -39,7 +39,7 @@ class ReservationsController extends Controller
 
             return $this->redirectToRoute('training_page', ['id' => $trainingTime->getTraining()->getId()]);
         } else {
-            return $this->render('@App/trainer/error.html.twig');
+            throw $this->createNotFoundException();
         }
     }
 
