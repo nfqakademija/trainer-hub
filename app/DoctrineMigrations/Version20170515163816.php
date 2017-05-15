@@ -1,14 +1,11 @@
 <?php
-
 namespace Application\Migrations;
-
 use Doctrine\DBAL\Migrations\AbstractMigration;
 use Doctrine\DBAL\Schema\Schema;
-
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20170515093424 extends AbstractMigration
+class Version20170515163816 extends AbstractMigration
 {
     /**
      * @param Schema $schema
@@ -17,7 +14,6 @@ class Version20170515093424 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
-
         $this->addSql('CREATE TABLE city (id INT AUTO_INCREMENT NOT NULL, title VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE training_time (id INT AUTO_INCREMENT NOT NULL, training_id INT DEFAULT NULL, date DATETIME NOT NULL, number INT NOT NULL, INDEX IDX_600EDF06BEFD98D1 (training_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE reservations (id INT AUTO_INCREMENT NOT NULL, client_id INT DEFAULT NULL, training_id INT DEFAULT NULL, status VARCHAR(255) DEFAULT \'0\' NOT NULL, INDEX IDX_4DA23919EB6921 (client_id), INDEX IDX_4DA239BEFD98D1 (training_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
@@ -34,7 +30,6 @@ class Version20170515093424 extends AbstractMigration
         $this->addSql('ALTER TABLE training ADD CONSTRAINT FK_D5128A8F12469DE2 FOREIGN KEY (category_id) REFERENCES category (id)');
         $this->addSql('ALTER TABLE training ADD CONSTRAINT FK_D5128A8F8BAC62AF FOREIGN KEY (city_id) REFERENCES city (id)');
     }
-
     /**
      * @param Schema $schema
      */
@@ -42,7 +37,6 @@ class Version20170515093424 extends AbstractMigration
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
-
         $this->addSql('ALTER TABLE training DROP FOREIGN KEY FK_D5128A8F8BAC62AF');
         $this->addSql('ALTER TABLE reservations DROP FOREIGN KEY FK_4DA239BEFD98D1');
         $this->addSql('ALTER TABLE training DROP FOREIGN KEY FK_D5128A8F12469DE2');
