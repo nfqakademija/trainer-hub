@@ -9,6 +9,7 @@ AppBundle\Entity\User:
         name: Paulius
         phone: '869999999'
         avatarName: 591892aa5982b.png
+        sportsClub: Impuls
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -24,6 +25,7 @@ AppBundle\Entity\User:
         name: Tomas
         phone: '869994719'
         avatarName: 591892b73ac4d.png
+        sportsClub: Lemon Gym
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -39,6 +41,7 @@ AppBundle\Entity\User:
         name: Simonas
         phone: '869999777'
         avatarName: 591892ce9a020.jpg
+        sportsClub: Body Gym
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -54,6 +57,7 @@ AppBundle\Entity\User:
         name: Danielius
         phone: '861479777'
         avatarName: 591893e83fca4.png
+        sportsClub: Lemon Gym
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -69,6 +73,7 @@ AppBundle\Entity\User:
         name: Lukas
         phone: '864498777'
         avatarName: 591893f2c7748.png
+        sportsClub: Impuls
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -84,6 +89,7 @@ AppBundle\Entity\User:
         name: Danas
         phone: '868799777'
         avatarName: 591893f791b02.png
+        sportsClub: Lemon Gym
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -99,6 +105,7 @@ AppBundle\Entity\User:
         name: Donatas
         phone: '869999999'
         avatarName: 591893fc2fba4.jpg
+        sportsClub: GetFit
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -114,6 +121,7 @@ AppBundle\Entity\User:
         name: Deividas
         phone: '869911177'
         avatarName: 5918925f9ab75.png
+        sportsClub: Impuls
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -129,6 +137,7 @@ AppBundle\Entity\User:
         name: Elvinas
         phone: '869333777'
         avatarName: 5918929a793c7.png
+        sportsClub: Eola Gym
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -144,6 +153,7 @@ AppBundle\Entity\User:
         name: Marius
         phone: '868559777'
         avatarName: 5918933dbb043.png
+        sportsClub: Impuls
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -159,6 +169,7 @@ AppBundle\Entity\User:
         name: Rokas
         phone: '861479777'
         avatarName: 591892597a48d.png
+        sportsClub: Sky Gym
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -174,6 +185,7 @@ AppBundle\Entity\User:
         name: Ervinas
         phone: '864498777'
         avatarName: 591893378ff18.jpg
+        sportsClub: Lemon Gym
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -189,6 +201,7 @@ AppBundle\Entity\User:
         name: Marek
         phone: '8687747477'
         avatarName: 59189397394dc.png
+        sportsClub: Impuls
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -204,6 +217,7 @@ AppBundle\Entity\User:
         name: Viktoras
         phone: '868514777'
         avatarName: 5918934243529.jpg
+        sportsClub: Sky Gym
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -219,6 +233,7 @@ AppBundle\Entity\User:
         name: Dainius
         phone: '868741777'
         avatarName: 591893fc2fba4.jpg
+        sportsClub: Body Gym
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.
@@ -234,6 +249,7 @@ AppBundle\Entity\User:
         name: Vilius
         phone: '868558414'
         avatarName: 591892ce9a020.jpg
+        sportsClub: Gymplius
         description: 'Treneris, išmėginęs ne vieną sporto šaką visu 
         varžybiniu pajėgumu, universalumas – stiprioji jo pusė.
         Paulius veda funkcines, ištvermės ir bėgimo treniruotes.

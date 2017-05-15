@@ -10,13 +10,4 @@ namespace AppBundle\Repository;
  */
 class CityRepository extends \Doctrine\ORM\EntityRepository
 {
-    /**
-     * @return array
-     */
-    public function findTrainerCities()
-    {
-        return $this->createQueryBuilder('u')
-
-            ->getQuery()->getArrayResult();
-    }
 }

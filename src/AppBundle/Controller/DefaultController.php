@@ -44,8 +44,6 @@ class DefaultController extends Controller
         $ratingsFinderWithTrainers = $this->get('app.average');
         $trainersWithRatings = $ratingsFinderWithTrainers->average($trainers);
 
-        $trainerCities = $em->getRepository(City::class)->findTrainerCities();
-//        dump($trainerCities);exit;
         $paginator = $this->get('knp_paginator');
         $trainersWithRatings = $paginator->paginate(
             $trainersWithRatings, /* query NOT result */
@@ -54,7 +52,6 @@ class DefaultController extends Controller
         );
 
         return $this->render('@App/public/index.html.twig', [
-            'test' => $trainerCities,
             'trainers' => $trainersWithRatings,
             'cities' => !empty($citiesNew)?array_unique($citiesNew):'',
             'categories' => !empty($categoriesNew)?array_unique($categoriesNew):'',

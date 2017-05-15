@@ -40,6 +40,9 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="name", type="string", nullable=true)
+     * @Assert\Length(
+     *      max = 15,
+     * )
      */
     private $name;
 
@@ -54,6 +57,9 @@ class User extends BaseUser
      * @var string
      *
      * @ORM\Column(name="phone", type="string", nullable=true)
+     * @Assert\Length(
+     *      max = 20,
+     * )
      */
     private $phone;
 
@@ -111,6 +117,17 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="Feedback", mappedBy="fosUserObject", cascade={"persist"})
      */
     private $feedbackTo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="club", type="string", nullable=true)
+     * @Assert\Length(
+     *      max = 20,
+     *      maxMessage = "Sporto klubo pavadinimas negali būti ilgesnis nei {{ limit }} simbolių"
+     * )
+     */
+    private $sportsClub;
 
     /**
      * Set relations arrays
@@ -456,5 +473,21 @@ class User extends BaseUser
     public function getCity()
     {
         return $this->city;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSportsClub()
+    {
+        return $this->sportsClub;
+    }
+
+    /**
+     * @param string $sportsClub
+     */
+    public function setSportsClub($sportsClub)
+    {
+        $this->sportsClub = $sportsClub;
     }
 }

@@ -47,6 +47,7 @@
                         <img src="{{ asset('filters/my_thumbnail_filter/uploads/avatars/' ~ trainer.avatarName )}}" style="width:100%;"/>
                             <div class="pull-left">
                                 <h4><b>{{ trainer.name }}</b></h4>
+                                <p>{{ trainer.sportsClub }}</p>
                             </div>
                             <div class="pull-right">
                                 <div class="acidjs-rating-stars homepage">
@@ -56,7 +57,7 @@
                                         <span class="checked homepage"></span><span class="rating-value">0</span>
                                     {% endif %}
                                 </div>
-                            </div>  
+                            </div>
                     </a></div>
                     {% if counter is divisible by(4) or loop.last %}
 
