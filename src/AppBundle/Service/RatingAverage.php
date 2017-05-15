@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Services;
+namespace AppBundle\Service;
 
 /**
 * Calculating rating average
@@ -32,8 +32,10 @@ class RatingAverage
                 if (!isset($a['rating']) || !isset($b['rating'])) {
                     return 0;
                 }
+
                 return $b['rating'] <=> $a['rating'];
             });
+
             return $trainersNew;
         } else {
             return $trainers;

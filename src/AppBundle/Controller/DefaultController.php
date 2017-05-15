@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\City;
 use AppBundle\Entity\User;
 use AppBundle\Entity\Training;
 use AppBundle\Form\Type\ContactType;
@@ -37,18 +38,23 @@ class DefaultController extends Controller
             $citiesNew[] = $city['title'];
         }
 
+
         $trainersFinder = $this->get('app.filter');
         $trainers = $trainersFinder->filter();
         $ratingsFinderWithTrainers = $this->get('app.average');
         $trainersWithRatings = $ratingsFinderWithTrainers->average($trainers);
 
+        $trainerCities = $em->getRepository(City::class)->findTrainerCities();
+//        dump($trainerCities);exit;
         $paginator = $this->get('knp_paginator');
         $trainersWithRatings = $paginator->paginate(
             $trainersWithRatings, /* query NOT result */
             $request->query->getInt('page', 1)/*page number*/,
             12/*limit per page*/
         );
+
         return $this->render('@App/public/index.html.twig', [
+            'test' => $trainerCities,
             'trainers' => $trainersWithRatings,
             'cities' => !empty($citiesNew)?array_unique($citiesNew):'',
             'categories' => !empty($categoriesNew)?array_unique($categoriesNew):'',
@@ -68,9 +74,9 @@ class DefaultController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             return $this->redirectToRoute('about_us');
         }
-        return $this->render(
-            "@App/public/about.html.twig",
-            ['form' => $form->createView()]
-        );
+
+        return $this->render("@App/public/about.html.twig", [
+            'form' => $form->createView(),
+        ]);
     }
 }

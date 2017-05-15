@@ -42,15 +42,15 @@ services:
             - { name: kernel.event_subscriber }
 
     app.filter:
-        class: AppBundle\Services\TrainersFilter
+        class: AppBundle\Service\TrainersFilter
         arguments: ['@app.user_repository']
 
     app.average:
-        class: AppBundle\Services\RatingAverage
+        class: AppBundle\Service\RatingAverage
         arguments: ['']
 
     app.is_registered:
-        class: AppBundle\Services\ReservationChecker
+        class: AppBundle\Service\ReservationChecker
         arguments: ['@app.reservation_repository']
 
     data_fixtures.provider.random_feedback_generator:
