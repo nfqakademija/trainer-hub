@@ -1,6 +1,5 @@
 
 $(document).ready(function() {
-	   //jQuery.noConflict();
 	    jQuery('input.js-datepicker').each(function() {
 		    jQuery(this).wrapAll("<div class='input-group date datetimepicker1'></div>");
 		    jQuery(this).after('<span class="input-group-addon js-datepicker"><span class="glyphicon glyphicon-calendar"></span></span>');
