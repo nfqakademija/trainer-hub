@@ -39,9 +39,6 @@ class ProfileType extends AbstractType
             'class' => City::class,
             'label' => 'Miestas',
         ]);
-        $builder->add('sportsClub', TextType::class, [
-            'label' => 'Sporto klubas',
-        ]);
         $builder->add('phone', null, [
             'label' => 'Telefonas',
             'attr' => [
@@ -49,6 +46,9 @@ class ProfileType extends AbstractType
             ],
         ]);
         if (in_array('ROLE_TRAINER', $options['role'])) {
+            $builder->add('sportsClub', TextType::class, [
+                'label' => 'Sporto klubas',
+            ]);
             $builder->add(
                 'avatarFile',
                 VichImageType::class,
