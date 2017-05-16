@@ -136,6 +136,10 @@ body {
     color:#37434d;
 }
 
+.has-error .glyphicon-trash {
+    display: none;
+}
+
 .navigation-clean-button .dropdown-menu > li > a:focus, .navigation-clean-button .dropdown-menu > li > a:hover{
     background:#eee;
     color:inherit;
